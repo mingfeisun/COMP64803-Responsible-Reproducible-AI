@@ -1,3 +1,3 @@
-# Oscar Hill
+# Mingxin Shen
 
-Hi I am Oscar Hill, a student on the CDT.
+Hi I am Mingxin Shen, a student on the CDT.
