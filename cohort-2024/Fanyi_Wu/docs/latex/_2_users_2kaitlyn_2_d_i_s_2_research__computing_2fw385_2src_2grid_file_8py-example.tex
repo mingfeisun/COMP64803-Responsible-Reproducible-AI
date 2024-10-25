@@ -1,0 +1,127 @@
+\doxysection{/\+Users/kaitlyn/\+DIS/\+Research\+\_\+\+Computing/fw385/src/grid\+\_\+file.\+py}
+\hypertarget{_2_users_2kaitlyn_2_d_i_s_2_research__computing_2fw385_2src_2grid_file_8py-example}{}\label{_2_users_2kaitlyn_2_d_i_s_2_research__computing_2fw385_2src_2grid_file_8py-example}Read a Sudoku puzzle from input file and convert it into a 2D list.
+
+Read a Sudoku puzzle from input file and convert it into a 2D list. This function opens a file containing a Sudoku puzzle and parses each line into a list of integers, representing the Sudoku grid. This is achieved by calling parse\+\_\+sudoku\+\_\+line(line).
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & The path to the file containing the Sudoku puzzle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 2D list representing the Sudoku grid, or None if there is an error in file reading or if the puzzle format is incorrect.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Not\+Found\+Error} & If the specified file cannot be found. \\
+\hline
+{\em Value\+Error} & If any row in the Sudoku puzzle is not of length 9. \\
+\hline
+{\em Exception} & For any other errors that occur during file reading.\\
+\hline
+\end{DoxyExceptions}
+To read a Sudoku grid from \textquotesingle{}puzzle.\+txt\textquotesingle{}\+:
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ grid\ =\ read\_grid\_file(\textcolor{stringliteral}{'puzzle.txt'})}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}!@file\ grid\_file.py}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{@brief\ Module\ containing\ two\ functions\ for\ reading\ and\ outputting\ Sudoku\ grids.}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{@details\ This\ module\ contains\ two\ functions\ for\ reading\ and\ outputting\ Sudoku\ grids.}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{The\ read\_grid\_file()\ function\ reads\ a\ Sudoku\ grid\ from\ a\ text\ file\ and\ returns\ it\ as\ a\ list\ of\ lists\ of\ integers\ (2D\ list).}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{The\ save\_grid\_file()\ function\ saves\ a\ Sudoku\ grid\ to\ a\ text\ file,\ which\ is\ in\ the\ same\ format\ as\ the\ input\ file.}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{@author\ Created\ by\ F.\ Wu\ on\ 30/11/2023}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{def\ }read\_grid\_file(file\_path):}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ @brief\ Read\ a\ Sudoku\ puzzle\ from\ input\ file\ and\ convert\ it\ into\ a\ 2D\ list.}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ @details\ This\ function\ opens\ a\ file\ containing\ a\ Sudoku\ puzzle\ and\ parses\ each\ line\ into\ a\ list\ of\ integers,}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ representing\ the\ Sudoku\ grid.\ This\ is\ achieved\ by\ calling\ parse\_sudoku\_line(line).}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ @param\ file\_path\ The\ path\ to\ the\ file\ containing\ the\ Sudoku\ puzzle.}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ @return\ A\ 2D\ list\ representing\ the\ Sudoku\ grid,\ or\ None\ if\ there\ is\ an\ error\ in\ file\ reading}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ or\ if\ the\ puzzle\ format\ is\ incorrect.}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ @exception\ FileNotFoundError\ If\ the\ specified\ file\ cannot\ be\ found.}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ @exception\ ValueError\ If\ any\ row\ in\ the\ Sudoku\ puzzle\ is\ not\ of\ length\ 9.}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ @exception\ Exception\ For\ any\ other\ errors\ that\ occur\ during\ file\ reading.}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ @example}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ To\ read\ a\ Sudoku\ grid\ from\ 'puzzle.txt':}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \`{}\`{}\`{}}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ grid\ =\ read\_grid\_file('puzzle.txt')}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ \`{}\`{}\`{}}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00033\ \ \ \ \ grid\ =\ []}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{def\ }parse\_sudoku\_line(line):}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ [int(num)\ \textcolor{keywordflow}{if}\ num.isdigit()\ \textcolor{keywordflow}{else}\ 0\ \textcolor{keywordflow}{for}\ num\ \textcolor{keywordflow}{in}\ line\ \textcolor{keywordflow}{if}\ num.isdigit()]}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ open(file\_path,\ \textcolor{stringliteral}{'r'})\ \textcolor{keyword}{as}\ file:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ line\ \textcolor{keywordflow}{in}\ file:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Ignore\ lines\ with\ '-\/-\/-\/+-\/-\/-\/+-\/-\/-\/'}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{stringliteral}{'-\/-\/-\/'}\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ line:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Parse\ the\ line\ into\ a\ list\ of\ integers}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row\ =\ parse\_sudoku\_line(line)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(row)\ !=\ 9:\ \ \textcolor{comment}{\#\ Each\ row\ must\ have\ exactly\ 9\ numbers}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ ValueError(f\textcolor{stringliteral}{"{}read\_grid\_file:\ Invalid\ row\ length\ in\ line:\ \{line.strip()\}"{}})}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ grid.append(row)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ ValueError\ \textcolor{keyword}{as}\ ve:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(ve)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{except}\ FileNotFoundError:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}File\ not\ found:\ \{file\_path\}"{}})}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{e\}"{}})}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ grid}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{def\ }save\_grid\_file(grid,\ file\_path):}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{\ \ \ \ @brief\ Save\ a\ Sudoku\ puzzle\ to\ a\ file\ from\ a\ 2D\ list\ representation.}}
+\DoxyCodeLine{00065\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ \ \ @details\ This\ function\ writes\ a\ Sudoku\ grid\ to\ an\ output\ file,\ making\ the\ output\ Sudoku\ in\ the\ same\ format\ as\ the\ input\ file.}}
+\DoxyCodeLine{00067\ \textcolor{stringliteral}{\ \ \ \ It\ is\ achieved\ by\ calling\ format\_sudoku\_row(row)}}
+\DoxyCodeLine{00068\ \textcolor{stringliteral}{\ \ \ \ -\/\ converts\ each\ row\ into\ a\ string\ format\ with\ '|'\ separators\ for\ every\ three\ numbers.}}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{\ \ \ \ -\/\ After\ every\ third\ row\ (except\ the\ last\ one),\ a\ separator}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{\ \ \ \ line\ '-\/-\/-\/+-\/-\/-\/+-\/-\/-\/'\ is\ added.}}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ -\/\ The\ function\ handles\ any\ exceptions\ that\ may\ occur\ during\ file\ writing.}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ @param\ grid\ A\ 2D\ list\ representing\ the\ Sudoku\ grid.}}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ @param\ file\_path\ The\ path\ where\ the\ Sudoku\ puzzle\ will\ be\ saved.}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ @exception\ Exception\ If\ an\ error\ occurs\ while\ writing\ to\ the\ file.}}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{def\ }format\_sudoku\_row(row):}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Convert\ a\ row\ of\ the\ Sudoku\ grid\ to\ the\ string\ format\ with\ '|'\ separators."{}"{}"{}}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{'|'}.join(\textcolor{stringliteral}{''}.join(str(num)\ \textcolor{keywordflow}{if}\ num\ !=\ 0\ \textcolor{keywordflow}{else}\ \textcolor{stringliteral}{'0'}\ \textcolor{keywordflow}{for}\ num\ \textcolor{keywordflow}{in}\ row[i:i+3])\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ 9,\ 3))}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ open(file\_path,\ \textcolor{stringliteral}{'w'})\ \textcolor{keyword}{as}\ file:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i,\ row\ \textcolor{keywordflow}{in}\ enumerate(grid):}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ formatted\_row\ =\ format\_sudoku\_row(row)}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ file.write(formatted\_row\ +\ \textcolor{stringliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(formatted\_row)}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Add\ a\ separator\ line\ after\ every\ third\ row,\ except\ the\ last\ one}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ i\ \%\ 3\ ==\ 2\ \textcolor{keywordflow}{and}\ i\ !=\ 8:}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ file.write(\textcolor{stringliteral}{'-\/-\/-\/+-\/-\/-\/+-\/-\/-\/\(\backslash\)n'})}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{'-\/-\/-\/+-\/-\/-\/+-\/-\/-\/'})}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}save\_grid\_file:\ An\ error\ occurred\ while\ writing\ to\ the\ file:\ \{e\}"{}})}
+
+\end{DoxyCodeInclude}
