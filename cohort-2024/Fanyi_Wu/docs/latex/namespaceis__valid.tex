@@ -1,0 +1,43 @@
+\doxysection{is\+\_\+valid Namespace Reference}
+\hypertarget{namespaceis__valid}{}\label{namespaceis__valid}\index{is\_valid@{is\_valid}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item
+\mbox{\hyperlink{namespaceis__valid_a2b56a31fd193bc26e615d0c6eded9d88}{is\+\_\+valid}} (grid, row, col, num)
+\begin{DoxyCompactList}\small\item\em Check if it\textquotesingle{}s valid to place \textquotesingle{}num\textquotesingle{} in the \textquotesingle{}grid\textquotesingle{} at position (\textquotesingle{}row\textquotesingle{}, \textquotesingle{}col\textquotesingle{}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceis__valid_a2b56a31fd193bc26e615d0c6eded9d88}\label{namespaceis__valid_a2b56a31fd193bc26e615d0c6eded9d88}
+\index{is\_valid@{is\_valid}!is\_valid@{is\_valid}}
+\index{is\_valid@{is\_valid}!is\_valid@{is\_valid}}
+\doxysubsubsection{\texorpdfstring{is\_valid()}{is\_valid()}}
+{\footnotesize\ttfamily is\+\_\+valid.\+is\+\_\+valid (\begin{DoxyParamCaption}\item[{}]{grid,  }\item[{}]{row,  }\item[{}]{col,  }\item[{}]{num }\end{DoxyParamCaption})}
+
+
+
+Check if it\textquotesingle{}s valid to place \textquotesingle{}num\textquotesingle{} in the \textquotesingle{}grid\textquotesingle{} at position (\textquotesingle{}row\textquotesingle{}, \textquotesingle{}col\textquotesingle{}).
+
+This function checks if it\textquotesingle{}s valid to place \textquotesingle{}num\textquotesingle{} in the \textquotesingle{}grid\textquotesingle{} at position (\textquotesingle{}row\textquotesingle{}, \textquotesingle{}col\textquotesingle{})\+:
+\begin{DoxyItemize}
+\item It first determines if the cell at the specified \textquotesingle{}row\textquotesingle{} and \textquotesingle{}col\textquotesingle{} is empty or can accept a new value.
+\item It then confirms whether the number \textquotesingle{}num\textquotesingle{} is already present in the given \textquotesingle{}row\textquotesingle{}, followed by a check to see if \textquotesingle{}num\textquotesingle{} exists in the specified \textquotesingle{}col\textquotesingle{}.
+\item Finally, it verifies if \textquotesingle{}num\textquotesingle{} is already in the 3x3 subgrid that includes the cell at (\textquotesingle{}row\textquotesingle{}, \textquotesingle{}col\textquotesingle{}).
+\item If \textquotesingle{}num\textquotesingle{} does not violate any of these constraints, the function returns True, signifying that it is permissible to place \textquotesingle{}num\textquotesingle{} at the specified position.
+\item If any constraint is violated, it returns False.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & (list of lists of int)\+: The current state of the Sudoku grid. \\
+\hline
+{\em row} & (int)\+: Row index where the number is to be placed. \\
+\hline
+{\em col} & (int)\+: Column index where the number is to be placed. \\
+\hline
+{\em num} & (int)\+: The number to place.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if placing \textquotesingle{}num\textquotesingle{} at (\textquotesingle{}row\textquotesingle{}, \textquotesingle{}col\textquotesingle{}) is valid, False otherwise.
+\end{DoxyReturn}

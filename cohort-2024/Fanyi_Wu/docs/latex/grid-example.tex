@@ -1,0 +1,30 @@
+\doxysection{grid}
+\hypertarget{grid-example}{}\label{grid-example}!
+
+!\+Read a Sudoku puzzle from input file and convert it into a 2D list.
+
+This function opens a file containing a Sudoku puzzle and parses each line into a list of integers, representing the Sudoku grid. This is achieved by calling parse\+\_\+sudoku\+\_\+line(line).
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & The path to the file containing the Sudoku puzzle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 2D list representing the Sudoku grid, or None if there is an error in file reading or if the puzzle format is incorrect.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Not\+Found\+Error} & If the specified file cannot be found. \\
+\hline
+{\em Value\+Error} & If any row in the Sudoku puzzle is not of length 9. \\
+\hline
+{\em Exception} & For any other errors that occur during file reading.\\
+\hline
+\end{DoxyExceptions}
+= read\+\_\+grid\+\_\+file(\textquotesingle{}input.\+txt\textquotesingle{})
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}

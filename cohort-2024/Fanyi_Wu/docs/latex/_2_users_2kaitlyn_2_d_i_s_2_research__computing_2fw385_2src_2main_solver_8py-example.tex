@@ -1,0 +1,163 @@
+\doxysection{/\+Users/kaitlyn/\+DIS/\+Research\+\_\+\+Computing/fw385/src/main\+\_\+solver.\+py}
+\hypertarget{_2_users_2kaitlyn_2_d_i_s_2_research__computing_2fw385_2src_2main_solver_8py-example}{}\label{_2_users_2kaitlyn_2_d_i_s_2_research__computing_2fw385_2src_2main_solver_8py-example}Solve a Sudoku puzzle using a backtracking algorithm.
+
+Solve a Sudoku puzzle using a backtracking algorithm. This function attempts to solve a Sudoku puzzle. It first validates the input grid, then proceeds to solve the puzzle using a backtracking algorithm implemented in the {\ttfamily Sudoku\+Solver\+With\+Cache} class. The function measures the time taken for grid validation and finding empty cells, which are appended to respective lists. The function prints messages regarding the puzzle\textquotesingle{}s completeness and solvability.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & A 2D list representing the initial Sudoku grid. \\
+\hline
+{\em validation\+\_\+times} & A list to store the time taken for grid validation at each call (default empty). \\
+\hline
+{\em find\+\_\+empty\+\_\+times} & A list to store the time taken to find empty cells at each call (default empty).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing a boolean indicating if the puzzle was solved or not, and the lists {\ttfamily validation\+\_\+times} and {\ttfamily find\+\_\+empty\+\_\+times}.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Value\+Error} & If the input grid is not valid.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The commented out lines are for optional profiling (both time profile and memory profile).
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ initial\_grid\ =\ [}
+\DoxyCodeLine{00002\ \ \ \ \ [5,\ 3,\ 0,\ 0,\ 7,\ 0,\ 0,\ 0,\ 0],}
+\DoxyCodeLine{00003\ \ \ \ \ [6,\ 0,\ 0,\ 1,\ 9,\ 5,\ 0,\ 0,\ 0],}
+\DoxyCodeLine{00004\ \ \ \ \ [0,\ 9,\ 8,\ 0,\ 0,\ 0,\ 0,\ 6,\ 0],}
+\DoxyCodeLine{00005\ \ \ \ \ [8,\ 0,\ 0,\ 0,\ 6,\ 0,\ 0,\ 0,\ 3],}
+\DoxyCodeLine{00006\ \ \ \ \ [4,\ 0,\ 0,\ 8,\ 0,\ 3,\ 0,\ 0,\ 1],}
+\DoxyCodeLine{00007\ \ \ \ \ [7,\ 0,\ 0,\ 0,\ 2,\ 0,\ 0,\ 0,\ 6],}
+\DoxyCodeLine{00008\ \ \ \ \ [0,\ 6,\ 0,\ 0,\ 0,\ 0,\ 2,\ 8,\ 0],}
+\DoxyCodeLine{00009\ \ \ \ \ [0,\ 0,\ 0,\ 4,\ 1,\ 9,\ 0,\ 0,\ 5],}
+\DoxyCodeLine{00010\ \ \ \ \ [0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 7,\ 9]}
+\DoxyCodeLine{00011\ ]}
+\DoxyCodeLine{00012\ solved,\ validation\_times,\ find\_empty\_times\ =\ \mbox{\hyperlink{namespacesolve__sudoku}{solve\_sudoku}}(initial\_grid)}
+\DoxyCodeLine{00013\ print(\textcolor{stringliteral}{"{}Sudoku\ Solved:"{}},\ solved)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}\ !@file\ main\_solver.py}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{\ @brief\ Module\ for\ solving\ Sudoku\ puzzles\ (in\ the\ form\ of\ 2D\ list).}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{\ @details\ This\ module\ imports\ necessary\ functions\ and\ classes\ for\ solving\ Sudoku\ puzzles.}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{\ It\ includes\ a\ primary\ function\ \`{}solve\_sudoku\`{}\ which\ attempts\ to\ solve\ the\ puzzle\ using\ a\ backtracking\ algorithm.}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ Then\ it\ utilizes\ \`{}validate\_grid\`{}\ for\ initial\ grid\ validation,\ \`{}SudokuSolverWithCache\`{}\ for\ managing\ the\ puzzle\ state,}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ and\ \`{}is\_valid\`{}\ for\ checking\ the\ validity\ of\ each\ move.}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ The\ module\ is\ designed\ to\ measure\ the\ time\ taken\ for\ validation}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ and\ finding\ empty\ cells,\ providing\ insights\ into\ the\ performance\ of\ the\ solving\ process.}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ Optional\ profiling\ lines\ are\ commented\ out\ for\ further\ performance\ analysis.}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ @author\ Created\ by\ F.\ Wu\ on\ 30/11/2023}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{00017\ \textcolor{keyword}{from}\ check\_input\ \textcolor{keyword}{import}\ validate\_grid}
+\DoxyCodeLine{00018\ \textcolor{keyword}{from}\ find\_empty\ \textcolor{keyword}{import}\ SudokuSolverWithCache}
+\DoxyCodeLine{00019\ \textcolor{keyword}{from}\ is\_valid\ \textcolor{keyword}{import}\ is\_valid}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#\ from\ memory\_profiler\ import\ profile}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\ import\ cProfile}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ @profile(precision=4)}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesolve__sudoku}{solve\_sudoku}}(grid,\ validation\_times=[],\ find\_empty\_times=[]):}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ @brief\ Solve\ a\ Sudoku\ puzzle\ using\ a\ backtracking\ algorithm.}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ @details\ This\ function\ attempts\ to\ solve\ a\ Sudoku\ puzzle.\ It\ first\ validates\ the\ input\ grid,}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ then\ proceeds\ to\ solve\ the\ puzzle\ using\ a\ backtracking\ algorithm\ implemented\ in\ the\ \`{}SudokuSolverWithCache\`{}\ class.}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ The\ function\ measures\ the\ time\ taken\ for\ grid\ validation\ and\ finding\ empty\ cells,\ which\ are\ appended\ to\ respective\ lists.}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ The\ function\ prints\ messages\ regarding\ the\ puzzle's\ completeness\ and\ solvability.}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ @param\ grid\ A\ 2D\ list\ representing\ the\ initial\ Sudoku\ grid.}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ @param\ validation\_times\ A\ list\ to\ store\ the\ time\ taken\ for\ grid\ validation\ at\ each\ call\ (default\ empty).}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ @param\ find\_empty\_times\ A\ list\ to\ store\ the\ time\ taken\ to\ find\ empty\ cells\ at\ each\ call\ (default\ empty).}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ @return\ A\ tuple\ containing\ a\ boolean\ indicating\ if\ the\ puzzle\ was\ solved\ or\ not,\ and\ the\ lists\ \`{}validation\_times\`{}\ and\ \`{}find\_empty\_times\`{}.}}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ @exception\ ValueError\ If\ the\ input\ grid\ is\ not\ valid.}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ @note\ The\ commented\ out\ lines\ are\ for\ optional\ profiling\ (both\ time\ profile\ and\ memory\ profile).}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ @example}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{\ \ \ \ \`{}\`{}\`{}}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ initial\_grid\ =\ [}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [5,\ 3,\ 0,\ 0,\ 7,\ 0,\ 0,\ 0,\ 0],}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [6,\ 0,\ 0,\ 1,\ 9,\ 5,\ 0,\ 0,\ 0],}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [0,\ 9,\ 8,\ 0,\ 0,\ 0,\ 0,\ 6,\ 0],}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [8,\ 0,\ 0,\ 0,\ 6,\ 0,\ 0,\ 0,\ 3],}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [4,\ 0,\ 0,\ 8,\ 0,\ 3,\ 0,\ 0,\ 1],}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [7,\ 0,\ 0,\ 0,\ 2,\ 0,\ 0,\ 0,\ 6],}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [0,\ 6,\ 0,\ 0,\ 0,\ 0,\ 2,\ 8,\ 0],}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [0,\ 0,\ 0,\ 4,\ 1,\ 9,\ 0,\ 0,\ 5],}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ [0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 7,\ 9]}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ ]}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\ \ \ \ solved,\ validation\_times,\ find\_empty\_times\ =\ solve\_sudoku(initial\_grid)}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{\ \ \ \ print("{}Sudoku\ Solved:"{},\ solved)}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{\ \ \ \ \`{}\`{}\`{}}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ start\_time\ =\ time.time()}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ validate\_grid(grid)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ validation\_times.append(time.time()\ -\/\ start\_time)}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{except}\ ValueError\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ print(e)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False},\ validation\_times,\ find\_empty\_times}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ solver\ =\ SudokuSolverWithCache(grid)}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ start\_time\ =\ time.time()}
+\DoxyCodeLine{00073\ \ \ \ \ find\ =\ solver.find\_empty()}
+\DoxyCodeLine{00074\ \ \ \ \ find\_empty\_times.append(time.time()\ -\/\ start\_time)}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ find:}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}solve\_sudoku:\ No\ empty\ cells\ found.\ The\ grid\ might\ already\ be\ complete."{}})}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True},\ validation\_times,\ find\_empty\_times}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{def\ }backtrack():}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ start\_time\ =\ time.time()}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ find\ =\ solver.find\_empty()\ \ \textcolor{comment}{\#\ Use\ the\ cached\ method\ to\ find\ an\ empty\ cell}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ find\_empty\_times.append(time.time()\ -\/\ start\_time)}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ find:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}\ \ \textcolor{comment}{\#\ Puzzle\ solved}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ row,\ col\ =\ find}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ num\ \textcolor{keywordflow}{in}\ range(1,\ 10):}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \mbox{\hyperlink{namespaceis__valid}{is\_valid}}(grid,\ row,\ col,\ num):}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ solver.update\_cell(row,\ col,\ num)\ \ \textcolor{comment}{\#\ Update\ the\ cell\ in\ the\ solver's\ grid}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ backtrack():}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}\ \ \textcolor{comment}{\#\ Puzzle\ solved}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ solver.update\_cell(row,\ col,\ 0)\ \ \textcolor{comment}{\#\ Backtrack\ in\ the\ solver's\ grid}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}\ \ \textcolor{comment}{\#\ Puzzle\ not\ solved}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{\#\ Start\ solving\ the\ puzzle}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{if}\ backtrack():}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}solve\_sudoku:\ Puzzle\ solved!"{}})}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}solve\_sudoku:\ Puzzle\ could\ not\ be\ solved."{}})}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True},\ validation\_times,\ find\_empty\_times}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{comment}{\#\ from\ grid\_file\ import\ read\_grid\_file}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{comment}{\#\ \#\ Read\ the\ soduku\ grid\ from\ a\ file}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\#\ file\_path\ =\ '/Users/kaitlyn/DIS/Research\_Computing/fw385/tests/input.txt'}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\#\ grid\ =\ read\_grid\_file(file\_path)}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\#\ if\ \_\_name\_\_\ ==\ '\_\_main\_\_':}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\#\ \ \ \ \ solve\_sudoku(grid)}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{comment}{\#\ \#\ cProfile.run('solve\_sudoku(grid)')}}
+
+\end{DoxyCodeInclude}
