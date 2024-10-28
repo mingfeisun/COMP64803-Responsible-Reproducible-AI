@@ -17,7 +17,7 @@ The project is motivated by the challenge of implementing a complex algorithm in
 ## Installation
 The project is uploaded in gitLab. To install the application, clone the repository:
 ```bash
-git clone https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/c1_assessment/fw385.git
+git clone https://github.com/Fanyi-Kaitlyn-Wu/Good_Practice.git
 ```
 Navigate to the project directory and install the dependencies.
 
