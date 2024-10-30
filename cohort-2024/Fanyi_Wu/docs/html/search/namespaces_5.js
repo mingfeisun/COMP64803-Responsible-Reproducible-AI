@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solve_5fsudoku_0',['solve_sudoku',['../namespacesolve__sudoku.html',1,'']]]
+  ['is_5fvalid_0',['is_valid',['../namespaceis__valid.html',1,'']]]
 ];

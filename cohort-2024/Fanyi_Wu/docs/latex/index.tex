@@ -1,8 +1,8 @@
 \chapter{Sudoku Solver Project}
 \hypertarget{index}{}\label{index}\index{Sudoku Solver Project@{Sudoku Solver Project}}
-\label{index_md__2_users_2kaitlyn_2_d_i_s_2_research___computing_2fw385_2_r_e_a_d_m_e}%
-\Hypertarget{index_md__2_users_2kaitlyn_2_d_i_s_2_research___computing_2fw385_2_r_e_a_d_m_e}%
- \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Description \& Motivation}{Description \& Motivation}}\label{index_autotoc_md1}
+\label{index_md__2_users_2user_2_c_d_t_2_c_o_m_p64803-_responsible-_reproducible-_a_i_2cohort-2024_2_fanyi___wu_2_r_e_a_d_m_e}%
+\Hypertarget{index_md__2_users_2user_2_c_d_t_2_c_o_m_p64803-_responsible-_reproducible-_a_i_2cohort-2024_2_fanyi___wu_2_r_e_a_d_m_e}%
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Description \& Motivation}{Description \& Motivation}}\label{index_autotoc_md1}
 The Sudoku Solver is an efficient tool designed to automatically solve Sudoku puzzles in a single command. The project is motivated by the challenge of implementing a complex algorithm in a user-\/friendly application. The development of the Sudoku solver followed a rigorous software development strategy. Morover, caching optimisation was implemented to improve the efficiency of the backtracking algorithm used by the Sudoku solver. For comparison, constrain propagation algrithm was developed and stored in {\bfseries{Constraint\+\_\+\+Propagation}} branch.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Contents}{Contents}}\label{index_autotoc_md2}
 
 \begin{DoxyItemize}
@@ -14,9 +14,9 @@ The Sudoku Solver is an efficient tool designed to automatically solve Sudoku pu
 \item Generation Tools
 \item Chat\+GPT and Copiot
 \end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md3}
-The project is uploaded in git\+Lab. To install the application, clone the repository\+:
+The project is uploaded in git\+Lab. To install the application, clone the repository\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{git\ clone\ https://gitlab.developers.cam.ac.uk/phy/data-\/intensive-\/science-\/mphil/c1\_assessment/fw385.git}
+\DoxyCodeLine{git\ clone\ https://github.com/Fanyi-\/Kaitlyn-\/Wu/Good\_Practice.git}
 
 \end{DoxyCode}
  Navigate to the project directory and install the dependencies.\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Dependencies}{Dependencies}}\label{index_autotoc_md4}
@@ -59,12 +59,12 @@ You can check that things are working by running tests/ (also ran by .pre-\/comm
 
 \end{DoxyCode}
 \hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md5}
-To solve a Sudoku puzzle, run the \textquotesingle{}\doxylink{solve__sudoku_8py}{solve\+\_\+sudoku.\+py}\textquotesingle{} file in a single command line with the path to the puzzle file as an argument\+:
+To solve a Sudoku puzzle, run the \textquotesingle{}\doxylink{solve__sudoku_8py}{solve\+\_\+sudoku.\+py}\textquotesingle{} file in a single command line with the path to the puzzle file as an argument\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\$\ python\ src/solve\_sudoku.py\ input.txt}
 
 \end{DoxyCode}
- The input.\+txt file should only include one Sudoku puzzle and in the format below\+:
+ The input.\+txt file should only include one Sudoku puzzle and in the format below\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\$\ cat\ input.txt}
 \DoxyCodeLine{000|007|000}
@@ -84,7 +84,7 @@ To solve a Sudoku puzzle, run the \textquotesingle{}\doxylink{solve__sudoku_8py}
 
 Make sure you are in the project directory when running the command. The solver {\ttfamily \doxylink{solve__sudoku_8py}{solve\+\_\+sudoku.\+py}} is inside the {\ttfamily src} folder, and the {\ttfamily input.\+txt} file should in the project directory. The solved puzzle will be saved to {\ttfamily output.\+txt} in the project directory.
 
-The output terminal will display the solved puzzle and the time taken for the solving process\+:
+The output terminal will display the solved puzzle and the time taken for the solving process\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{solve\_sudoku:\ Puzzle\ solved!}
 \DoxyCodeLine{Validation\ time:\ 0.000095\ seconds}
@@ -107,14 +107,14 @@ The output terminal will display the solved puzzle and the time taken for the so
 
 
 \begin{DoxyItemize}
-\item For invalid input grid\+:
+\item For invalid input grid\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{validate\_grid:\ Grid\ must\ be\ a\ list\ of\ 9\ rows.}
 \DoxyCodeLine{Puzzle\ could\ not\ be\ solved.}
 
 \end{DoxyCode}
 
-\item For unsolvable puzzle\+:
+\item For unsolvable puzzle\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{validate\_grid:\ Duplicate\ number\ 8\ found\ in\ the\ 3x3\ subgrid\ starting\ at\ (3,\ 6).}
 \DoxyCodeLine{Puzzle\ could\ not\ be\ solved.}
@@ -132,16 +132,17 @@ The output terminal will display the solved puzzle and the time taken for the so
 
 \begin{DoxyItemize}
 \item {\bfseries{Language}}\+: Python 3.\+9.\+18
-\item {\bfseries{Testing}}\+: Py\+Test for unit tests (in {\ttfamily tests} folder\+: {\ttfamily test\+\_\+check\+\_\+input.\+py}, {\ttfamily test\+\_\+find\+\_\+empty.\+py}, {\ttfamily test\+\_\+is\+\_\+valid.\+py})
+\item {\bfseries{Testing}}\+: Py\+Test for unit tests (in {\ttfamily tests} folder\+: {\ttfamily test\+\_\+check\+\_\+input.\+py}, {\ttfamily test\+\_\+find\+\_\+empty.\+py}, {\ttfamily test\+\_\+is\+\_\+valid.\+py}) 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\$\ pytest\ tests/}
 
 \end{DoxyCode}
 
 \item {\bfseries{CI}}\+: Git\+Hub Actions for continuous integration and automated pytest (unit test) before each commit. The {\ttfamily pre-\/commit-\/config.\+yaml} file was employed to automate checks before committing changes.
-\item {\bfseries{Containerisation}}\+: Docker was used for reproducing the project. Key configurations include continuumio/miniconda3 as the base image for a Miniconda-\/based Python environment. It sets /usr/\+Sudoku\+Solver as the working directory, and copies all project files into the container. The environment is set up by executing conda env update using the {\ttfamily environment.\+yml} file, and the Docker shell is configured to use the sudoku-\/solver-\/env. It is runnable by using the single command\+:
+\item {\bfseries{Containerisation}}\+: Docker was used for reproducing the project. Key configurations include continuumio/miniconda3 as the base image for a Miniconda-\/based Python environment. It sets /usr/\+Sudoku\+Solver as the working directory, and copies all project files into the container. The environment is set up by executing conda env update using the {\ttfamily environment.\+yml} file, and the Docker shell is configured to use the sudoku-\/solver-\/env. It is runnable by using the single command (make sure you are in the directory of the Docker file)\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{docker\ run\ sudoku-\/solver}
+\DoxyCodeLine{docker\ build\ -\/t\ sudoku-\/solver\ .}
+\DoxyCodeLine{docker\ run\ -\/it\ sudoku-\/solver}
 
 \end{DoxyCode}
 
@@ -154,7 +155,7 @@ Author\+: Fanyi Wu\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{
 \item \href{https://www.docker.com/}{\texttt{ Docker}} -\/ Containerization platform for ensuring consistent environments.
 \item \href{https://www.doxygen.nl/index.html}{\texttt{ Doxygen}} -\/ Documentation generator tool used for writing software documentation from annotated source code.
 \item \href{https://github.com/features/copilot}{\texttt{ Copilot}} -\/ Autofill codes and debug for the scripts.
-\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysection{\texorpdfstring{Chat\+GPT (https\+://www.\+chat.\+openai.\+com/)}{ChatGPT (https://www.chat.openai.com/)}}\label{index_autotoc_md10}
+\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysection{\texorpdfstring{Chat\+GPT (\href{https://www.chat.openai.com/}{\texttt{ https\+://www.\+chat.\+openai.\+com/}})}{Chat\+GPT (\href{https://www.chat.openai.com/}{\texttt{ https\+://www.\+chat.\+openai.\+com/}})}}\label{index_autotoc_md10}
 AI generation tool used to help with developing and embellishing the project.
 
 {\bfseries{Prototyping}}
@@ -173,7 +174,7 @@ prompt\+:
 \item For {\ttfamily \doxylink{check__input_8py}{check\+\_\+input.\+py}}, try to reduce the loops used to check for the conditions.
 \end{DoxyItemize}
 
-The result was used to optimise and concise the code. Before the optimisation by Chat\+GPT\+:
+The result was used to optimise and concise the code. Before the optimisation by Chat\+GPT\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{if\ not\ isinstance(row,\ list):}
 \DoxyCodeLine{\ \ \ \ raise\ ValueError("{}validate\_grid"{})}
@@ -188,7 +189,7 @@ The result was used to optimise and concise the code. Before the optimisation by
 \DoxyCodeLine{\ \ \ \ \ \ \ \ raise\ ValueError("{}validate\_grid"{})}
 
 \end{DoxyCode}
- After using Chat\+GPT, the above code condensed to\+:
+ After using Chat\+GPT, the above code condensed to\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{if\ not\ isinstance(row,\ list)\ or\ len(row)\ !=\ 9:}
 \DoxyCodeLine{\ \ \ \ raise\ ValueError("{}validate\_grid"{})}
@@ -222,4 +223,4 @@ The result was used to clarify and beautify the docstrings.
 \item Give me a general outlines for things to mention in the README file.
 \end{DoxyItemize}
 
-The result was used to structure the \doxylink{_r_e_a_d_m_e_8md}{README.\+md} file for the project.
+The result was used to structure the \doxylink{_r_e_a_d_m_e_8md}{README.\+md} file for the project. 

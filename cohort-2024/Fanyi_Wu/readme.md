@@ -118,9 +118,10 @@ Puzzle could not be solved.
 $ pytest tests/
 ```
 - **CI**: GitHub Actions for continuous integration and automated pytest (unit test) before each commit. The `pre-commit-config.yaml` file was employed to automate checks before committing changes.
-- **Containerisation**: Docker was used for reproducing the project. Key configurations include continuumio/miniconda3 as the base image for a Miniconda-based Python environment. It sets /usr/SudokuSolver as the working directory, and copies all project files into the container. The environment is set up by executing conda env update using the `environment.yml` file, and the Docker shell is configured to use the sudoku-solver-env. It is runnable by using the single command:
+- **Containerisation**: Docker was used for reproducing the project. Key configurations include continuumio/miniconda3 as the base image for a Miniconda-based Python environment. It sets /usr/SudokuSolver as the working directory, and copies all project files into the container. The environment is set up by executing conda env update using the `environment.yml` file, and the Docker shell is configured to use the sudoku-solver-env. It is runnable by using the single command (make sure you are in the directory of the Docker file):
 ```bash
-docker run sudoku-solver
+docker build -t sudoku-solver .
+docker run -it sudoku-solver
 ```
 
 ## Credits
