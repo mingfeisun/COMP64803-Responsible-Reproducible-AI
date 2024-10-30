@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solve_5fsudoku_2epy_0',['solve_sudoku.py',['../solve__sudoku_8py.html',1,'']]]
+  ['main_5fsolver_2epy_0',['main_solver.py',['../main__solver_8py.html',1,'']]]
 ];

@@ -2,8 +2,8 @@ var indexSectionsWithContent =
 {
   0: "_cdefghimoprstuvw",
   1: "s",
-  2: "cfgims",
-  3: "cfgimrs",
+  2: "cefghims",
+  3: "cefghimrs",
   4: "_firsuv",
   5: "efgstv",
   6: "ps"
@@ -30,3 +30,4 @@ var indexSectionLabels =
   5: "Variables",
   6: "Pages"
 };
+
