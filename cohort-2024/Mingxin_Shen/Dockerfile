@@ -2,7 +2,12 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-RUN git clone https://github.com/mingfeisun/COMP64803-Responsible-Reproducible-AI.git
+RUN apt-get update && \
+    apt-get git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/XTM233/COMP64803-Responsible-Reproducible-AI.git
 
 WORKDIR /app/COMP64803-Responsible-Reproducible-AI/cohort-2024/Mingxin_Shen
 
