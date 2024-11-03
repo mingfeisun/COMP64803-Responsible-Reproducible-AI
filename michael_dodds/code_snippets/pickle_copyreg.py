@@ -37,11 +37,11 @@ print(type(saved_game))
 print(saved_game.__dict__)
 
 # Now we can continue the game from our save file 
-saved_game.flip_coin(10)
+saved_game.flip_coin(20)
 print(saved_game.__dict__)
 
 
-pass 
+raise   
 # How about if we update and modify our game, because we reconstruct
 # the object using pickle loads will it contain the new method and attributes?
 class headsandtails: 
