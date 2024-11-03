@@ -5,10 +5,18 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"build":{
 		"dockerfile": "dockerfile"
-	}
+	},
 
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
+	"customizations":{
+		"vscode": {
+			"extensions":[
+		  "ms-python.python",  // Core Python extension for IntelliSense, linting, and debugging
+		  "ms-python.vscode-pylance",  // Pylance for fast, feature-rich Python language support
+			]
+		}
+	}		
+	
+		  // Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
