@@ -16,14 +16,15 @@ with open(filename, 'wb') as f:
 
 try: 
     try_finally_file_read(filename) 
-except UnicodeDecodeError as e:
-    print(f'*****\n{e}\n*****') 
+except UnicodeDecodeError as f:
+    print(f'*****\n{f}\n*****') 
     print('Reading file without try block')
     file = open(filename, encoding='utf-8')
     print('Trying to read')
     try: 
         file.read()
-    except UnicodeDecodeError as e: 
-        print(f'*****\n{e}\n*****') 
-        print('File Closing After Error')
+    except Exception as e: 
         file.close()
+        # Here we actually close the file because I don't want memory leaks, but pretend I didnt
+        e.add_note('SUDO MESSAGE: The file was not closed')
+        raise 
