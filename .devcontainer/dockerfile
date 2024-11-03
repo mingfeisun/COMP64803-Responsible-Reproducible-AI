@@ -1,0 +1,9 @@
+FROM python:3.10
+
+COPY requirements.txt ./ 
+
+USER root 
+
+RUN python3 -m pip install -r requirements.txt 
+
+CMD ["/bin/bash"] 
