@@ -114,4 +114,19 @@ with open(save_file, 'rb') as f:
 # it will be constructed with the new attributes
 print(f'Original game {saved_game.__dict__}')
 
+raise 
+# We may also want to include versioning, which we can do inside as a class attribute
+# or during the pickling process
+def pickle_game(game_state): 
+    kwargs = game_state.__dict__
+    kwargs['version'] = 2 
+    return unpickle_game_state, (kwargs, )
 
+# Here we define how to unpickle the object, as can be seen
+# We ask it to call the headsandtails class that's instantiated 
+# in the game
+def unpickle_game_state(kwargs): 
+    kwargs.pop('version', 1)
+    if 'version' == 1: 
+        del kwargs['someattribute']
+    return headsandtails(**kwargs) 
