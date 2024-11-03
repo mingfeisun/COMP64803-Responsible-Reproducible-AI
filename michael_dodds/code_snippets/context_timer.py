@@ -25,34 +25,37 @@ class Timer():
             traceback.print_tb(exc_traceback)
             return True  
 
+def experiment(): 
+    with Timer() as timer: 
+        for x in range(100000):
+            pass 
 
-with Timer() as timer: 
-    for x in range(100000):
-        pass 
+    # with Timer() as timer: 
+    #     for x in range(100000):
+    #         if x < 90000: 
+    #             pass
+    #         else: 
+    #             x / 0 
 
-# with Timer() as timer: 
-#     for x in range(100000):
-#         if x < 90000: 
-#             pass
-#         else: 
-#             x / 0 
+    # # This is semantically equivalent to doing the following code block
 
-# # This is semantically equivalent to doing the following code block
+    # manager = Timer
+    # enter = manager.__enter__
+    # exit = manager.__exit__ 
+    # hit_except = False 
 
-# manager = Timer
-# enter = manager.__enter__
-# exit = manager.__exit__ 
-# hit_except = False 
+    # try: 
+    #     TARGET = enter(manager)
+    #     for x in range(100000): 
+    #         pass 
+    # except: 
+    #     hit_except = True 
+    #     if not exit(manager, *sys.exc_info()):
+    #         raise 
+    # finally: 
+    #     if not hit_except: 
+    #         exit(manager, None, None, None)
 
-# try: 
-#     TARGET = enter(manager)
-#     for x in range(100000): 
-#         pass 
-# except: 
-#     hit_except = True 
-#     if not exit(manager, *sys.exc_info()):
-#         raise 
-# finally: 
-#     if not hit_except: 
-#         exit(manager, None, None, None)
 
+if __name__ == "__main__":
+    experiment()
