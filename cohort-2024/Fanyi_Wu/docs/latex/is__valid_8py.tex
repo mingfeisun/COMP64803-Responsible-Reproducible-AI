@@ -1,0 +1,33 @@
+\doxysection{/\+Users/user/\+CDT/\+COMP64803-\/\+Responsible-\/\+Reproducible-\/\+AI/cohort-\/2024/\+Fanyi\+\_\+\+Wu/src/is\+\_\+valid.py File Reference}
+\hypertarget{is__valid_8py}{}\label{is__valid_8py}\index{/Users/user/CDT/COMP64803-\/Responsible-\/Reproducible-\/AI/cohort-\/2024/Fanyi\_Wu/src/is\_valid.py@{/Users/user/CDT/COMP64803-\/Responsible-\/Reproducible-\/AI/cohort-\/2024/Fanyi\_Wu/src/is\_valid.py}}
+
+
+Module containing a function for validating a number placed in a cell.  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceis__valid}{is\+\_\+valid}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceis__valid_a2b56a31fd193bc26e615d0c6eded9d88}{is\+\_\+valid.\+is\+\_\+valid}} (grid, row, col, num)
+\begin{DoxyCompactList}\small\item\em Check if it\textquotesingle{}s valid to place \textquotesingle{}num\textquotesingle{} in the \textquotesingle{}grid\textquotesingle{} at position (\textquotesingle{}row\textquotesingle{}, \textquotesingle{}col\textquotesingle{}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module containing a function for validating a number placed in a cell. 
+
+The is\+\_\+valid() function determines the validity of placing a specific number \textquotesingle{}num\textquotesingle{} in the \textquotesingle{}grid\textquotesingle{} at position (\textquotesingle{}row\textquotesingle{}, \textquotesingle{}col\textquotesingle{}) The function executes a series of checks to assess the validity of placing a number in a Sudoku grid to ensure it follows the Sudoku rules\+:
+\begin{DoxyItemize}
+\item Number must be between 1 and 9
+\item Number must not already exist in the given row
+\item Number must not already exist in the given column
+\item Number must not already exist in the 3x3 subgrid that includes the cell at (\textquotesingle{}row\textquotesingle{}, \textquotesingle{}col\textquotesingle{})
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Created by F. Wu on 30/11/2023 
+\end{DoxyAuthor}

@@ -1,0 +1,6 @@
+services:
+  fib-python:
+    build:
+      context: .
+    volumes:
+      - .:/usr/src/app

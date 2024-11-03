@@ -1,0 +1,30 @@
+\doxysection{save\+\_\+grid\+\_\+file}
+\hypertarget{save_grid_file-example}{}\label{save_grid_file-example}!
+
+!\+Save a Sudoku puzzle to a file from a 2D list representation.
+
+This function writes a Sudoku grid to an output file, making the output Sudoku in the same format as the input file. It is achieved by calling format\+\_\+sudoku\+\_\+row(row)
+\begin{DoxyItemize}
+\item converts each row into a string format with \textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{} separators for every three numbers.
+\item After every third row (except the last one), a separator line \textquotesingle{}---+---+---\textquotesingle{} is added.
+\item The function handles any exceptions that may occur during file writing.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & A 2D list representing the Sudoku grid. \\
+\hline
+{\em file\+\_\+path} & The path where the Sudoku puzzle will be saved.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & If an error occurs while writing to the file.\\
+\hline
+\end{DoxyExceptions}
+(grid, \textquotesingle{}output.\+txt\textquotesingle{})
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
