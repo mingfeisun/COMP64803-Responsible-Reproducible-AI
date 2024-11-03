@@ -1,0 +1,51 @@
+\doxysection{/\+Users/kaitlyn/\+DIS/\+Research\+\_\+\+Computing/fw385/src/solve\+\_\+sudoku.\+py}
+\hypertarget{_2_users_2kaitlyn_2_d_i_s_2_research__computing_2fw385_2src_2solve_sudoku_8py-example}{}\label{_2_users_2kaitlyn_2_d_i_s_2_research__computing_2fw385_2src_2solve_sudoku_8py-example}Usage\+: \$ python \doxylink{solve__sudoku_8py}{solve\+\_\+sudoku.\+py} \mbox{[}input\+\_\+file\+\_\+path\mbox{]}.
+
+Usage\+: \$ python \doxylink{solve__sudoku_8py}{solve\+\_\+sudoku.\+py} \mbox{[}input\+\_\+file\+\_\+path\mbox{]}\begin{DoxyAuthor}{Author}
+Created by F. Wu on 30/11/2023
+\end{DoxyAuthor}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}!@file\ solve\_sudoku.py}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{@brief\ Sudoku\ Solver\ Command\ Line\ Interface.}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{@details\ This\ script\ solves\ a\ Sudoku\ puzzle\ from\ an\ input\ file\ and\ saves\ the\ solution\ to\ 'output.txt'.}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{It\ uses\ \`{}solve\_sudoku\ ()\`{}\ defined\ in\ main\_solver.py\ module\ for\ solving,\ \`{}read\_grid\_file\`{}\ to\ read\ the\ puzzle,\ and\ \`{}save\_grid\_file\`{}\ for\ output.}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{Execution\ time\ for\ various\ stages\ is\ measured\ and\ displayed.\ It\ accepts\ the\ puzzle\ file\ path\ as\ a\ command-\/line\ argument.}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{@example}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{Usage:}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\$\ python\ solve\_sudoku.py\ [input\_file\_path]}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{@author\ Created\ by\ F.\ Wu\ on\ 30/11/2023}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{from}\ main\_solver\ \textcolor{keyword}{import}\ solve\_sudoku}
+\DoxyCodeLine{00016\ \textcolor{keyword}{from}\ grid\_file\ \textcolor{keyword}{import}\ read\_grid\_file}
+\DoxyCodeLine{00017\ \textcolor{keyword}{from}\ grid\_file\ \textcolor{keyword}{import}\ save\_grid\_file}
+\DoxyCodeLine{00018\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ import\ cProfile}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{\#\ Read\ the\ input\ file}}
+\DoxyCodeLine{00023\ file\_path\ =\ sys.argv[1]}
+\DoxyCodeLine{00024\ grid\ =\ read\_grid\_file(file\_path)}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{\#cProfile.run('solve\_sudoku(grid)')}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ start\_time\ =\ time.time()}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#\ Solve\ the\ puzzle}}
+\DoxyCodeLine{00030\ solved,\ validation\_times,\ find\_empty\_times\ =\ \mbox{\hyperlink{namespacesolve__sudoku}{solve\_sudoku}}(grid)}
+\DoxyCodeLine{00031\ end\_time\ =\ time.time()}
+\DoxyCodeLine{00032\ total\_time\ =\ end\_time\ -\/\ start\_time}
+\DoxyCodeLine{00033\ \textcolor{keywordflow}{if}\ solved:}
+\DoxyCodeLine{00034\ \ \ \ \ print(\textcolor{stringliteral}{"{}Validation\ time:\ \{:.6f\}\ seconds"{}}.format(sum(validation\_times)))}
+\DoxyCodeLine{00035\ \ \ \ \ print(\textcolor{stringliteral}{"{}Find\ empty\ time:\ \{:.6f\}\ seconds"{}}.format(sum(find\_empty\_times)))}
+\DoxyCodeLine{00036\ \ \ \ \ print(\textcolor{stringliteral}{"{}Total\ time\ for\ backtracking\ algorithm:\ \{:.6f\}\ seconds"{}}.format(total\_time))}
+\DoxyCodeLine{00037\ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00038\ \ \ \ \ print(\textcolor{stringliteral}{"{}Puzzle\ could\ not\ be\ solved."{}})}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{\#\ Save\ the\ result\ to\ a\ file}}
+\DoxyCodeLine{00041\ save\_grid\_file(grid,\ \textcolor{stringliteral}{'output.txt'})}
+
+\end{DoxyCodeInclude}
