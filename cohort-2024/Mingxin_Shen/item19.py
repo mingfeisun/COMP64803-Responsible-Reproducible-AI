@@ -2,6 +2,8 @@ import random
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from collections import namedtuple
 
+# Never Unpack More Than Three Variables When Functions Return Multiple Values
+
 def generate_data(N=20):
     """Generates random binary classification data."""
 
@@ -40,21 +42,23 @@ def compute_metrics_goodway(y_true, y_pred):
     return metrics
 
 if __name__ == "__main__":
-    input("")
+    input("Generate some data ...")
     y_true, y_pred = generate_data()
 
     # dangerous practice
     input("")
     accuracy, precision, recall, f1 = compute_metrics(y_true, y_pred)
-    print(f"Accuracy: {accuracy}, Precision: {precision}, Recall: {recall}, F1 Score: {f1}")
+    print(f"Accuracy: {accuracy}, Precision: {precision}, 
+          Recall: {recall}, F1 Score: {f1}")
+    input("↑ Normal behavior")
 
     # dangerous practice trigger a bug that can be spotted
-    input("")
     precision, accuracy, recall, f1 = compute_metrics(y_true, y_pred)
-    print(f"Accuracy: {accuracy}, Precision: {precision}, Recall: {recall}, F1 Score: {f1}")
+    print(f"Accuracy: {accuracy}, Precision: {precision}, 
+          Recall: {recall}, F1 Score: {f1}")
 
+    input("↑ Precision, accuracy swapped.")
     # good practice
-    input("")
     metrics = compute_metrics_goodway(y_true, y_pred)
     print(f"Accuracy: {metrics['accuracy']}, Precision: {metrics['precision']}, 
           Recall: {metrics['recall']}, F1 Score: {metrics['f1_score']}")
