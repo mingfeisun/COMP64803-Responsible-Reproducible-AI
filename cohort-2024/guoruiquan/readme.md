@@ -11,9 +11,7 @@ This repository contains a Python script designed to manage GPU resources for ru
 
 ### Prerequisites
 
-- Python 3.6+
-- `torch` for CUDA device check (for `test.py` only)
-- `Docker`
+- `torch` for CUDA device check (for `main.py` only)
 
 #### Usage
 
@@ -33,6 +31,7 @@ python main.py --available-gpus 0 1 --ntasks-per-gpu 2 --filename script.py --dr
 For custom arguments, add them after recognized arguments using `--arg-name value`.
 
 #### Running in Docker
+**Make sure `nvidia-docker` is installed** (required to use GPUs with Docker). Install it by following the official NVIDIA documentation: [NVIDIA Docker Installation Guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html).
 
 To build and run in a Docker container:
 
@@ -43,5 +42,9 @@ To build and run in a Docker container:
 
 2. Run the Docker container:
    ```bash
-   docker run --gpus all gpu-manager python main.py --available-gpus 0 1 --ntasks-per-gpu 2 --filename script.py --dry
+   docker run --gpus all --rm  gpu-manager python run_parallel.py --available-gpus 0 1 --ntasks-per-gpu 2 --filename main.py --a 1 2 3 --b 1 2 3
+   ```
+
+   ```bash
+   docker run --gpus all --rm  gpu-manager python run_parallel.py --available-gpus 0 1 --ntasks-per-gpu 2 --filename main.py --a 1 2 3 --b 1 2 3 --dry
    ```
