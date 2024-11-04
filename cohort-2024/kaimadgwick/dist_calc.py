@@ -45,7 +45,9 @@ def distcalc(z,omega_m=0.28,omega_lambda=0.72,omega_k=0,H0 = 75e3):
 
     return DM
 
-zinput = 2.5
-zdist = distcalc(zinput)
+zinput = np.linspace(0.5,5,10)
 
-print(f"The distance to an object of redshift {zinput:.2f} is {zdist:.2f} Megaparsecs.")
+for z in zinput:
+    zdist = distcalc(z)
+
+    print(f"The distance to an object of redshift {z:.1f} is {zdist} Megaparsecs.")
