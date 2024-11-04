@@ -1,11 +1,11 @@
-FROM python:3.9
+FROM python:3.10
 
 WORKDIR /app
 
-COPY requirements.txt /app
+RUN git clone https://github.com/mohummudh/comp64803.git /app
 
-RUN pip install -r requirements.txt
+WORKDIR /app/cohort-2024/mohammed-sultan
 
-COPY . /app
+RUN if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-CMD ["python", "demo.py"]
+CMD ["bash"]
