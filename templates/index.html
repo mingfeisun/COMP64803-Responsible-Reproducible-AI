@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Recommender</title>
+    <!-- Include Leaflet CSS if using Leaflet for map (or Google Maps CSS) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 300px; width: 100%; } /* Adjust map size as needed */
+    </style>
+</head>
+<body>
+    <h1>Restaurant Recommender</h1>
+    <form method="POST" action="/recommend">
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        <div>
+            <label for="food_type">Food Type:</label>
+            <select id="food_type" name="food_type" required>
+                <option value="">-- Select Food Type --</option>
+                <option value="Italian">Italian</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Indian">Indian</option>
+                <option value="American">American</option>
+                <!-- Add more food types as needed -->
+            </select>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <div id="map"></div> <!-- Map will be rendered here -->
+            <input type="hidden" id="latitude" name="latitude" required>
+            <input type="hidden" id="longitude" name="longitude" required>
+            <p>Click on the map to select your location.</p>
+        </div>
+        <div>
+            <button type="submit">Get Recommendations</button>
+        </div>
+    </form>
+
+    <!-- Include Leaflet JavaScript (or Google Maps JS) -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13); // Default map center and zoom (e.g., London)
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var marker; // Variable to store the marker
+
+        map.on('click', function(e) {
+            if (marker) {
+                map.removeLayer(marker); // Remove previous marker
+            }
+            marker = L.marker(e.latlng).addTo(map); // Add marker at clicked location
+            document.getElementById('latitude').value = e.latlng.lat;
+            document.getElementById('longitude').value = e.latlng.lng;
+        });
+    </script>
+</body>
+</html>
