@@ -23,7 +23,10 @@ def visualize_places(json_file_path="all_places_response.json", output_html="pla
 
     # Calculate the center of all places for initial map view
     for key, value in filters.items():
-        places = [place for place in places if place.get(key) == value]
+        if isinstance(value, list):
+            places = [place for place in places if place.get(key) in value]
+        else:
+            places = [place for place in places if place.get(key) == value]
     print(len(places))
     latitudes = [place['location']['latitude'] for place in places]
     longitudes = [place['location']['longitude'] for place in places]
@@ -47,6 +50,6 @@ def visualize_places(json_file_path="all_places_response.json", output_html="pla
     print(f"Map visualization saved to '{output_html}'")
 
 if __name__ == "__main__":
-    visualize_places(businessStatus="OPERATIONAL") # Uses default file names: places_response.json and places_map.html
+    visualize_places(businessStatus="OPERATIONAL", priceLevel=["PRICE_LEVEL_EXPENSIVE","PRICE_LEVEL_MODERATE", "PRICE_LEVEL_INEXPENSIVE"]) # Uses default file names: places_response.json and places_map.html
     # To use a different JSON file or output HTML file, you can call the function with arguments:
     # visualize_places(json_file_path="my_places.json", output_html="my_map.html")
