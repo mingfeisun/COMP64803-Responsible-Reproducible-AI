@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Recommendations</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map-results { height: 400px; width: 100%; } /* Adjust map size */
+    </style>
+</head>
+<body>
+    <h1>Restaurant Recommendations</h1>
+
+    <h2>Restaurants:</h2>
+    <ul>
+        {% for restaurant in recommendations %}
+            <li>{{ restaurant.name }} - {{ restaurant.address }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Map of Restaurants:</h2>
+    <div id="map-results"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var mapResults = L.map('map-results').setView([{{ request.form['latitude'] }}, {{ request.form['longitude'] }}], 13); // Center map on user's location
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(mapResults);
+
+        var recommendations = {{ recommendations|tojson }}; // Get Python recommendations data in JavaScript
+
+        recommendations.forEach(function(restaurant) {
+            L.marker([restaurant.latitude, restaurant.longitude])
+                .addTo(mapResults)
+                .bindPopup(restaurant.name + "<br>" + restaurant.address);
+        });
+    </script>
+</body>
+</html>
