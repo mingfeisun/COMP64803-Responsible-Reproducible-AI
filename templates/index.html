@@ -38,9 +38,9 @@
         }
 
         input[type="date"],
-        input[type="time"],
+        input[type="range"], /* Changed to range */
         select,
-        input[type="file"] { /* Added style for file input */
+        input[type="file"] {
             width: calc(100% - 22px);
             padding: 10px;
             border: 1px solid #ced4da;
@@ -48,11 +48,34 @@
             font-size: 16px;
             transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+             background: transparent;
+             margin: 0;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+             width: 100%;
+             height: 8px;
+             cursor: pointer;
+             background: #ddd;
+             border-radius: 5px;
+         }
+         input[type="range"]::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              appearance: none;
+              height: 20px;
+              width: 20px;
+              background: #007bff;
+              cursor: pointer;
+              border-radius: 50%;
+              margin-top: -6px; /* Adjust for alignment */
+         }
 
         input[type="date"]:focus,
-        input[type="time"]:focus,
+        input[type="range"]:focus, /* Added focus for range */
         select:focus,
-        input[type="file"]:focus { /* Added focus style for file input */
+        input[type="file"]:focus {
             border-color: #007bff;
             outline: 0;
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
@@ -68,51 +91,32 @@
             width: 100%;
             border: 1px solid #ced4da;
             border-radius: 4px;
+            margin-bottom: 15px;
         }
-
-        button[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.2s ease;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        p {
-            font-size: 0.9em;
-            color: #6c757d;
-            margin-top: 5px;
-        }
-
-        @media (max-width: 768px) {
-            form {
-                padding: 20px;
-            }
-            input[type="date"],
-            input[type="time"],
-            select,
-            button[type="submit"],
-            input[type="file"] { /* Added responsive style for file input */
-                font-size: 14px;
-            }
+       #timeLabel {
+          margin-top: 5px;
+          display: block;
         }
     </style>
 </head>
 <body>
     <h1>Restaurant Recommender</h1>
     <form method="POST" action="/recommend" enctype="multipart/form-data" id="recommendationForm">
-        <div>
+       <div>
             <label for="ics_file">Upload ICS File:</label>
             <input type="file" id="ics_file" name="ics_file" accept=".ics" required>
             <p>Please upload your ICS calendar file to determine your location and time.</p>
         </div>
+        <div>
+            <label for="selected_date">Select Date:</label>
+            <input type="date" id="selected_date" name="selected_date" required>
+        </div>
+        <div>
+            <label for="selected_time">Select Time:</label>
+            <input type="range" id="selected_time" name="selected_time" min="0" max="1439" step="1" value="0" >
+             <span id="timeLabel">12:00 AM</span>
+        </div>
+         <div id="map" ></div> <!-- Map container added here -->
         <div>
             <label for="cuisine_preference">Cuisine Preference:</label>
             <select id="cuisine_preference" name="cuisine_preference" required>
@@ -172,5 +176,111 @@
             <button type="submit">Get Recommendations</button>
         </div>
     </form>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([{{ initial_lat }}, {{ initial_lng }}], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var prevMarker, nextMarker;
+
+        function updateMapMarkers(prevLat, prevLng, nextLat, nextLng) {
+            if (prevMarker) {
+                map.removeLayer(prevMarker);
+            }
+            if (nextMarker) {
+                map.removeLayer(nextMarker);
+            }
+
+            let prevMarkerOptions = { color: 'blue' }
+            let nextMarkerOptions = { color: 'green'}
+
+            if (prevLat && prevLng) {
+                 prevMarker = L.marker([prevLat, prevLng], {icon: new L.Icon.Default(prevMarkerOptions)}).addTo(map).bindPopup("Previous Location");
+            }
+            if (nextLat && nextLng) {
+                 nextMarker = L.marker([nextLat, nextLng], {icon: new L.Icon.Default(nextMarkerOptions)}).addTo(map).bindPopup("Next Location");
+            }
+             if (prevLat && prevLng && nextLat && nextLng) {
+                  const bounds = L.latLngBounds([[prevLat, prevLng], [nextLat, nextLng]]);
+                  map.fitBounds(bounds, {padding: [20, 20]});
+            } else if (prevLat && prevLng) {
+                  map.setView([prevLat, prevLng], 13);
+             } else if (nextLat && nextLng) {
+                  map.setView([nextLat, nextLng], 13);
+            }
+        }
+
+         function formatTime(minutes) {
+             const hours = Math.floor(minutes / 60);
+             const mins = minutes % 60;
+             const ampm = hours >= 12 ? 'PM' : 'AM';
+             const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+             const formattedMins = String(mins).padStart(2, '0');
+             return `${formattedHours}:${formattedMins} ${ampm}`;
+         }
+
+        function fetchMapData() {
+             const fileInput = document.getElementById('ics_file');
+            const file = fileInput.files[0];
+            const selectedDate = document.getElementById('selected_date').value;
+            const selectedTime = document.getElementById('selected_time').value;
+
+
+           if (file && selectedDate && selectedTime) {
+                const formData = new FormData();
+                 formData.append('ics_file', file);
+                formData.append('selected_date', selectedDate);
+                formData.append('selected_time', selectedTime);
+
+                fetch('/process_ics', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('Error processing ICS:', data.error);
+                        alert('Error processing ICS file: ' + data.error);
+                    } else {
+                        updateMapMarkers(data.prev_lat, data.prev_lng, data.next_lat, data.next_lng);
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                    alert('Error uploading ICS file.');
+                });
+            } else if (!file){
+               alert("Please upload an ICS file");
+            } else if (!selectedDate || selectedTime === "") {
+                alert("Please select date and time");
+            }
+        }
+         // Set initial values to current date and time
+        const now = new Date();
+        const currentDate = now.toISOString().split('T')[0];
+         document.getElementById('selected_date').value = currentDate;
+
+
+        const timeSlider = document.getElementById('selected_time');
+        const timeLabel = document.getElementById('timeLabel');
+
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+        timeSlider.value = currentMinutes;
+        timeLabel.textContent = formatTime(currentMinutes);
+
+         timeSlider.addEventListener('input', function() {
+              const timeMinutes = parseInt(timeSlider.value, 10);
+               timeLabel.textContent = formatTime(timeMinutes);
+              fetchMapData();
+           });
+
+
+
+        document.getElementById('ics_file').addEventListener('change', fetchMapData);
+        document.getElementById('selected_date').addEventListener('change', fetchMapData);
+    </script>
 </body>
 </html>

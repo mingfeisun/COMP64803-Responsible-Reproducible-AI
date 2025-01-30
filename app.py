@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import math
 import json
 import pandas as pd
 from ics_utils import *
 import os
 from werkzeug.utils import secure_filename
+from datetime import datetime, timedelta
+import pytz
 
 # --- Data Loading and Processing ---
 
@@ -144,7 +146,7 @@ def calculate_distance(lat1, lon1, lat2, lon2):
 
 # --- Recommendation Engine ---
 
-def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, max_distance_km, ics_file_path=None):
+def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, max_distance_km, ics_file_path=None, selected_time_input = None, selected_date_input=None):
     """Recommends restaurants based on user preferences.
 
     Args:
@@ -154,6 +156,8 @@ def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, 
         budget (str): User's budget preference.
         max_distance_km (str): Maximum distance user is willing to travel.
         ics_file_path (str): Path to the ICS file containing event data (default: None).
+        selected_time_input (str): User selected time (HH:MM)
+        selected_date_input (str): User selected date (YYYY-MM-DD)
     Returns:
         pd.DataFrame: DataFrame of recommended restaurants.
     """
@@ -164,14 +168,22 @@ def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, 
     if not ics_file_path:
         print("ICS file path is required for location.")
         return pd.DataFrame()
+        
+    if not selected_time_input or not selected_date_input:
+         print("Selected Date or Time are required")
+         return pd.DataFrame()
 
     # 1. Distance Calculation
 
     # Extract latitude and longitude from events in ICS file
     events = parse_ics(ics_file_path)
-    current_time = datetime.now(pytz.utc)
-    (prev_lat, prev_lng), (next_lat, next_lng), next_start = get_lat_lng_from_events(events, current_time)
+    
+    # Convert date and time inputs into a datetime object with timezone info
+    selected_datetime_str = f"{selected_date_input} {selected_time_input}"
+    selected_datetime = datetime.strptime(selected_datetime_str, "%Y-%m-%d %H:%M")
+    selected_datetime = pytz.utc.localize(selected_datetime)
 
+    (prev_lat, prev_lng), (next_lat, next_lng), next_start = get_lat_lng_from_events(events, selected_datetime)
     df['distance_to'] = df.apply(
         lambda row: calculate_distance(
             float(prev_lat), float(prev_lng), row['latitude'], row['longitude']
@@ -188,7 +200,7 @@ def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, 
 
     # 2. Filtering
     # Travel Distance
-    remaining_time = (next_start - current_time).total_seconds() / 60  # Remaining time in minutes
+    remaining_time = (next_start - selected_datetime).total_seconds() / 60  # Remaining time in minutes
 
     # Calculate estimated travelling time without modifying the original DataFrame
     df_with_travel_time = df.assign(estimated_travelling_time_min=df['distance_km'] * 15)
@@ -256,7 +268,49 @@ def index():
         cuisine for cuisine, types in cuisine_options_map.items()
         if any(item in all_types_in_data for item in types)
     ]
-    return render_template('index.html', cuisine_options=available_cuisine_options)
+    return render_template('index.html', cuisine_options=available_cuisine_options, initial_lat=51.505, initial_lng=-0.09) # Default London
+
+@app.route('/process_ics', methods=['POST'])
+def process_ics_file():
+    """Processes the uploaded ICS file and returns location data."""
+    if 'ics_file' not in request.files:
+        return jsonify({'error': 'No file part'})
+    ics_file = request.files['ics_file']
+    if ics_file.filename == '':
+        return jsonify({'error': 'No selected file'})
+    if ics_file and allowed_file(ics_file.filename):
+        filename = secure_filename(ics_file.filename)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        ics_file.save(file_path)
+
+        selected_date_input = request.form.get('selected_date')
+        selected_time_input = request.form.get('selected_time')
+        
+        # Convert minutes from slider to HH:MM string
+        minutes_since_midnight = int(selected_time_input)
+        hours = minutes_since_midnight // 60
+        minutes = minutes_since_midnight % 60
+        selected_time_str = f"{hours:02}:{minutes:02}"
+
+        events = parse_ics(file_path)
+
+        # Convert date and time inputs into a datetime object with timezone info
+        selected_datetime_str = f"{selected_date_input} {selected_time_str}"
+        selected_datetime = datetime.strptime(selected_datetime_str, "%Y-%m-%d %H:%M")
+        selected_datetime = pytz.utc.localize(selected_datetime)
+
+        (prev_lat, prev_lng), (next_lat, next_lng), next_start = get_lat_lng_from_events(events, selected_datetime)
+
+        os.remove(file_path) # Clean up uploaded file
+
+        return jsonify({
+            'prev_lat': prev_lat,
+            'prev_lng': prev_lng,
+            'next_lat': next_lat,
+            'next_lng': next_lng
+        })
+    return jsonify({'error': 'Invalid file type'})
+
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
@@ -279,9 +333,17 @@ def recommend():
             spice_level = request.form.get('spice_level')
             budget = request.form.get('budget')
             distance = request.form.get('distance') # Not used in current recommendation function
+            selected_date_input = request.form.get('selected_date')
+            selected_time_input = request.form.get('selected_time')
+
+            # Convert minutes from slider to HH:MM string
+            minutes_since_midnight = int(selected_time_input)
+            hours = minutes_since_midnight // 60
+            minutes = minutes_since_midnight % 60
+            selected_time_str = f"{hours:02}:{minutes:02}"
 
             recommendations_df = get_restaurant_recommendations(
-                df, cuisine_preference, spice_level, budget, distance, file_path
+                df, cuisine_preference, spice_level, budget, distance, file_path, selected_time_str, selected_date_input
             )
 
             os.remove(file_path) # Clean up uploaded file
