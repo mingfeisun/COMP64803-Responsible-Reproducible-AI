@@ -36,22 +36,31 @@ def json_to_pandas_row(json_data):
         "acceptsCashOnly": json_data.get("paymentOptions", {}).get("acceptsCashOnly"),
         "acceptsNfc": json_data.get("paymentOptions", {}).get("acceptsNfc"),
         "freeParkingLot": json_data.get("parkingOptions", {}).get("freeParkingLot"), # Nested parkingOptions
-        "freeStreetParking": json_data.get("parkingOptions", {}).get("freeStreetParking")
+        "freeStreetParking": json_data.get("parkingOptions", {}).get("freeStreetParking"),
+        "spicyLevel": json_data.get("spicy_level"),
+        "priceLevel": json_data.get("price_level")
     }
 
     return pd.DataFrame([data_row]) # Create DataFrame from the single row dictionary
 
 json_file_path = "all_places_response.json"
+generated_content = "processed_places_response.json"
 with open(json_file_path, 'r') as f:
     places = json.load(f)
+places = [place for place in places if place.get("businessStatus") == "OPERATIONAL"]
+with open(generated_content, 'r') as f:
+    extracted_attributes = json.load(f)
+    extracted_attributes = {item['id']: item for item in extracted_attributes}
 
 if places:
     # Initialize an empty DataFrame with the first row
-    df = json_to_pandas_row(places[0])
+    assert len(places) == len(extracted_attributes), "The number of places and extracted attributes do not match."
+    df = json_to_pandas_row(places[0]|extracted_attributes[places[0]['id']])
     
     # Append remaining rows
     for place in places[1:]:
-        df = pd.concat([df, json_to_pandas_row(place)], ignore_index=True)
+        
+        df = pd.concat([df, json_to_pandas_row(place|extracted_attributes[place['id']])], ignore_index=True)
     
     print(df)
 else:

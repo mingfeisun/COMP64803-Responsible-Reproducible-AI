@@ -103,7 +103,7 @@
 </head>
 <body>
     <h1>Restaurant Recommender</h1>
-    <form method="POST" action="/recommend">
+    <form method="POST" action="/recommend" id="recommendationForm">
         <div>
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required>
@@ -116,16 +116,9 @@
             <label for="cuisine_preference">Cuisine Preference:</label>
             <select id="cuisine_preference" name="cuisine_preference" required>
                 <option value="">-- Select Cuisine --</option>
-                <option value="Italian">Italian</option>
-                <option value="Mexican">Mexican</option>
-                <option value="Chinese">Chinese</option>
-                <option value="Indian">Indian</option>
-                <option value="American">American</option>
-                <option value="Japanese">Japanese</option>
-                <option value="Thai">Thai</option>
-                <option value="Mediterranean">Mediterranean</option>
-                <option value="French">French</option>
-                <option value="Vietnamese">Vietnamese</option>
+                {% for cuisine in cuisine_options %}
+                    <option value="{{ cuisine }}">{{ cuisine }}</option>
+                {% endfor %}
             </select>
         </div>
         <div>
@@ -220,6 +213,16 @@
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             timeInput.value = `${hours}:${minutes}`;
+        });
+
+        document.getElementById('recommendationForm').addEventListener('submit', function(event) {
+            const latitude = document.getElementById('latitude').value;
+            const longitude = document.getElementById('longitude').value;
+
+            if (!latitude || !longitude) {
+                event.preventDefault();
+                alert("Please pin your location on the map before submitting.");
+            }
         });
     </script>
 </body>
