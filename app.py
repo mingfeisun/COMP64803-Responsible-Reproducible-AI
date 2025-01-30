@@ -146,7 +146,7 @@ def calculate_distance(lat1, lon1, lat2, lon2):
 
 # --- Recommendation Engine ---
 
-def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, max_distance_km, ics_file_path=None, selected_time_input = None, selected_date_input=None):
+def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, max_distance_km, ics_file_path=None, selected_date_input = None, selected_time_input=None):
     """Recommends restaurants based on user preferences.
 
     Args:
@@ -330,14 +330,11 @@ def recommend():
             selected_date_input = request.form.get('selected_date')
             selected_time_input = request.form.get('selected_time')
 
-            # Convert minutes from slider to HH:MM string
-            minutes_since_midnight = int(selected_time_input)
-            hours = minutes_since_midnight // 60
-            minutes = minutes_since_midnight % 60
-            selected_time_str = f"{hours:02}:{minutes:02}"
-
+            events = parse_ics(file_path)
+            
+            # Convert date and time inputs into a datetime object with timezone info
             recommendations_df = get_restaurant_recommendations(
-                df, cuisine_preference, spice_level, budget, distance, file_path, selected_time_str, selected_date_input
+                df, cuisine_preference, spice_level, budget, distance, file_path, selected_date_input, selected_time_input
             )
 
             os.remove(file_path) # Clean up uploaded file
