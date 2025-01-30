@@ -180,24 +180,26 @@ def get_restaurant_recommendations(df, cuisine_preference, user_latitude, user_l
             ), axis=1
         )
         df['distance_km'] = df['distance_to'] + df['distance_back']
-        current_time = pd.Timestamp.now()
-        remaining_time = (next_start - current_time).total_seconds() / 60 # Remaining time to eat and travel in minutes
-        df['estimated_travelling_time_min'] = df['distance_km'] * 15 # Assuming 15 minutes per kilometer
-        filtered_df = df[(remaining_time - df['estimated_travelling_time_min']) >= 10] # Filter based on remaining time
-        if filtered_df.empty:
-            # TODO prompt user they have to run for lunch
-            filtered_df = df.sort_values(by='estimated_travelling_time_min', ascending=True).head(1)
     else:
         df['distance_km'] = df.apply(
             lambda row: calculate_distance(
                 float(user_latitude), float(user_longitude), row['latitude'], row['longitude']
             ), axis=1
         )
-
-
+    
     filtered_df = df.copy()
 
     # 2. Filtering
+    # Travel Distance
+    current_time = pd.Timestamp.now()
+    remaining_time = (next_start - current_time).total_seconds() / 60 # Remaining time to eat and travel in minutes
+    df['estimated_travelling_time_min'] = df['distance_km'] * 15 # Assuming 15 minutes per kilometer
+    filtered_df = [(remaining_time - filtered_df['estimated_travelling_time_min']) >= 10] # Filter based on remaining time
+    if filtered_df.empty:
+        # TODO prompt user they have to run for lunch
+        filtered_df = filtered_df.sort_values(by='estimated_travelling_time_min', ascending=True).head(1)
+        return filtered_df[['displayName_text', 'formattedAddress', 'types', 'rating', 'userRatingCount', 'estimated_travelling_time_min']].head(10)
+
     # Cuisine Preference
     if cuisine_preference:
         types_to_filter = cuisine_options_map.get(cuisine_preference, [])
