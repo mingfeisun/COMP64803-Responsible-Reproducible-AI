@@ -39,7 +39,8 @@
 
         input[type="date"],
         input[type="time"],
-        select {
+        select,
+        input[type="file"] { /* Added style for file input */
             width: calc(100% - 22px);
             padding: 10px;
             border: 1px solid #ced4da;
@@ -50,11 +51,13 @@
 
         input[type="date"]:focus,
         input[type="time"]:focus,
-        select:focus {
+        select:focus,
+        input[type="file"]:focus { /* Added focus style for file input */
             border-color: #007bff;
             outline: 0;
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
+
 
         select[multiple] {
             height: auto;
@@ -95,7 +98,8 @@
             input[type="date"],
             input[type="time"],
             select,
-            button[type="submit"] {
+            button[type="submit"],
+            input[type="file"] { /* Added responsive style for file input */
                 font-size: 14px;
             }
         }
@@ -103,14 +107,11 @@
 </head>
 <body>
     <h1>Restaurant Recommender</h1>
-    <form method="POST" action="/recommend" id="recommendationForm">
+    <form method="POST" action="/recommend" enctype="multipart/form-data" id="recommendationForm">
         <div>
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-        </div>
-        <div>
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
+            <label for="ics_file">Upload ICS File:</label>
+            <input type="file" id="ics_file" name="ics_file" accept=".ics" required>
+            <p>Please upload your ICS calendar file to determine your location and time.</p>
         </div>
         <div>
             <label for="cuisine_preference">Cuisine Preference:</label>
@@ -168,62 +169,8 @@
             </select>
         </div>
         <div>
-            <label for="location">Location:</label>
-            <div id="map"></div>
-            <input type="hidden" id="latitude" name="latitude" required>
-            <input type="hidden" id="longitude" name="longitude" required>
-            <p>Click on the map to select your location.</p>
-        </div>
-        <div>
             <button type="submit">Get Recommendations</button>
         </div>
     </form>
-
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        var map = L.map('map').setView([53.4609, -2.2353], 13);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        var marker;
-
-        map.on('click', function(e) {
-            if (marker) {
-                map.removeLayer(marker);
-            }
-            marker = L.marker(e.latlng).addTo(map);
-            document.getElementById('latitude').value = e.latlng.lat;
-            document.getElementById('longitude').value = e.latlng.lng;
-        });
-
-        // Set default date and time to now
-        document.addEventListener('DOMContentLoaded', function() {
-            const now = new Date();
-
-            // Date input
-            const dateInput = document.getElementById('date');
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
-            const day = String(now.getDate()).padStart(2, '0');
-            dateInput.value = `${year}-${month}-${day}`;
-
-            // Time input
-            const timeInput = document.getElementById('time');
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            timeInput.value = `${hours}:${minutes}`;
-        });
-
-        document.getElementById('recommendationForm').addEventListener('submit', function(event) {
-            const latitude = document.getElementById('latitude').value;
-            const longitude = document.getElementById('longitude').value;
-
-            if (!latitude || !longitude) {
-                event.preventDefault();
-                alert("Please pin your location on the map before submitting.");
-            }
-        });
-    </script>
 </body>
 </html>

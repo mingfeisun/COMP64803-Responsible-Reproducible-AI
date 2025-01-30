@@ -46,7 +46,6 @@ def get_previous_and_next_events(events, current_time):
     """
     previous_event = None
     next_event = None
-
     for event in sorted(events, key=lambda x: x['start']):
         if event['start'] <= current_time:
             previous_event = event

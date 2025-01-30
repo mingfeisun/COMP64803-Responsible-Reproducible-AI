@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import math
 import json
 import pandas as pd
 from ics_utils import *
+import os
+from werkzeug.utils import secure_filename
 
 # --- Data Loading and Processing ---
 
@@ -142,14 +144,12 @@ def calculate_distance(lat1, lon1, lat2, lon2):
 
 # --- Recommendation Engine ---
 
-def get_restaurant_recommendations(df, cuisine_preference, user_latitude, user_longitude, spice_level, budget, max_distance_km, ics_file_path=None):
+def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, max_distance_km, ics_file_path=None):
     """Recommends restaurants based on user preferences.
 
     Args:
         df (pd.DataFrame): DataFrame of restaurant data.
         cuisine_preference (str): User's cuisine preference.
-        user_latitude (str): User's latitude.
-        user_longitude (str): User's longitude.
         spice_level (str): User's preferred spice level.
         budget (str): User's budget preference.
         max_distance_km (str): Maximum distance user is willing to travel.
@@ -161,43 +161,39 @@ def get_restaurant_recommendations(df, cuisine_preference, user_latitude, user_l
         print("DataFrame is empty. Please check data loading.")
         return pd.DataFrame() # Return empty DataFrame
 
-    # 1. Distance Calculation
-    
-    if ics_file_path:
-        # TODO add file uploader for ICS file
-        # Extract latitude and longitude from events in ICS file
-        events = parse_ics(output_file_path)
-        (prev_lat, prev_lng), (next_lat, next_lng), next_start = get_lat_lng_from_events(events, current_time)
+    if not ics_file_path:
+        print("ICS file path is required for location.")
+        return pd.DataFrame()
 
-        df['distance_to'] = df.apply(
-            lambda row: calculate_distance(
-                float(prev_lat), float(prev_lng), row['latitude'], row['longitude']
-            ), axis=1
-        )
-        df['distance_back'] = df.apply(
-            lambda row: calculate_distance(
-                float(next_lat), float(next_lng), row['latitude'], row['longitude']
-            ), axis=1
-        )
-        df['distance_km'] = df['distance_to'] + df['distance_back']
-    else:
-        df['distance_km'] = df.apply(
-            lambda row: calculate_distance(
-                float(user_latitude), float(user_longitude), row['latitude'], row['longitude']
-            ), axis=1
-        )
-    
+    # 1. Distance Calculation
+
+    # Extract latitude and longitude from events in ICS file
+    events = parse_ics(ics_file_path)
+    current_time = datetime.now(pytz.utc)
+    (prev_lat, prev_lng), (next_lat, next_lng) = get_lat_lng_from_events(events, current_time)
+
+    df['distance_to'] = df.apply(
+        lambda row: calculate_distance(
+            float(prev_lat), float(prev_lng), row['latitude'], row['longitude']
+        ), axis=1
+    )
+    df['distance_back'] = df.apply(
+        lambda row: calculate_distance(
+            float(next_lat), float(next_lng), row['latitude'], row['longitude']
+        ), axis=1
+    )
+    df['distance_km'] = df['distance_to'] + df['distance_back']
+
     filtered_df = df.copy()
 
     # 2. Filtering
     # Travel Distance
-    current_time = pd.Timestamp.now()
     remaining_time = (next_start - current_time).total_seconds() / 60 # Remaining time to eat and travel in minutes
     df['estimated_travelling_time_min'] = df['distance_km'] * 15 # Assuming 15 minutes per kilometer
-    filtered_df = [(remaining_time - filtered_df['estimated_travelling_time_min']) >= 10] # Filter based on remaining time
+    filtered_df = filtered_df[(remaining_time - filtered_df['estimated_travelling_time_min']) >= 10] # Filter based on remaining time
     if filtered_df.empty:
         # TODO prompt user they have to run for lunch
-        filtered_df = filtered_df.sort_values(by='estimated_travelling_time_min', ascending=True).head(1)
+        filtered_df = df.sort_values(by='estimated_travelling_time_min', ascending=True).head(1)
         return filtered_df[['displayName_text', 'formattedAddress', 'types', 'rating', 'userRatingCount', 'estimated_travelling_time_min']].head(10)
 
     # Cuisine Preference
@@ -227,7 +223,12 @@ def get_restaurant_recommendations(df, cuisine_preference, user_latitude, user_l
 
 # --- Flask App ---
 
+UPLOAD_FOLDER = 'uploads'
+ALLOWED_EXTENSIONS = {'ics'}
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB limit for uploads
 
 # Load data and create DataFrame outside of routes for efficiency (loaded once when app starts)
 json_file_path = "all_places_response.json"
@@ -239,6 +240,9 @@ extracted_attributes_list = load_json_data(generated_content_path)
 extracted_attributes_map = create_extracted_attributes_map(extracted_attributes_list)
 df = create_places_dataframe(operational_places, extracted_attributes_map)
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/', methods=['GET'])
 def index():
@@ -254,25 +258,39 @@ def index():
 def recommend():
     """Handles the recommendation request and renders the results page."""
     if request.method == 'POST':
-        cuisine_preference = request.form['cuisine_preference']
-        latitude = request.form['latitude']
-        longitude = request.form['longitude']
-        spice_level = request.form.get('spice_level')
-        budget = request.form.get('budget')
-        distance = request.form.get('distance') # Not used in current recommendation function
+        # check if the post request has the file part
+        if 'ics_file' not in request.files:
+            return redirect(request.url) # or render template with error message
+        ics_file = request.files['ics_file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if ics_file.filename == '':
+            return redirect(request.url) # or render template with error message
+        if ics_file and allowed_file(ics_file.filename):
+            filename = secure_filename(ics_file.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            ics_file.save(file_path)
 
-        recommendations_df = get_restaurant_recommendations(
-            df, cuisine_preference, latitude, longitude, spice_level, budget, distance
-        )
+            cuisine_preference = request.form['cuisine_preference']
+            spice_level = request.form.get('spice_level')
+            budget = request.form.get('budget')
+            distance = request.form.get('distance') # Not used in current recommendation function
 
-        if not recommendations_df.empty:
-            recommendations_html = recommendations_df.to_html(classes='table table-striped') # Add Bootstrap styling
-        else:
-            recommendations_html = "<p>No recommendations found based on your criteria.</p>"
+            recommendations_df = get_restaurant_recommendations(
+                df, cuisine_preference, spice_level, budget, distance, file_path
+            )
 
-        return render_template('results.html', recommendations=recommendations_html)
+            os.remove(file_path) # Clean up uploaded file
+
+            if not recommendations_df.empty:
+                recommendations_html = recommendations_df.to_html(classes='table table-striped') # Add Bootstrap styling
+            else:
+                recommendations_html = "<p>No recommendations found based on your criteria.</p>"
+
+            return render_template('results.html', recommendations=recommendations_html)
     return render_template('index.html') # Handle GET request to /recommend
 
 
 if __name__ == '__main__':
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True) # Ensure upload folder exists
     app.run(debug=True, port=8080)
