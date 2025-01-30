@@ -22,9 +22,17 @@ Powered by a sophisticated language model, the app allows you to set and adjust 
 - **Vegetarian and Vegan Options:** Easily find plant-based and animal-free meals that delight.
 
 ## Usages
-the data is in `all_places_response.json`
-use 'vis.py' to vis it 
-use 'get_pandas.py' to turn it to pandas df 
+The data containing all the available restaruants (from Google Map) is stored in `all_places_response.json`. We use `vis.py` to vis it and use `get_pandas.py` to turn it to pandas dataframe.
+
+To start the application, ensure you have Flask and the required dependencies installed, then run the following command from the terminal:
+```bash
+python app.py
+```
+Navigate to http://localhost:8080 to access the application. 
+
+Before you start searching for restaurants, you need to upload an .ics file that describes your location and schedule. The events in your uploaded .ics file should include a description field containing a **link to Google Maps**, which specifies the exact location of your events (as shown in `example.ics`). This ensures that the app can accurately determine where you will be and at what time, allowing it to provide restaurant recommendations that are timely and conveniently located relative to your scheduled activities.
+
+Then you can follow the on-screen instructions to input your dining preferences and any other necessary details.
 
 ### Step-by-Step Workflow
 
