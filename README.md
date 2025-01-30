@@ -7,7 +7,6 @@ Welcome to the FoodFinder App, a comprehensive solution designed to optimize you
 - **Single-user sessions:** Tailored to fit the solo diner looking to maximize brief time windows.
 - **Budget-conscious dining:** Offers solutions that ensure you stay within your financial limits without compromising on taste.
 - **Preference-based filtering:** Whether it's a spicy kick or a low-calorie dish, find meals that cater exactly to your taste and dietary requirements.
-- **Multi-user coordination:** Perfect for group meals, the app aims to meet the diverse needs of each diner in your party.
 - **Time Management:** The app assesses your free time, estimated waiting and travel times to restaurants, and aligns them with business hours to ensure you get served without rush.
 - **Distance and Travel:** Utilize our dynamic radius search to find eateries within an optimal distance, estimated to ensure you spend more time dining and less time commuting.
 - **Budget Adjustment:** Stay on top of your finances with tailored dining suggestions that keep you within a preset spending limit, allowing for both economical and occasional lavish dining choices.
