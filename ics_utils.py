@@ -84,11 +84,11 @@ def get_lat_lng_from_events(events, current_time):
         tuple: Latitude and longitude of the previous and next events.
     """
     previous_event, next_event = get_previous_and_next_events(events, current_time)
-
+    next_start = next_event['start'] if next_event else None
     prev_lat, prev_lng = extract_lat_lng_from_description(previous_event['description']) if previous_event else (None, None)
     next_lat, next_lng = extract_lat_lng_from_description(next_event['description']) if next_event else (None, None)
 
-    return (prev_lat, prev_lng), (next_lat, next_lng)
+    return (prev_lat, prev_lng), (next_lat, next_lng), next_start
 
 def create_new_ics_with_modified_events(input_file_path, output_file_path, current_time):
     """
@@ -140,7 +140,8 @@ if __name__ == "__main__":
     print(f"New ICS file created: {output_file_path}")
 
     events = parse_ics(input_file_path)
-    (prev_lat, prev_lng), (next_lat, next_lng) = get_lat_lng_from_events(events, current_time)
+    (prev_lat, prev_lng), (next_lat, next_lng), next_start = get_lat_lng_from_events(events, current_time)
 
     print(f"Previous Event Latitude, Longitude: {prev_lat}, {prev_lng}")
     print(f"Next Event Latitude, Longitude: {next_lat}, {next_lng}")
+    print(f"Next Event Start Time: {next_start}")

@@ -170,7 +170,7 @@ def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, 
     # Extract latitude and longitude from events in ICS file
     events = parse_ics(ics_file_path)
     current_time = datetime.now(pytz.utc)
-    (prev_lat, prev_lng), (next_lat, next_lng) = get_lat_lng_from_events(events, current_time)
+    (prev_lat, prev_lng), (next_lat, next_lng), next_start = get_lat_lng_from_events(events, current_time)
 
     df['distance_to'] = df.apply(
         lambda row: calculate_distance(
