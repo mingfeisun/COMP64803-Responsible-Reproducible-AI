@@ -38,9 +38,9 @@
         }
 
         input[type="date"],
-        input[type="range"], /* Changed to range */
+        input[type="time"],
         select,
-        input[type="file"] {
+        input[type="file"] { /* Added style for file input */
             width: calc(100% - 22px);
             padding: 10px;
             border: 1px solid #ced4da;
@@ -48,34 +48,11 @@
             font-size: 16px;
             transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
-        input[type="range"] {
-            -webkit-appearance: none;
-            appearance: none;
-             background: transparent;
-             margin: 0;
-        }
-        input[type="range"]::-webkit-slider-runnable-track {
-             width: 100%;
-             height: 8px;
-             cursor: pointer;
-             background: #ddd;
-             border-radius: 5px;
-         }
-         input[type="range"]::-webkit-slider-thumb {
-              -webkit-appearance: none;
-              appearance: none;
-              height: 20px;
-              width: 20px;
-              background: #007bff;
-              cursor: pointer;
-              border-radius: 50%;
-              margin-top: -6px; /* Adjust for alignment */
-         }
 
         input[type="date"]:focus,
-        input[type="range"]:focus, /* Added focus for range */
+        input[type="time"]:focus,
         select:focus,
-        input[type="file"]:focus {
+        input[type="file"]:focus { /* Added focus style for file input */
             border-color: #007bff;
             outline: 0;
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
@@ -91,11 +68,7 @@
             width: 100%;
             border: 1px solid #ced4da;
             border-radius: 4px;
-            margin-bottom: 15px;
-        }
-       #timeLabel {
-          margin-top: 5px;
-          display: block;
+            margin-bottom: 15px; /* Add margin below map */
         }
     </style>
 </head>
@@ -113,8 +86,7 @@
         </div>
         <div>
             <label for="selected_time">Select Time:</label>
-            <input type="range" id="selected_time" name="selected_time" min="0" max="1439" step="1" value="0" >
-             <span id="timeLabel">12:00 AM</span>
+            <input type="time" id="selected_time" name="selected_time" required>
         </div>
          <div id="map" ></div> <!-- Map container added here -->
         <div>
@@ -184,7 +156,13 @@
             attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var prevMarker, nextMarker;
+        var prevMarker, nextMarker, overlapLabel;
+        const prevMarkerColor = '#007bff';
+        const nextMarkerColor = '#dc3545';
+        const prevZoomLevel = 14;
+        const nextZoomLevel = 16;
+        const offsetDistance = 0.0001; // Adjust as needed
+
 
         function updateMapMarkers(prevLat, prevLng, nextLat, nextLng) {
             if (prevMarker) {
@@ -193,34 +171,65 @@
             if (nextMarker) {
                 map.removeLayer(nextMarker);
             }
-
-            let prevMarkerOptions = { color: 'blue' }
-            let nextMarkerOptions = { color: 'green'}
-
+            if (overlapLabel) {
+                 map.removeLayer(overlapLabel);
+              }
+            let markers = [];
+            let prevPos, nextPos;
+            let locationsOverlap = false;
             if (prevLat && prevLng) {
-                 prevMarker = L.marker([prevLat, prevLng], {icon: new L.Icon.Default(prevMarkerOptions)}).addTo(map).bindPopup("Previous Location");
+                 prevPos = [prevLat, prevLng];
+                 if (prevLat === nextLat && prevLng === nextLng) {
+                    prevPos = [prevLat + offsetDistance, prevLng + offsetDistance];
+                    locationsOverlap = true;
+                  }
+                 prevMarker = L.marker(prevPos, {icon: new L.Icon.Default({iconUrl: 'marker-icon-2x.png', iconRetinaUrl: 'marker-icon-2x.png', shadowUrl: 'marker-shadow.png', }) }).addTo(map).bindPopup("Previous Location");
+                prevMarker._icon.style.filter = `hue-rotate(200deg)`; // change color
+                 markers.push(prevMarker);
             }
-            if (nextLat && nextLng) {
-                 nextMarker = L.marker([nextLat, nextLng], {icon: new L.Icon.Default(nextMarkerOptions)}).addTo(map).bindPopup("Next Location");
+             if (nextLat && nextLng) {
+                nextPos = [nextLat, nextLng];
+                nextMarker = L.marker(nextPos, {icon: new L.Icon.Default({iconUrl: 'marker-icon-2x.png', iconRetinaUrl: 'marker-icon-2x.png', shadowUrl: 'marker-shadow.png'}) }).addTo(map).bindPopup("Next Location");
+                nextMarker._icon.style.filter = `hue-rotate(300deg)`; // change color
+                markers.push(nextMarker);
             }
-             if (prevLat && prevLng && nextLat && nextLng) {
-                  const bounds = L.latLngBounds([[prevLat, prevLng], [nextLat, nextLng]]);
-                  map.fitBounds(bounds, {padding: [20, 20]});
-            } else if (prevLat && prevLng) {
-                  map.setView([prevLat, prevLng], 13);
-             } else if (nextLat && nextLng) {
-                  map.setView([nextLat, nextLng], 13);
-            }
-        }
 
-         function formatTime(minutes) {
-             const hours = Math.floor(minutes / 60);
-             const mins = minutes % 60;
-             const ampm = hours >= 12 ? 'PM' : 'AM';
-             const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
-             const formattedMins = String(mins).padStart(2, '0');
-             return `${formattedHours}:${formattedMins} ${ampm}`;
-         }
+             // Check if the original locations (before offset) overlapped
+            if (prevLat && prevLng && nextLat && nextLng && prevLat === nextLat && prevLng === nextLng) {
+                if (prevMarker) {
+                   map.removeLayer(prevMarker);
+                  }
+                if (nextMarker) {
+                     map.removeLayer(nextMarker);
+                }
+                 overlapLabel = L.marker([(prevLat + offsetDistance), (prevLng + offsetDistance)], {
+                        icon: L.divIcon({
+                           className: 'custom-label-icon',
+                           html: '<div style="background-color: black; color: white; padding: 5px; border-radius: 5px;">Both Locations</div>',
+                        })
+                   }).addTo(map);
+
+               } else if(locationsOverlap) {
+                     overlapLabel = L.marker(prevPos, {
+                        icon: L.divIcon({
+                           className: 'custom-label-icon',
+                           html: '<div style="background-color: black; color: white; padding: 5px; border-radius: 5px;">Both Locations</div>',
+                        })
+                   }).addTo(map);
+                }
+
+           // Adjust the map view
+            if (markers.length > 0) {
+                if (markers.length === 2) {
+                   var group = new L.featureGroup(markers);
+                   map.fitBounds(group.getBounds(), {padding: [20, 20]});
+                   } else if (prevMarker) {
+                        map.setView(prevMarker.getLatLng(), prevZoomLevel);
+                    } else if (nextMarker) {
+                        map.setView(nextMarker.getLatLng(), nextZoomLevel);
+                    }
+             }
+        }
 
         function fetchMapData() {
              const fileInput = document.getElementById('ics_file');
@@ -254,33 +263,25 @@
                 });
             } else if (!file){
                alert("Please upload an ICS file");
-            } else if (!selectedDate || selectedTime === "") {
+            } else if (!selectedDate || !selectedTime) {
                 alert("Please select date and time");
             }
         }
          // Set initial values to current date and time
         const now = new Date();
         const currentDate = now.toISOString().split('T')[0];
+        const currentTime = now.toTimeString().slice(0, 5); // Get hh:mm
          document.getElementById('selected_date').value = currentDate;
-
-
-        const timeSlider = document.getElementById('selected_time');
-        const timeLabel = document.getElementById('timeLabel');
-
-        const currentMinutes = now.getHours() * 60 + now.getMinutes();
-        timeSlider.value = currentMinutes;
-        timeLabel.textContent = formatTime(currentMinutes);
-
-         timeSlider.addEventListener('input', function() {
-              const timeMinutes = parseInt(timeSlider.value, 10);
-               timeLabel.textContent = formatTime(timeMinutes);
-              fetchMapData();
-           });
-
+         document.getElementById('selected_time').value = currentTime;
 
 
         document.getElementById('ics_file').addEventListener('change', fetchMapData);
         document.getElementById('selected_date').addEventListener('change', fetchMapData);
+        document.getElementById('selected_time').addEventListener('change', fetchMapData);
     </script>
-</body>
-</html>
+    <style>
+        .custom-label-icon{
+            background: none;
+            border: none;
+        }
+    </style>

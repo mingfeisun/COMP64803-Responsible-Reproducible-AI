@@ -5,7 +5,7 @@ import pandas as pd
 from ics_utils import *
 import os
 from werkzeug.utils import secure_filename
-from datetime import datetime, timedelta
+from datetime import datetime
 import pytz
 
 # --- Data Loading and Processing ---
@@ -285,17 +285,11 @@ def process_ics_file():
 
         selected_date_input = request.form.get('selected_date')
         selected_time_input = request.form.get('selected_time')
-        
-        # Convert minutes from slider to HH:MM string
-        minutes_since_midnight = int(selected_time_input)
-        hours = minutes_since_midnight // 60
-        minutes = minutes_since_midnight % 60
-        selected_time_str = f"{hours:02}:{minutes:02}"
 
         events = parse_ics(file_path)
-
+        
         # Convert date and time inputs into a datetime object with timezone info
-        selected_datetime_str = f"{selected_date_input} {selected_time_str}"
+        selected_datetime_str = f"{selected_date_input} {selected_time_input}"
         selected_datetime = datetime.strptime(selected_datetime_str, "%Y-%m-%d %H:%M")
         selected_datetime = pytz.utc.localize(selected_datetime)
 
