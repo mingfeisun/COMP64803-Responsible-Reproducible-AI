@@ -2,10 +2,103 @@
 <html>
 <head>
     <title>Restaurant Recommender</title>
-    <!-- Include Leaflet CSS if using Leaflet for map (or Google Maps CSS) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        #map { height: 300px; width: 100%; } /* Adjust map size as needed */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        input[type="date"],
+        input[type="time"],
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        select:focus {
+            border-color: #007bff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        select[multiple] {
+            height: auto;
+        }
+
+        #map {
+            height: 350px;
+            width: 100%;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 20px;
+            }
+            input[type="date"],
+            input[type="time"],
+            select,
+            button[type="submit"] {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -20,20 +113,70 @@
             <input type="time" id="time" name="time" required>
         </div>
         <div>
-            <label for="food_type">Food Type:</label>
-            <select id="food_type" name="food_type" required>
-                <option value="">-- Select Food Type --</option>
+            <label for="cuisine_preference">Cuisine Preference:</label>
+            <select id="cuisine_preference" name="cuisine_preference" required>
+                <option value="">-- Select Cuisine --</option>
                 <option value="Italian">Italian</option>
                 <option value="Mexican">Mexican</option>
                 <option value="Chinese">Chinese</option>
                 <option value="Indian">Indian</option>
                 <option value="American">American</option>
-                <!-- Add more food types as needed -->
+                <option value="Japanese">Japanese</option>
+                <option value="Thai">Thai</option>
+                <option value="Mediterranean">Mediterranean</option>
+                <option value="French">French</option>
+                <option value="Vietnamese">Vietnamese</option>
+            </select>
+        </div>
+        <div>
+            <label for="allergies">Allergies (Optional):</label>
+            <select id="allergies" name="allergies" multiple>
+                <option value="Peanuts">Peanuts</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Gluten">Gluten</option>
+                <option value="Soy">Soy</option>
+                <option value="Eggs">Eggs</option>
+                <option value="Fish">Fish</option>
+                <option value="Shellfish">Shellfish</option>
+                <option value="Tree Nuts">Tree Nuts</option>
+                <option value="Wheat">Wheat</option>
+            </select>
+            <p>Select any allergies you have.</p>
+        </div>
+        <div>
+            <label for="spice_level">Spice Level Preference:</label>
+            <select id="spice_level" name="spice_level">
+                <option value="">-- Select Spice Level --</option>
+                <option value="None">No Spice</option>
+                <option value="Mild">Mild</option>
+                <option value="Medium">Medium</option>
+                <option value="Spicy">Spicy</option>
+                <option value="Very Spicy">Very Spicy</option>
+            </select>
+        </div>
+        <div>
+            <label for="budget">Budget:</label>
+            <select id="budget" name="budget">
+                <option value="">-- Select Budget --</option>
+                <option value="Budget-friendly">Budget-friendly</option>
+                <option value="Mid-range">Mid-range</option>
+                <option value="Luxury">Luxury</option>
+            </select>
+        </div>
+        <div>
+            <label for="distance">Distance Preference:</label>
+            <select id="distance" name="distance">
+                <option value="">-- Select Distance --</option>
+                <option value="1">Within 1 mile</option>
+                <option value="5">Within 5 miles</option>
+                <option value="10">Within 10 miles</option>
+                <option value="20">Within 20 miles</option>
+                <option value="any">Any Distance</option>
             </select>
         </div>
         <div>
             <label for="location">Location:</label>
-            <div id="map"></div> <!-- Map will be rendered here -->
+            <div id="map"></div>
             <input type="hidden" id="latitude" name="latitude" required>
             <input type="hidden" id="longitude" name="longitude" required>
             <p>Click on the map to select your location.</p>
@@ -43,23 +186,40 @@
         </div>
     </form>
 
-    <!-- Include Leaflet JavaScript (or Google Maps JS) -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([51.505, -0.09], 13); // Default map center and zoom (e.g., London)
+        var map = L.map('map').setView([51.505, -0.09], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var marker; // Variable to store the marker
+        var marker;
 
         map.on('click', function(e) {
             if (marker) {
-                map.removeLayer(marker); // Remove previous marker
+                map.removeLayer(marker);
             }
-            marker = L.marker(e.latlng).addTo(map); // Add marker at clicked location
+            marker = L.marker(e.latlng).addTo(map);
             document.getElementById('latitude').value = e.latlng.lat;
             document.getElementById('longitude').value = e.latlng.lng;
+        });
+
+        // Set default date and time to now
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+
+            // Date input
+            const dateInput = document.getElementById('date');
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+            const day = String(now.getDate()).padStart(2, '0');
+            dateInput.value = `${year}-${month}-${day}`;
+
+            // Time input
+            const timeInput = document.getElementById('time');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            timeInput.value = `${hours}:${minutes}`;
         });
     </script>
 </body>

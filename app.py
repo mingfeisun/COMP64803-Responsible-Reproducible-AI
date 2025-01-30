@@ -12,19 +12,26 @@ def index():
 
     return render_template('index.html')
 
-
 @app.route('/recommend', methods=['POST'])
 def recommend():
     if request.method == 'POST':
         date = request.form['date']
         time = request.form['time']
-        food_type = request.form['food_type']
+        cuisine_preference = request.form['cuisine_preference'] # Updated name
         latitude = request.form['latitude']
         longitude = request.form['longitude']
+        allergies_list = request.form.getlist('allergies') # Use getlist for multiple select
+        spice_level = request.form.get('spice_level') # Use get to handle optional fields gracefully
+        budget = request.form.get('budget') # Use get to handle optional fields gracefully
+        distance = request.form.get('distance') # Use get to handle optional fields gracefully
+
 
         # **Call your recommendation algorithm here**
-        # Pass date, time, food_type, latitude, longitude to your algorithm
-        recommendations = get_restaurant_recommendations(date, time, food_type, latitude, longitude)
+        # Pass all parameters to your algorithm
+        recommendations = get_restaurant_recommendations(
+            date, time, cuisine_preference, latitude, longitude,
+            allergies_list, spice_level, budget, distance # Pass new parameters
+        )
 
         return render_template('results.html', recommendations=recommendations) # Create results.html next
 
@@ -89,13 +96,13 @@ def update_distance(places, lat1, lon1):
         place['distance'] = c * r
     return places
 
-def get_restaurant_recommendations(date, time, food_type, latitude, longitude):
+def get_restaurant_recommendations(date, time, cuisine_preference, latitude, longitude, allergies, spice_level, budget, distance):
     """
     This is a placeholder for your restaurant recommendation algorithm.
     Replace this with your actual algorithm logic.
     """
     # For now, just return some dummy data based on food type
-    print(date, time, food_type, latitude, longitude)
+    print(date, time, cuisine_preference, latitude, longitude)
     json_file_path = "all_places_response.json"
     try:
         with open(json_file_path, 'r') as f:
@@ -114,7 +121,7 @@ def get_restaurant_recommendations(date, time, food_type, latitude, longitude):
     # append remaining rows
     for place in places[1:]:
         df = pd.concat([df, json_to_pandas_row(place)], ignore_index=True)
-    df = apply_filters(df, food_type=food_type, soft_filter=0.1)
+    df = apply_filters(df, food_type=cuisine_preference, soft_filter=0.1)
     score_columns = [col for col in df.columns if col.endswith('_score')]
     df['relevance_score'] = df[score_columns].sum(axis=1)
     # TODO better way to calculate overall score

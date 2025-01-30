@@ -4,35 +4,114 @@
     <title>Restaurant Recommendations</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        #map-results { height: 400px; width: 100%; } /* Adjust map size */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #495057;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none; /* Remove default list bullets */
+            padding-left: 0; /* Remove default padding */
+        }
+
+        li {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle card effect */
+            transition: transform 0.2s ease-in-out; /* Hover effect */
+        }
+
+        li:hover {
+            transform: translateY(-3px); /* Slight lift on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+        }
+
+        li strong {
+            display: block; /* Make restaurant name bold and on its own line */
+            font-size: 1.1em;
+            color: #212529; /* Darker text for restaurant name */
+            margin-bottom: 5px;
+        }
+
+        #map-results {
+            height: 400px;
+            width: 100%;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.08); /* Subtle shadow for map */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            li {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Restaurant Recommendations</h1>
 
-    <h2>Restaurants:</h2>
+    <h2>Recommended Restaurants:</h2>
     <ul>
         {% for restaurant in recommendations %}
-            <li>{{ restaurant.name }} - {{ restaurant.address }}</li>
+            <li>
+                <strong>{{ restaurant.name }}</strong>
+                {{ restaurant.address }}
+                {% if restaurant.cuisine_type %}
+                    <br>Cuisine: {{ restaurant.cuisine_type }}
+                {% endif %}
+                {% if restaurant.price_range %}
+                    <br>Price Range: {{ restaurant.price_range }}
+                {% endif %}
+                {% if restaurant.rating %}
+                    <br>Rating: {{ restaurant.rating }} ★
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
 
-    <h2>Map of Restaurants:</h2>
+    <h2>Restaurant Locations on Map:</h2>
     <div id="map-results"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var mapResults = L.map('map-results').setView([{{ request.form['latitude'] }}, {{ request.form['longitude'] }}], 13); // Center map on user's location
+        var mapResults = L.map('map-results').setView([{{ request.form['latitude'] }}, {{ request.form['longitude'] }}], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
         }).addTo(mapResults);
 
-        var recommendations = {{ recommendations|tojson }}; // Get Python recommendations data in JavaScript
+        var recommendations = {{ recommendations|tojson }};
 
         recommendations.forEach(function(restaurant) {
             L.marker([restaurant.latitude, restaurant.longitude])
                 .addTo(mapResults)
-                .bindPopup(restaurant.name + "<br>" + restaurant.address);
+                .bindPopup("<strong>" + restaurant.name + "</strong><br>" + restaurant.address);
         });
     </script>
 </body>
