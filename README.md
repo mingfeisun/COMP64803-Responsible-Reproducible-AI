@@ -26,3 +26,31 @@ Powered by a sophisticated language model, the app allows you to set and adjust 
 the data is in `all_places_response.json`
 use 'vis.py' to vis it 
 use 'get_pandas.py' to turn it to pandas df 
+
+### Step-by-Step Workflow
+
+Below is a flowchart that outlines the process from entering your search criteria to selecting a restaurant:
+
+![FoodFinder Workflow](./templates/Flow_chart.png)
+
+#### Entering Search Criteria
+1. **Time:** Specify the time you plan to eat.
+2. **Location:** Enter your current location or the location where you wish to dine.
+3. **Budget:** Set your budget for the meal.
+
+#### Setting Preferences (Optional)
+You can further refine your search by specifying:
+- **Cuisine:** Choose the type of cuisine you prefer.
+- **Allergies:** List any allergies to avoid specific ingredients.
+- **Spicy:** Indicate if you prefer spicy food.
+
+#### Filtering Results
+The app filters the restaurant options based on the inputs:
+- **Time:** Matches your available time with restaurant operating hours.
+- **Distance:** Considers how far you are willing to travel.
+- **Budget:** Filters options that fit within your budget.
+- **Preference:** Ensures the options align with your cuisine and spice preferences.
+
+#### Selection
+Review the filtered list showing the distance, cost, type, and rating of each restaurant, and select the best option that meets your criteria.
+
