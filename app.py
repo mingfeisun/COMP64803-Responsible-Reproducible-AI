@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import math
 import json
 import pandas as pd
+from ics_utils import *
 
 # --- Data Loading and Processing ---
 
@@ -141,7 +142,7 @@ def calculate_distance(lat1, lon1, lat2, lon2):
 
 # --- Recommendation Engine ---
 
-def get_restaurant_recommendations(df, cuisine_preference, user_latitude, user_longitude, spice_level, budget, max_distance_km):
+def get_restaurant_recommendations(df, cuisine_preference, user_latitude, user_longitude, spice_level, budget, max_distance_km, ics_file_path=None):
     """Recommends restaurants based on user preferences.
 
     Args:
@@ -152,7 +153,7 @@ def get_restaurant_recommendations(df, cuisine_preference, user_latitude, user_l
         spice_level (str): User's preferred spice level.
         budget (str): User's budget preference.
         max_distance_km (str): Maximum distance user is willing to travel.
-
+        ics_file_path (str): Path to the ICS file containing event data (default: None).
     Returns:
         pd.DataFrame: DataFrame of recommended restaurants.
     """
@@ -161,11 +162,38 @@ def get_restaurant_recommendations(df, cuisine_preference, user_latitude, user_l
         return pd.DataFrame() # Return empty DataFrame
 
     # 1. Distance Calculation
-    df['distance_km'] = df.apply(
-        lambda row: calculate_distance(
-            float(user_latitude), float(user_longitude), row['latitude'], row['longitude']
-        ), axis=1
-    )
+    
+    if ics_file_path:
+        # TODO add file uploader for ICS file
+        # Extract latitude and longitude from events in ICS file
+        events = parse_ics(output_file_path)
+        (prev_lat, prev_lng), (next_lat, next_lng), next_start = get_lat_lng_from_events(events, current_time)
+
+        df['distance_to'] = df.apply(
+            lambda row: calculate_distance(
+                float(prev_lat), float(prev_lng), row['latitude'], row['longitude']
+            ), axis=1
+        )
+        df['distance_back'] = df.apply(
+            lambda row: calculate_distance(
+                float(next_lat), float(next_lng), row['latitude'], row['longitude']
+            ), axis=1
+        )
+        df['distance_km'] = df['distance_to'] + df['distance_back']
+        current_time = pd.Timestamp.now()
+        remaining_time = (next_start - current_time).total_seconds() / 60 # Remaining time to eat and travel in minutes
+        df['estimated_travelling_time_min'] = df['distance_km'] * 15 # Assuming 15 minutes per kilometer
+        filtered_df = df[(remaining_time - df['estimated_travelling_time_min']) >= 10] # Filter based on remaining time
+        if filtered_df.empty:
+            # TODO prompt user they have to run for lunch
+            filtered_df = df.sort_values(by='estimated_travelling_time_min', ascending=True).head(1)
+    else:
+        df['distance_km'] = df.apply(
+            lambda row: calculate_distance(
+                float(user_latitude), float(user_longitude), row['latitude'], row['longitude']
+            ), axis=1
+        )
+
 
     filtered_df = df.copy()
 
