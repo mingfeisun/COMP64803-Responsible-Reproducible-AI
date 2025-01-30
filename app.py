@@ -188,12 +188,16 @@ def get_restaurant_recommendations(df, cuisine_preference, spice_level, budget, 
 
     # 2. Filtering
     # Travel Distance
-    remaining_time = (next_start - current_time).total_seconds() / 60 # Remaining time to eat and travel in minutes
-    df['estimated_travelling_time_min'] = df['distance_km'] * 15 # Assuming 15 minutes per kilometer
-    filtered_df = filtered_df[(remaining_time - filtered_df['estimated_travelling_time_min']) >= 10] # Filter based on remaining time
+    remaining_time = (next_start - current_time).total_seconds() / 60  # Remaining time in minutes
+
+    # Calculate estimated travelling time without modifying the original DataFrame
+    df_with_travel_time = df.assign(estimated_travelling_time_min=df['distance_km'] * 15)
+
+    # Filter restaurants based on remaining time, using the calculated travel time
+    filtered_df = df_with_travel_time[(remaining_time - df_with_travel_time['estimated_travelling_time_min']) >= 10].copy() # Use .copy() to avoid SettingWithCopyWarning if further modifications are intended later
     if filtered_df.empty:
         # TODO prompt user they have to run for lunch
-        filtered_df = df.sort_values(by='estimated_travelling_time_min', ascending=True).head(1)
+        filtered_df = df_with_travel_time.sort_values(by='estimated_travelling_time_min', ascending=True).head(1)
         return filtered_df[['displayName_text', 'formattedAddress', 'types', 'rating', 'userRatingCount', 'estimated_travelling_time_min']].head(10)
 
     # Cuisine Preference
