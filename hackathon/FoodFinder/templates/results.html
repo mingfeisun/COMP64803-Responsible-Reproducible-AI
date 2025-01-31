@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Recommendations</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .recommendations-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .recommendations-table th,
+        .recommendations-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .recommendations-table th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .recommendations-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .recommendations-table tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        #map {
+            height: 400px; /* Adjust height as needed */
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Recommendations</h1>
+
+    {% if recommendations %}
+        <h2>Here are your restaurant recommendations:</h2>
+        {{ recommendations|safe }}  <!-- Render the DataFrame as HTML -->
+    {% else %}
+        <p>No recommendations found based on your criteria.</p>
+    {% endif %}
+
+    <div id="map"></div>
+
+    <a href="/">Go back to search</a>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13); // Default view to London
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var recommendationsData = {{ recommendations_data | tojson | safe }};
+
+        if (recommendationsData && recommendationsData.length > 0) {
+            var bounds = new L.LatLngBounds();
+
+            recommendationsData.forEach(function(recommendation) {
+                var restaurantLatLng = [recommendation.restaurant_lat, recommendation.restaurant_lng];
+                var prevLatLng = [recommendation.prev_lat, recommendation.prev_lng];
+                var nextLatLng = [recommendation.next_lat, recommendation.next_lng];
+
+                // Come route (blue)
+                L.polyline([prevLatLng, restaurantLatLng], {color: 'blue'}).addTo(map);
+                // Back route (red)
+                L.polyline([restaurantLatLng, nextLatLng], {color: 'red'}).addTo(map);
+
+                L.marker(restaurantLatLng).addTo(map)
+                    .bindPopup(recommendation.name);
+
+                bounds.extend(restaurantLatLng);
+                bounds.extend(prevLatLng);
+                bounds.extend(nextLatLng);
+            });
+            map.fitBounds(bounds); // Adjust map to fit all markers and routes
+        } else {
+            // If no recommendations, maybe center map on initial location if available from index page
+            map.setView([51.505, -0.09], 13);
+        }
+    </script>
+</body>
+</html>
