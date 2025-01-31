@@ -40,7 +40,8 @@
         input[type="date"],
         input[type="time"],
         select,
-        input[type="file"] { /* Added style for file input */
+        input[type="file"],
+        input[type="hidden"] {
             width: calc(100% - 22px);
             padding: 10px;
             border: 1px solid #ced4da;
@@ -52,12 +53,12 @@
         input[type="date"]:focus,
         input[type="time"]:focus,
         select:focus,
-        input[type="file"]:focus { /* Added focus style for file input */
+        input[type="file"]:focus,
+        input[type="hidden"]:focus {
             border-color: #007bff;
             outline: 0;
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
-
 
         select[multiple] {
             height: auto;
@@ -68,27 +69,114 @@
             width: 100%;
             border: 1px solid #ced4da;
             border-radius: 4px;
-            margin-bottom: 15px; /* Add margin below map */
+            margin-bottom: 15px;
         }
+
+        /* Tab Styles */
+        .tab-container {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ced4da;
+        }
+
+        .tab-button {
+            padding: 10px 15px;
+            border: 1px solid #ced4da;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            color: #495057;
+        }
+
+        .tab-button.active {
+            background-color: #ffffff;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none; /* Initially hide all tab contents */
+            padding: 15px;
+            background-color: #ffffff; /* Match form background */
+            border-radius: 0 0 8px 8px; /* Bottom border radius */
+        }
+
+        .tab-content.active {
+            display: block; /* Show active tab content */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around; /* Distribute buttons evenly */
+            margin-bottom: 10px; /* Space below buttons */
+        }
+
+        .button-container button {
+            padding: 8px 15px;
+            cursor: pointer;
+            border: 1px solid #007bff;
+            color: #007bff;
+            background-color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+
     </style>
 </head>
 <body>
     <h1>Restaurant Recommender</h1>
     <form method="POST" action="/recommend" enctype="multipart/form-data" id="recommendationForm">
-       <div>
-            <label for="ics_file">Upload ICS File:</label>
-            <input type="file" id="ics_file" name="ics_file" accept=".ics" required>
-            <p>Please upload your ICS calendar file to determine your location and time.</p>
+        <div class="tab-container">
+            <button type="button" class="tab-button active" onclick="openTab('ics-tab')">Use ICS File</button>
+            <button type="button" class="tab-button" onclick="openTab('map-tab')">Pin on Map</button>
         </div>
+
         <div>
-            <label for="selected_date">Select Date:</label>
-            <input type="date" id="selected_date" name="selected_date" required>
+            <label>Location (Map):</label>
+            <input type="hidden" id="start_lat" name="start_lat">
+            <input type="hidden" id="start_lng" name="start_lng">
+            <input type="hidden" id="end_lat" name="end_lat">
+            <input type="hidden" id="end_lng" name="end_lng">
+            <div id="map" ></div>
+            <p>The map below allows you to set locations. Use the tabs above to choose between uploading an ICS file for automatic location setting, or manually pinning locations on the map.</p>
         </div>
-        <div>
-            <label for="selected_time">Select Time:</label>
-            <input type="time" id="selected_time" name="selected_time" required>
+
+
+        <div id="ics-tab" class="tab-content active">
+            <div>
+                <label for="ics_file">Upload ICS File:</label>
+                <input type="file" id="ics_file" name="ics_file" accept=".ics">
+                <p>Upload your ICS calendar file to automatically set start and end locations on the map based on your events for the selected date and time.</p>
+            </div>
+            <div>
+                <label for="selected_date">Select Date (for ICS processing):</label>
+                <input type="date" id="selected_date" name="selected_date">
+            </div>
+            <div>
+                <label for="selected_time">Select Time (for ICS processing):</label>
+                <input type="time" id="selected_time" name="selected_time">
+            </div>
         </div>
-         <div id="map" ></div> <!-- Map container added here -->
+
+        <div id="map-tab" class="tab-content">
+            <div>
+                <label>Pin Locations on Map:</label>
+                <p>Click "Set Start Location" and then click on the map to pin your starting point. Repeat for "Set End Location".</p>
+                <div class="button-container">
+                    <button type="button" id="set-start-location-btn">Set Start Location</button>
+                    <button type="button" id="set-end-location-btn">Set End Location</button>
+                </div>
+            </div>
+        </div>
+
+
         <div>
             <label for="cuisine_preference">Cuisine Preference:</label>
             <select id="cuisine_preference" name="cuisine_preference" required>
@@ -151,58 +239,66 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([{{ initial_lat }}, {{ initial_lng }}], 13);
+        var map = L.map('map').setView([53.4609,-2.2353], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var prevMarker, nextMarker, overlapLabel;
-        const prevMarkerColor = '#007bff';
-        const nextMarkerColor = '#dc3545';
-        const prevZoomLevel = 14;
-        const nextZoomLevel = 16;
-        const offsetDistance = 0.0001; // Adjust as needed
+        var startMarker, endMarker, overlapLabel;
+        const startMarkerColor = '#007bff';
+        const endMarkerColor = '#dc3545';
+        const startZoomLevel = 14;
+        const endZoomLevel = 16;
+        const offsetDistance = 0.0001;
 
+        let locationMode = null; // 'start' or 'end' location to set via map click
 
-        function updateMapMarkers(prevLat, prevLng, nextLat, nextLng) {
-            if (prevMarker) {
-                map.removeLayer(prevMarker);
+        function updateMapMarkers(startLat, startLng, endLat, endLng) {
+            document.getElementById('start_lat').value = startLat || '';
+            document.getElementById('start_lng').value = startLng || '';
+            document.getElementById('end_lat').value = endLat || '';
+            document.getElementById('end_lng').value = endLng || '';
+
+            if (startMarker) {
+                map.removeLayer(startMarker);
             }
-            if (nextMarker) {
-                map.removeLayer(nextMarker);
+            if (endMarker) {
+                map.removeLayer(endMarker);
             }
             if (overlapLabel) {
                  map.removeLayer(overlapLabel);
               }
+
             let markers = [];
-            let prevPos, nextPos;
+            let startPos, endPos;
             let locationsOverlap = false;
-            if (prevLat && prevLng) {
-                 prevPos = [prevLat, prevLng];
-                 if (prevLat === nextLat && prevLng === nextLng) {
-                    prevPos = [prevLat + offsetDistance, prevLng + offsetDistance];
+
+            if (startLat && startLng) {
+                 startPos = [startLat, startLng];
+                 if (startLat === endLat && startLng === endLng) {
+                    startPos = [startLat + offsetDistance, startLng + offsetDistance];
                     locationsOverlap = true;
                   }
-                 prevMarker = L.marker(prevPos, {icon: new L.Icon.Default({iconUrl: 'marker-icon-2x.png', iconRetinaUrl: 'marker-icon-2x.png', shadowUrl: 'marker-shadow.png', }) }).addTo(map).bindPopup("Previous Location");
-                prevMarker._icon.style.filter = `hue-rotate(200deg)`; // change color
-                 markers.push(prevMarker);
+                 startMarker = L.marker(startPos, {icon: new L.Icon.Default({iconUrl: 'marker-icon-2x.png', iconRetinaUrl: 'marker-icon-2x.png', shadowUrl: 'marker-shadow.png', }) }).addTo(map).bindPopup("Start Location");
+                startMarker._icon.style.filter = `hue-rotate(200deg)`; // change color
+                 markers.push(startMarker);
             }
-             if (nextLat && nextLng) {
-                nextPos = [nextLat, nextLng];
-                nextMarker = L.marker(nextPos, {icon: new L.Icon.Default({iconUrl: 'marker-icon-2x.png', iconRetinaUrl: 'marker-icon-2x.png', shadowUrl: 'marker-shadow.png'}) }).addTo(map).bindPopup("Next Location");
-                nextMarker._icon.style.filter = `hue-rotate(300deg)`; // change color
-                markers.push(nextMarker);
+             if (endLat && endLng) {
+                endPos = [endLat, endLng];
+                endMarker = L.marker(endPos, {icon: new L.Icon.Default({iconUrl: 'marker-icon-2x.png', iconRetinaUrl: 'marker-icon-2x.png', shadowUrl: 'marker-shadow.png'}) }).addTo(map).bindPopup("End Location");
+                endMarker._icon.style.filter = `hue-rotate(300deg)`; // change color
+                markers.push(endMarker);
             }
 
              // Check if the original locations (before offset) overlapped
-            if (prevLat && prevLng && nextLat && nextLng && prevLat === nextLat && prevLng === nextLng) {
-                if (prevMarker) {
-                   map.removeLayer(prevMarker);
+            if (startLat && startLng && endLat && endLng && startLat === endLat && startLng === endLng) {
+                if (startMarker) {
+                   map.removeLayer(startMarker);
                   }
-                if (nextMarker) {
-                     map.removeLayer(nextMarker);
+                if (endMarker) {
+                     map.removeLayer(endMarker);
                 }
-                 overlapLabel = L.marker([(prevLat + offsetDistance), (prevLng + offsetDistance)], {
+                 overlapLabel = L.marker([(startLat + offsetDistance), (startLng + offsetDistance)], {
                         icon: L.divIcon({
                            className: 'custom-label-icon',
                            html: '<div style="background-color: black; color: white; padding: 5px; border-radius: 5px;">Both Locations</div>',
@@ -210,7 +306,7 @@
                    }).addTo(map);
 
                } else if(locationsOverlap) {
-                     overlapLabel = L.marker(prevPos, {
+                     overlapLabel = L.marker(startPos, {
                         icon: L.divIcon({
                            className: 'custom-label-icon',
                            html: '<div style="background-color: black; color: white; padding: 5px; border-radius: 5px;">Both Locations</div>',
@@ -223,11 +319,13 @@
                 if (markers.length === 2) {
                    var group = new L.featureGroup(markers);
                    map.fitBounds(group.getBounds(), {padding: [20, 20]});
-                   } else if (prevMarker) {
-                        map.setView(prevMarker.getLatLng(), prevZoomLevel);
-                    } else if (nextMarker) {
-                        map.setView(nextMarker.getLatLng(), nextZoomLevel);
+                   } else if (startMarker) {
+                        map.setView(startMarker.getLatLng(), startZoomLevel);
+                    } else if (endMarker) {
+                        map.setView(endMarker.getLatLng(), endZoomLevel);
                     }
+             } else {
+                 map.setView([53.4609,-2.2353], 13); // Reset to initial view if no markers
              }
         }
 
@@ -254,23 +352,38 @@
                         console.error('Error processing ICS:', data.error);
                         alert('Error processing ICS file: ' + data.error);
                     } else {
-                        updateMapMarkers(data.prev_lat, data.prev_lng, data.next_lat, data.next_lng);
+                        updateMapMarkers(data.prev_lat, data.prev_lng, data.next_lat, data.next_lng); // Assuming backend still returns prev_lat, prev_lng, next_lat, next_lng
                     }
                 })
                 .catch(error => {
                     console.error('Fetch error:', error);
                     alert('Error uploading ICS file.');
                 });
-            } else if (!file){
-               alert("Please upload an ICS file");
-            } else if (!selectedDate || !selectedTime) {
-                alert("Please select date and time");
+            } else if (file && (!selectedDate || !selectedTime)) {
+                alert("Please select date and time to process ICS file.");
             }
         }
+
+        function openTab(tabId) {
+            var tabContents = document.querySelectorAll('.tab-content');
+            var tabButtons = document.querySelectorAll('.tab-button');
+
+            tabContents.forEach(content => content.classList.remove('active'));
+            tabButtons.forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab-button[onclick="openTab('${tabId}')"]`).classList.add('active');
+
+            if (tabId === 'map-tab') {
+                locationMode = null; // Reset location mode when switching to map tab
+            }
+        }
+
+
          // Set initial values to current date and time
         const now = new Date();
         const currentDate = now.toISOString().split('T')[0];
-        const currentTime = now.toTimeString().slice(0, 5); // Get hh:mm
+        const currentTime = now.toTimeString().slice(0, 5);
          document.getElementById('selected_date').value = currentDate;
          document.getElementById('selected_time').value = currentTime;
 
@@ -278,6 +391,30 @@
         document.getElementById('ics_file').addEventListener('change', fetchMapData);
         document.getElementById('selected_date').addEventListener('change', fetchMapData);
         document.getElementById('selected_time').addEventListener('change', fetchMapData);
+
+        // --- Map click and button event listeners for manual location pinning ---
+        map.on('click', function(e) {
+            if (locationMode === 'start') {
+                updateMapMarkers(e.latlng.lat, e.latlng.lng, document.getElementById('end_lat').value, document.getElementById('end_lng').value);
+                locationMode = null; // Reset mode after setting location
+            } else if (locationMode === 'end') {
+                updateMapMarkers(document.getElementById('start_lat').value, document.getElementById('start_lng').value, e.latlng.lat, e.latlng.lng);
+                locationMode = null; // Reset mode after setting location
+            }
+        });
+
+        document.getElementById('set-start-location-btn').addEventListener('click', function() {
+            locationMode = 'start';
+            alert("Click on the map to set the Start Location.");
+        });
+
+        document.getElementById('set-end-location-btn').addEventListener('click', function() {
+            locationMode = 'end';
+            alert("Click on the map to set the End Location.");
+        });
+        // --- End of map click and button event listeners ---
+
+
     </script>
     <style>
         .custom-label-icon{
@@ -285,3 +422,5 @@
             border: none;
         }
     </style>
+</body>
+</html>
