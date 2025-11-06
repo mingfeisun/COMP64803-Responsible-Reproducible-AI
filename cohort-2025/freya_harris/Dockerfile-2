@@ -1,0 +1,12 @@
+FROM ubuntu:xenial
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    netcat \
+    nodejs \
+    npm && \
+    rm -rf /var/lib/apt/lists/*
+WORKDIR /usr/src/app
+COPY . .
+RUN npm install
+EXPOSE 8080
+CMD ["./wait-for", "database:27017", "--", "npm", "start"]
