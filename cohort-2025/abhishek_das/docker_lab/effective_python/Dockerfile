@@ -19,9 +19,3 @@ RUN chmod +x run_all_demos.py
 
 # Set default command to run all demos
 CMD ["python", "run_all_demos.py"]
-
-# Alternative: Run interactive Python
-# CMD ["python"]
-
-# To run a specific demo:
-# docker run effective-python python 1_comprehensions_generators.py
