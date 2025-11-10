@@ -1,0 +1,4 @@
+1 - (Item 20) Prefer Raising Exceptions to Returning 'None':
+
+	It seems to make sense to give a special meaning to the return value 'None'. Problems arise mainly if we try to evaluate the result in a condition (e.g. an if statement). This is because 'None' is False-equivalent (along with zero, empty string) all evaluate to 'False' in conditional expressions.
+	Instead, we should raise exceptions to indicate special situations.
