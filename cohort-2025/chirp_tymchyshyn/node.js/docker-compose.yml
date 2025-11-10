@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      - NODE_ENV=production
+
+  database:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
