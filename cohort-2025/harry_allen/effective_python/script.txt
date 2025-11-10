@@ -2,3 +2,27 @@
 
 	It seems to make sense to give a special meaning to the return value 'None'. Problems arise mainly if we try to evaluate the result in a condition (e.g. an if statement). This is because 'None' is False-equivalent (along with zero, empty string) all evaluate to 'False' in conditional expressions.
 	Instead, we should raise exceptions to indicate special situations.
+
+2 - (Item 2) Follow the PEP 8 Style Guide:
+
+	Python Enhancement Proposal #8, is the style guide for formatting Python (https://www.python.org/dev/peps/pep-0008/). Some rules are as follows:
+		- Use spaces instead of tabs for indentation (four spaces for each level).
+		- Lines should be max. 79 characters.
+		- Functions and classes should be separated by two blank lines.
+		- etc.
+		- Also naming rules:
+			- Capitalise classnames.
+			- Private instance attributes should be in __double_leading_underscore format.
+			- Module-level constants should be in ALL_CAPS format.
+			- etc.
+
+	The Pylint tool is a static analyser for Python source code, which automatically enforces the PEP 8 style guide.
+
+3 - (Item 65) Take Advantage of Each Block in try/except/else/finally:
+
+	Instead of checking for errors manually at each step ("LBYL" - Look Before You Leap), Python encourages "EAFP" - Easier to Ask Forgiveness than Permission, in other words try something and if it fails handle it.
+	The four blocks (try, except, else, finally) give fine-grained control over what code runs depending on whether an exception occurred:
+		- try : Run this code that might fail. Only statements inside try are monitored for exceptions.
+		- except : If a specific exception happens, execute this handler. Only runs if an exception occurred inside the try block.
+		- else : If no exception occurred in the try block, then run this block.
+		- finally : Run this code no matter what happened. Used for cleanup actions.
