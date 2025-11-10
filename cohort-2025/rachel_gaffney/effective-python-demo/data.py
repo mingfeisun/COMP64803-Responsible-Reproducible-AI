@@ -1,0 +1,8 @@
+CSV_PATH = "data/cancer_data.csv"
+NORMALIZED_CSV = "data/normalized.csv"
+X_TRAIN = "data/X_train.csv"
+X_TEST = "data/X_test.csv"
+Y_TRAIN = "data/y_train.csv"
+Y_TEST = "data/y_test.csv"
+X_TRAIN_TOP = "data/X_train_top.csv"
+X_TEST_TOP = "data/X_test_top.csv"

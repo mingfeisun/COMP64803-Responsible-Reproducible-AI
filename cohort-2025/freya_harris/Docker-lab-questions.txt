@@ -1,0 +1,9 @@
+1. root, which can be checked by running whoami
+2. it's not the same container as each time 'docker run ...' is run a new container is created from the image and is assigned a unique container ID. 
+   You can tell it is a different container as the ID after 'root@...' is different each time the command is run
+3. docker run -it mypython:latest launches the python 3.6 interpreter in interactive mode
+4. the Dockerfile installs the fortune-mod and fortunes-min packages, and then runs the command which prints a random fortune, and then exits.
+   translating what you would normally do in an interactive environment involves typing the steps in the RUN line, and the final command becomes a CMD line.
+   The Dockerfile and the docker image outputs are uploaded separately.
+5. the outputs of ps aux are uploaded separately.
+   inside the docker container, only the processes that belong to that container are running, whereas in the VM all background system services must run as well.
