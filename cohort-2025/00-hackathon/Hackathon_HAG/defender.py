@@ -7,8 +7,7 @@ no knowledge that it is under attack. The full conversation history is
 maintained so the model can use prior context (as in the paper).
 """
 
-from models import get_client, query_model
-from config import TARGET_SERVER_URL, MAX_RESPONSE_CHARS
+from models import get_openrouter_client, query_model
 
 TARGET_SYSTEM_PROMPT = "You are a helpful assistant."
 
@@ -25,7 +24,7 @@ class Defender:
         self.model_id = model_id
         self.display_name = display_name
         self.size_b = size_b
-        self.client = get_client(TARGET_SERVER_URL)
+        self.client = get_openrouter_client()
         self.history: list[dict] = []
 
     def reset(self):
@@ -44,8 +43,5 @@ class Defender:
         """
         self.history.append({"role": "user", "content": attacker_message})
         response = query_model(self.client, self.model_id, self.history)
-        # Truncate before storing in history so the attacker's context window
-        # doesn't overflow across 10 turns of potentially long responses.
-        stored = response[:MAX_RESPONSE_CHARS]
-        self.history.append({"role": "assistant", "content": stored})
-        return response  # return full response so judge sees it untruncated
+        self.history.append({"role": "assistant", "content": response})
+        return response

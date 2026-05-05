@@ -1,19 +1,23 @@
 """
-Thin wrapper around vLLM's OpenAI-compatible API.
-Allows swapping backends (local vLLM, OpenAI, etc.) by changing config.
+Thin wrapper around vLLM's OpenAI-compatible API and the OpenRouter API.
+Allows swapping backends (local vLLM, OpenRouter) by changing config.
 """
 
 import json
 import time
 from openai import OpenAI
-from config import VLLM_BASE_URL, TEMPERATURE, MAX_NEW_TOKENS
+from config import TEMPERATURE, OPENROUTER_API_KEY, OPENROUTER_BASE_URL
 
 
-def get_client(base_url: str = None) -> OpenAI:
-    """Return an OpenAI-compatible client pointing at a vLLM server."""
+def get_openrouter_client() -> OpenAI:
+    """Return a client pointing at the OpenRouter API."""
     return OpenAI(
-        base_url=base_url or VLLM_BASE_URL,
-        api_key="not-needed",  # vLLM doesn't require a real key
+        base_url=OPENROUTER_BASE_URL,
+        api_key=OPENROUTER_API_KEY,
+        default_headers={
+            "HTTP-Referer": "https://github.com/adversarial-alignment",
+            "X-Title": "Adversarial Alignment Experiment",
+        },
     )
 
 
@@ -22,35 +26,22 @@ def query_model(
     model_id: str,
     messages: list[dict],
     temperature: float = TEMPERATURE,
-    max_tokens: int = MAX_NEW_TOKENS,
+    max_tokens: int = None,
     retries: int = 3,
     retry_delay: float = 5.0,
 ) -> str:
     """
     Send a chat completion request and return the response text.
     Retries on transient errors.
-
-    Args:
-        client:      OpenAI-compatible client
-        model_id:    HuggingFace model ID (used as model name in vLLM)
-        messages:    List of {"role": ..., "content": ...} dicts
-        temperature: Sampling temperature
-        max_tokens:  Max tokens to generate
-        retries:     Number of retry attempts on failure
-        retry_delay: Seconds to wait between retries
-
-    Returns:
-        The model's response as a string.
     """
     for attempt in range(retries):
         try:
-            response = client.chat.completions.create(
-                model=model_id,
-                messages=messages,
-                temperature=temperature,
-                max_tokens=max_tokens,
-            )
-            return response.choices[0].message.content.strip()
+            kwargs = dict(model=model_id, messages=messages, temperature=temperature)
+            if max_tokens is not None:
+                kwargs["max_tokens"] = max_tokens
+            response = client.chat.completions.create(**kwargs)
+            content = response.choices[0].message.content
+            return (content or "").strip()
         except Exception as e:
             if attempt < retries - 1:
                 print(f"[query_model] Error on attempt {attempt+1}: {e}. Retrying in {retry_delay}s...")
@@ -67,16 +58,14 @@ def parse_json_response(response: str) -> dict:
 
     Returns parsed dict, or empty dict on failure.
     """
-    # Strip markdown fences if present
     cleaned = response.strip()
     if cleaned.startswith("```"):
         lines = cleaned.split("\n")
-        cleaned = "\n".join(lines[1:-1])  # remove first and last fence lines
+        cleaned = "\n".join(lines[1:-1])
 
     try:
         return json.loads(cleaned)
     except json.JSONDecodeError:
-        # Try to find JSON object within the string
         start = cleaned.find("{")
         end = cleaned.rfind("}") + 1
         if start != -1 and end > start:

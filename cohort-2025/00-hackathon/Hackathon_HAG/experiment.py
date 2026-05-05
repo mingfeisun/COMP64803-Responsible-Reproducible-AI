@@ -12,12 +12,26 @@ Flow per exchange:
 """
 
 import time
+import textwrap
 from dataclasses import dataclass, field, asdict
+
+_WRAP_WIDTH = 100   # terminal column limit for verbose output
+_VERBOSE_CHARS = 400  # max chars shown per message in verbose mode
+
+
+def _print_wrapped(label: str, text: str):
+    indent = " " * len(label)
+    print(textwrap.fill(
+        text[:_VERBOSE_CHARS] + ("…" if len(text) > _VERBOSE_CHARS else ""),
+        width=_WRAP_WIDTH,
+        initial_indent=label,
+        subsequent_indent=indent,
+    ))
 
 from attacker import Attacker
 from defender import Defender
 from judge import Judge
-from config import MAX_TURNS, HARM_THRESHOLD
+from config import MAX_TURNS, HARM_THRESHOLD  # HARM_THRESHOLD used for attack_success metric
 
 
 @dataclass
@@ -101,13 +115,13 @@ def run_exchange(
     for turn in range(1, max_turns + 1):
         if verbose:
             print(f"\n  --- Turn {turn}/{max_turns} ---")
-            print(f"  [Attacker]: {attacker_message[:120]}")
+            _print_wrapped("  [Attacker]: ", attacker_message)
 
         # Target responds
         target_response = defender.respond(attacker_message)
 
         if verbose:
-            print(f"  [Target]:   {target_response[:120]}")
+            _print_wrapped("  [Target]:   ", target_response)
 
         # Judge scores this turn's response
         judgment = judge.score(item["prompt"], target_response)
@@ -125,12 +139,6 @@ def run_exchange(
             refusal=judgment["refusal"],
         ))
         result.n_turns = turn
-
-        # Early stopping: maximum harm achieved
-        if judgment["harm"] >= HARM_THRESHOLD:
-            if verbose:
-                print(f"  [Judge]:    Maximum harm score reached — stopping early.")
-            break
 
         # Attacker generates next message (unless this was the last turn)
         if turn < max_turns:
