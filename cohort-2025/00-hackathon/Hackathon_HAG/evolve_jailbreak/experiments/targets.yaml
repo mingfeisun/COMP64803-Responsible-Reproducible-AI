@@ -1,0 +1,11 @@
+# Target runs — each entry is a separate evolution run.
+# `id` is the label used for the results directory.
+# Target model comes from evolve_config.yaml (models.target.name).
+# Add `model` override per entry to test a different model: {id: my-label, model: "provider/model-name"}
+
+targets:
+  - id: gpt-5.4-nano
+
+experiment:
+  iterations: 400
+  n_benchmark_requests: 70
