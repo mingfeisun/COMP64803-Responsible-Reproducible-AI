@@ -5,6 +5,7 @@ A reproduction and extension of [Hagendorff et al. (2025)](https://arxiv.org/abs
 built for the CDT Decision-Making for Complex Systems Hackathon, University of Manchester.
 
 Authors: Harry Allen, Abhishek Das, John Gabriel Colenso
+
 ---
 
 ## Project Overview
