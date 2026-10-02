@@ -1,0 +1,21 @@
+Docker Lab:
+
+see: https://github.com/mingfeisun/COMP64803-Responsible-Reproducible-AI/wiki/Docker-tutorial
+
+Q1: "What user are you logged in as by default?"
+A1: root
+
+Q2: "If you start and then exit an interactive container, and then use the docker run -it ubuntu:xenial /bin/bash command again, is it the same container? How can you tell?"
+A2: No, it is a new container with a unique ID and name (as not specified in command), but is based off the same image.
+
+Q3: "Run the image you just built. Since we specified the default CMD, you can just do docker run -it mypython:latest. What do you observe?"
+A3: Runs python 3.6 in interactive REPL.
+
+Q4: "Write and build a Dockerfile that installs the packages fortune and fortunes-min and runs the fortune executable (located in /usr/games/fortune after you install it). Note that you won’t need to use the -it flags when you run the container as fortune doesn’t need STDIN. Submit your Dockerfile with this lab. Hint: if you’re having trouble writing your Dockerfile, try booting an interactive container and installing both packages. Translate what you did into a Dockerfile. How can you translate what you did interactively to a Dockerfile?"
+A4:	cd fortunes/
+	docker build -t myfortunes:latest .
+	docker run myfortunes:latest
+
+"You're ugly and your mother dresses you funny." :(
+
+Q5:

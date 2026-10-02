@@ -1,0 +1,3127 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:PUBLISH
+PRODID://Web Resource Booking//
+X-PUBLISHED-TTL:PT1M
+X-WR-CALDESC:Dr Artificial Intelligence
+X-WR-CALNAME:Dr Artificial Intelligence
+BEGIN:VTIMEZONE
+TZID:GMT Standard Time
+BEGIN:STANDARD
+DTSTART:20241002T020000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYHOUR=2;BYMINUTE=0;BYMONTH=10
+TZNAME:GMT Standard Time
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20240301T010000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYHOUR=1;BYMINUTE=0;BYMONTH=3
+TZNAME:GMT Daylight Time
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Stopford_TH 1\nDate: Wednesday\,
+  06 November 2024\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.463834\,-2.230496&query_place_id=ChIJlQZUXo6xe0gRTyj9t
+ YW1NBc)	\nDirections: Stopford_TH 1 is located on the first floor of the S
+ topford Building.	\nStaff Member: Mukherjee\, Anirbit	\nUnit Code: COMP610
+ 21\, COMP41021	\n\n
+DTEND:20241106T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241106T100000Z
+LAST-MODIFIED:20241016T114205
+LOCATION:Stopford_TH 1
+SEQUENCE:0
+SUMMARY:COMP41021/LECTURE1B/\, COMP61021/LECTURE1B/
+UID:c67851db-2404-440a-a89b-a39c462a36dc:638664840000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Stopford_TH 1\nDate: Wednesday\,
+  27 November 2024\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.463834\,-2.230496&query_place_id=ChIJlQZUXo6xe0gRTyj9t
+ YW1NBc)	\nDirections: Stopford_TH 1 is located on the first floor of the S
+ topford Building.	\nStaff Member: Mukherjee\, Anirbit	\nUnit Code: COMP610
+ 21\, COMP41021	\n\n
+DTEND:20241127T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241127T100000Z
+LAST-MODIFIED:20241016T114205
+LOCATION:Stopford_TH 1
+SEQUENCE:0
+SUMMARY:COMP41021/LECTURE1B/\, COMP61021/LECTURE1B/
+UID:f76425d3-17ec-4966-b92c-7d3dd398e033:638682984000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Stopford_TH 1\nDate: Wednesday\,
+  04 December 2024\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.463834\,-2.230496&query_place_id=ChIJlQZUXo6xe0gRTyj9t
+ YW1NBc)	\nDirections: Stopford_TH 1 is located on the first floor of the S
+ topford Building.	\nStaff Member: Mukherjee\, Anirbit	\nUnit Code: COMP610
+ 21\, COMP41021	\n\n
+DTEND:20241204T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241204T100000Z
+LAST-MODIFIED:20241016T114205
+LOCATION:Stopford_TH 1
+SEQUENCE:0
+SUMMARY:COMP41021/LECTURE1B/\, COMP61021/LECTURE1B/
+UID:50731dd7-4f47-4cbd-90b5-983b2dce2cc1:638689032000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Stopford_TH 1\nDate: Wednesday\,
+  13 November 2024\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.463834\,-2.230496&query_place_id=ChIJlQZUXo6xe0gRTyj9t
+ YW1NBc)	\nDirections: Stopford_TH 1 is located on the first floor of the S
+ topford Building.	\nStaff Member: Rivasplata\, Omar	\nUnit Code: COMP61021
+ \, COMP41021	\n\n
+DTEND:20241113T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241113T100000Z
+LAST-MODIFIED:20241015T103224
+LOCATION:Stopford_TH 1
+SEQUENCE:0
+SUMMARY:COMP41021/LECTURE1A/\, COMP61021/LECTURE1A/
+UID:57d4c67b-caa5-4752-9237-4ac100678525:638670888000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Stopford_TH 1\nDate: Wednesday\,
+  20 November 2024\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.463834\,-2.230496&query_place_id=ChIJlQZUXo6xe0gRTyj9t
+ YW1NBc)	\nDirections: Stopford_TH 1 is located on the first floor of the S
+ topford Building.	\nStaff Member: Rivasplata\, Omar	\nUnit Code: COMP61021
+ \, COMP41021	\n\n
+DTEND:20241120T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241120T100000Z
+LAST-MODIFIED:20241015T103224
+LOCATION:Stopford_TH 1
+SEQUENCE:0
+SUMMARY:COMP41021/LECTURE1A/\, COMP61021/LECTURE1A/
+UID:5411b647-9706-45e3-90ce-c7e4f92baa4b:638676936000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 18 March 2025\nMap link: [Goo
+ gle Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2.23
+ 0567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Rutherf
+ ord Theatre is on the ground floor of the Schuster Building.	\nStaff Membe
+ r: Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250318T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250318T150000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE2/
+UID:2604d0bd-ba05-4e28-96f3-03e011bbb49c:638779068000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 25 March 2025\nMap link: [Goo
+ gle Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2.23
+ 0567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Rutherf
+ ord Theatre is on the ground floor of the Schuster Building.	\nStaff Membe
+ r: Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250325T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250325T150000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE2/
+UID:cc39caa2-d89f-4f71-9999-2638e386f564:638785116000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 01 April 2025\nMap link: [Goo
+ gle Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2.23
+ 0567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Rutherf
+ ord Theatre is on the ground floor of the Schuster Building.	\nStaff Membe
+ r: Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250401T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250401T140000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE2/
+UID:a79b21b5-00e4-467c-967e-8f48f779a2a2:638791128000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 29 April 2025\nMap link: [Goo
+ gle Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2.23
+ 0567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Rutherf
+ ord Theatre is on the ground floor of the Schuster Building.	\nStaff Membe
+ r: Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250429T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250429T140000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE2/
+UID:c892524d-c372-4817-860d-74f3fbcdd31d:638815320000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 06 May 2025\nMap link: [Googl
+ e Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2.2305
+ 67&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Rutherfor
+ d Theatre is on the ground floor of the Schuster Building.	\nStaff Member:
+  Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250506T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250506T140000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE2/
+UID:8b7b3a46-057d-4532-b8ad-e3e904b6ae8b:638821368000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 28 January 2025\nMap link: [G
+ oogle Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2.
+ 230567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Ruthe
+ rford Theatre is on the ground floor of the Schuster Building.	\nStaff Mem
+ ber: Pan\, Wei	\nUnit Code: COMP64202	\n\n
+DTEND:20250128T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250128T150000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE1/
+UID:71e3607d-446f-4baa-b3ff-082904f424a7:638736732000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 04 February 2025\nMap link: [
+ Google Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2
+ .230567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Ruth
+ erford Theatre is on the ground floor of the Schuster Building.	\nStaff Me
+ mber: Pan\, Wei	\nUnit Code: COMP64202	\n\n
+DTEND:20250204T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250204T150000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE1/
+UID:654a03e1-ed4a-48be-a51b-bc5fdb7b3a1f:638742780000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 11 February 2025\nMap link: [
+ Google Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2
+ .230567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Ruth
+ erford Theatre is on the ground floor of the Schuster Building.	\nStaff Me
+ mber: Pan\, Wei	\nUnit Code: COMP64202	\n\n
+DTEND:20250211T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250211T150000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE1/
+UID:9ddc84de-2743-429e-8fde-29a8e192d790:638748828000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 18 February 2025\nMap link: [
+ Google Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2
+ .230567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Ruth
+ erford Theatre is on the ground floor of the Schuster Building.	\nStaff Me
+ mber: Pan\, Wei	\nUnit Code: COMP64202	\n\n
+DTEND:20250218T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250218T150000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE1/
+UID:32005c85-51b6-43d0-808f-0b6aca2f6112:638754876000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 25 February 2025\nMap link: [
+ Google Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2
+ .230567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Ruth
+ erford Theatre is on the ground floor of the Schuster Building.	\nStaff Me
+ mber: Pan\, Wei	\nUnit Code: COMP64202	\n\n
+DTEND:20250225T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250225T150000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE1/
+UID:e4c70f7d-4a43-44f9-9749-9f74275a8a22:638760924000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reinforcement Learning\nLocat
+ ion: Schuster_RUTHERFORD TH\nDate: Tuesday\, 11 March 2025\nMap link: [Goo
+ gle Maps](https://www.google.com/maps/search/?api=1&query=53.467269\,-2.23
+ 0567&query_place_id=ChIJKfZGD8Gxe0gRFFHM_wuWpDI)	\nDirections: The Rutherf
+ ord Theatre is on the ground floor of the Schuster Building.	\nStaff Membe
+ r: Pan\, Wei	\nUnit Code: COMP64202	\n\n
+DTEND:20250311T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250311T150000Z
+LAST-MODIFIED:20241003T230846
+LOCATION:Schuster_RUTHERFORD TH
+SEQUENCE:0
+SUMMARY:COMP64202/LECTURE1/
+UID:816c206c-e5c3-4a09-bf67-ded1e80580f4:638773020000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reinforcement Learning\nLoca
+ tion: Kilburn_2.19\nDate: Thursday\, 06 February 2025\nMap link: [Google M
+ aps](https://www.google.com/maps/search/?api=1&query=53.467335\,-2.234203&
+ query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn_2.19 is 
+ located on the second floor of the Kilburn Building.	\nStaff Member: Pan\,
+  Wei\, Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250206T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250206T140000Z
+LAST-MODIFIED:20250121T202123
+LOCATION:Kilburn_2.19
+SEQUENCE:0
+SUMMARY:COMP64202/TUTORIAL1/1
+UID:8154ba5a-8a7c-4e98-b7f4-09bcc5c2cdc3:638744472000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reinforcement Learning\nLoca
+ tion: Kilburn_2.19\nDate: Thursday\, 20 February 2025\nMap link: [Google M
+ aps](https://www.google.com/maps/search/?api=1&query=53.467335\,-2.234203&
+ query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn_2.19 is 
+ located on the second floor of the Kilburn Building.	\nStaff Member: Pan\,
+  Wei\, Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250220T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250220T140000Z
+LAST-MODIFIED:20250121T202123
+LOCATION:Kilburn_2.19
+SEQUENCE:0
+SUMMARY:COMP64202/TUTORIAL1/1
+UID:36c21455-579e-4e45-aea8-8cf852c1282f:638756568000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reinforcement Learning\nLoca
+ tion: Kilburn_2.19\nDate: Thursday\, 13 March 2025\nMap link: [Google Maps
+ ](https://www.google.com/maps/search/?api=1&query=53.467335\,-2.234203&que
+ ry_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn_2.19 is loc
+ ated on the second floor of the Kilburn Building.	\nStaff Member: Pan\, We
+ i\, Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250313T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250313T140000Z
+LAST-MODIFIED:20250121T202123
+LOCATION:Kilburn_2.19
+SEQUENCE:0
+SUMMARY:COMP64202/TUTORIAL1/1
+UID:eff2b852-e535-49bc-8fc6-3e93defb7b5c:638774712000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reinforcement Learning\nLoca
+ tion: Kilburn_2.19\nDate: Thursday\, 27 March 2025\nMap link: [Google Maps
+ ](https://www.google.com/maps/search/?api=1&query=53.467335\,-2.234203&que
+ ry_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn_2.19 is loc
+ ated on the second floor of the Kilburn Building.	\nStaff Member: Pan\, We
+ i\, Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250327T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250327T140000Z
+LAST-MODIFIED:20250121T202123
+LOCATION:Kilburn_2.19
+SEQUENCE:0
+SUMMARY:COMP64202/TUTORIAL1/1
+UID:300f0ca4-9e11-465a-8fc5-f3eca91a01ef:638786808000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reinforcement Learning\nLoca
+ tion: Kilburn_2.19\nDate: Thursday\, 01 May 2025\nMap link: [Google Maps](
+ https://www.google.com/maps/search/?api=1&query=53.467335\,-2.234203&query
+ _place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn_2.19 is locat
+ ed on the second floor of the Kilburn Building.	\nStaff Member: Pan\, Wei\
+ , Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250501T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250501T130000Z
+LAST-MODIFIED:20250121T202123
+LOCATION:Kilburn_2.19
+SEQUENCE:0
+SUMMARY:COMP64202/TUTORIAL1/1
+UID:9f8e4f09-9d8c-4764-b701-e85cc4e46a67:638817012000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reinforcement Learning\nLo
+ cation: Kilburn_2.25 (A+B)\nDate: Wednesday\, 12 February 2025\nMap link: 
+ [Google Maps](https://www.google.com/maps/search/?api=1&query=53.467335\,-
+ 2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn
+ _2.25 (A+B) is located on the second floor of the Kilburn Building.	\nStaf
+ f Member: Pan\, Wei\, Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250212T180000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250212T160000Z
+LAST-MODIFIED:20250122T151444
+LOCATION:Kilburn_2.25 (A+B)
+SEQUENCE:0
+SUMMARY:COMP64202/LABORATORY1/1
+UID:b34aa635-6eb1-47be-8dd5-5b94fac2a736:638749728000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reinforcement Learning\nLo
+ cation: Kilburn_2.25 (A+B)\nDate: Wednesday\, 26 February 2025\nMap link: 
+ [Google Maps](https://www.google.com/maps/search/?api=1&query=53.467335\,-
+ 2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn
+ _2.25 (A+B) is located on the second floor of the Kilburn Building.	\nStaf
+ f Member: Pan\, Wei\, Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250226T180000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250226T160000Z
+LAST-MODIFIED:20250122T151444
+LOCATION:Kilburn_2.25 (A+B)
+SEQUENCE:0
+SUMMARY:COMP64202/LABORATORY1/1
+UID:09582040-1834-4222-9fa3-8d4d3c76490d:638761824000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reinforcement Learning\nLo
+ cation: Kilburn_2.25 (A+B)\nDate: Wednesday\, 19 March 2025\nMap link: [Go
+ ogle Maps](https://www.google.com/maps/search/?api=1&query=53.467335\,-2.2
+ 34203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn_2.
+ 25 (A+B) is located on the second floor of the Kilburn Building.	\nStaff M
+ ember: Pan\, Wei\, Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250319T180000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250319T160000Z
+LAST-MODIFIED:20250122T151444
+LOCATION:Kilburn_2.25 (A+B)
+SEQUENCE:0
+SUMMARY:COMP64202/LABORATORY1/1
+UID:ab1be0cc-bb29-44c1-afaa-ea37f8725154:638779968000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reinforcement Learning\nLo
+ cation: Kilburn_2.25 (A+B)\nDate: Wednesday\, 02 April 2025\nMap link: [Go
+ ogle Maps](https://www.google.com/maps/search/?api=1&query=53.467335\,-2.2
+ 34203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections: Kilburn_2.
+ 25 (A+B) is located on the second floor of the Kilburn Building.	\nStaff M
+ ember: Pan\, Wei\, Sun\, Mingfei	\nUnit Code: COMP64202	\n\n
+DTEND:20250402T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250402T150000Z
+LAST-MODIFIED:20250122T151444
+LOCATION:Kilburn_2.25 (A+B)
+SEQUENCE:0
+SUMMARY:COMP64202/LABORATORY1/1
+UID:8a8748fe-20a9-45f4-8534-a3d14f66221b:638792028000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reasoning and Learning under
+  Uncertainty (CDT)\nLocation: Simon_4.05\nDate: Friday\, 04 October 2024\n
+ Map link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53
+ .4657\,-2.231734&query_place_id=ChIJG8UN7I2xe0gR-MvtC8UUPeU)	\nDirections:
+  Simon_4.05 is located on the fourth floor of the Simon Building.	\nStaff 
+ Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvarez\, Mauricio	\nUnit C
+ ode: COMP64101	\n\n
+DTEND:20241004T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241004T120000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Simon_4.05
+SEQUENCE:0
+SUMMARY:COMP64101/TUTORIAL1/
+UID:4e0a8c5f-f198-4345-85cf-25221436c21e:638636400000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reasoning and Learning under
+  Uncertainty (CDT)\nLocation: Simon_4.05\nDate: Friday\, 18 October 2024\n
+ Map link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53
+ .4657\,-2.231734&query_place_id=ChIJG8UN7I2xe0gR-MvtC8UUPeU)	\nDirections:
+  Simon_4.05 is located on the fourth floor of the Simon Building.	\nStaff 
+ Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvarez\, Mauricio	\nUnit C
+ ode: COMP64101	\n\n
+DTEND:20241018T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241018T120000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Simon_4.05
+SEQUENCE:0
+SUMMARY:COMP64101/TUTORIAL1/
+UID:331ef1aa-fde1-43d9-ae70-82a2d724920f:638648496000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reasoning and Learning under
+  Uncertainty (CDT)\nLocation: Simon_4.05\nDate: Friday\, 08 November 2024\
+ nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=5
+ 3.4657\,-2.231734&query_place_id=ChIJG8UN7I2xe0gR-MvtC8UUPeU)	\nDirections
+ : Simon_4.05 is located on the fourth floor of the Simon Building.	\nStaff
+  Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvarez\, Mauricio	\nUnit 
+ Code: COMP64101	\n\n
+DTEND:20241108T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241108T130000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Simon_4.05
+SEQUENCE:0
+SUMMARY:COMP64101/TUTORIAL1/
+UID:bdb81482-633e-4ee5-9224-f3c703fdf5f0:638666676000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reasoning and Learning under
+  Uncertainty (CDT)\nLocation: Simon_4.05\nDate: Friday\, 22 November 2024\
+ nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=5
+ 3.4657\,-2.231734&query_place_id=ChIJG8UN7I2xe0gR-MvtC8UUPeU)	\nDirections
+ : Simon_4.05 is located on the fourth floor of the Simon Building.	\nStaff
+  Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvarez\, Mauricio	\nUnit 
+ Code: COMP64101	\n\n
+DTEND:20241122T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241122T130000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Simon_4.05
+SEQUENCE:0
+SUMMARY:COMP64101/TUTORIAL1/
+UID:43d2b7b1-0e8d-4bfd-b978-ea5f952cb631:638678772000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nDescription: Reasoning and Learning under
+  Uncertainty (CDT)\nLocation: Simon_4.05\nDate: Friday\, 06 December 2024\
+ nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=5
+ 3.4657\,-2.231734&query_place_id=ChIJG8UN7I2xe0gR-MvtC8UUPeU)	\nDirections
+ : Simon_4.05 is located on the fourth floor of the Simon Building.	\nStaff
+  Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvarez\, Mauricio	\nUnit 
+ Code: COMP64101	\n\n
+DTEND:20241206T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241206T130000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Simon_4.05
+SEQUENCE:0
+SUMMARY:COMP64101/TUTORIAL1/
+UID:d200aa04-affd-4781-810e-a58862c5006b:638690868000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reasoning and Learning und
+ er Uncertainty (CDT)\nLocation: Kilburn_1.10\nDate: Friday\, 04 October 20
+ 24\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&quer
+ y=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirec
+ tions: Kilburn_1.10 is located on the first floor of the Kilburn Building.
+ 	\nStaff Member: Caprio\, Michele\, Paudice\, Andrea\, Alvarez\, Mauricio	
+ \nUnit Code: COMP64101	\n\n
+DTEND:20241004T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241004T140000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP64101/LABORATORY1/
+UID:2eb3dc2e-e96c-40f4-b7cc-064d4dfe5d56:638636472000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reasoning and Learning und
+ er Uncertainty (CDT)\nLocation: Kilburn_1.10\nDate: Friday\, 18 October 20
+ 24\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&quer
+ y=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirec
+ tions: Kilburn_1.10 is located on the first floor of the Kilburn Building.
+ 	\nStaff Member: Caprio\, Michele\, Paudice\, Andrea\, Alvarez\, Mauricio	
+ \nUnit Code: COMP64101	\n\n
+DTEND:20241018T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241018T140000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP64101/LABORATORY1/
+UID:e2af9b94-18d9-43e1-8ad8-b1a90e9a21cd:638648568000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reasoning and Learning und
+ er Uncertainty (CDT)\nLocation: Kilburn_1.10\nDate: Friday\, 08 November 2
+ 024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&que
+ ry=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDire
+ ctions: Kilburn_1.10 is located on the first floor of the Kilburn Building
+ .	\nStaff Member: Caprio\, Michele\, Paudice\, Andrea\, Alvarez\, Mauricio
+ 	\nUnit Code: COMP64101	\n\n
+DTEND:20241108T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241108T150000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP64101/LABORATORY1/
+UID:18dd4409-7704-4481-a8de-5b96302c7bc4:638666748000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reasoning and Learning und
+ er Uncertainty (CDT)\nLocation: Kilburn_1.10\nDate: Friday\, 22 November 2
+ 024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&que
+ ry=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDire
+ ctions: Kilburn_1.10 is located on the first floor of the Kilburn Building
+ .	\nStaff Member: Caprio\, Michele\, Paudice\, Andrea\, Alvarez\, Mauricio
+ 	\nUnit Code: COMP64101	\n\n
+DTEND:20241122T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241122T150000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP64101/LABORATORY1/
+UID:3fabc425-10d1-4c11-b099-74b052edd0ad:638678844000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Reasoning and Learning und
+ er Uncertainty (CDT)\nLocation: Kilburn_1.10\nDate: Friday\, 06 December 2
+ 024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&que
+ ry=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDire
+ ctions: Kilburn_1.10 is located on the first floor of the Kilburn Building
+ .	\nStaff Member: Caprio\, Michele\, Paudice\, Andrea\, Alvarez\, Mauricio
+ 	\nUnit Code: COMP64101	\n\n
+DTEND:20241206T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241206T150000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP64101/LABORATORY1/
+UID:544a8561-a7a7-4b72-8c12-67d8527433c6:638690940000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 31 January 2025\nMap link: [Google Maps](https://www.google.com/maps/se
+ arch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5Kt
+ EjUuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of 
+ the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: 
+ MATH64082\, MATH44082	\n\n
+DTEND:20250131T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250131T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:917d24b7-6afb-414a-83eb-f7b7a4fa8418:638739288000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 07 February 2025\nMap link: [Google Maps](https://www.google.com/maps/s
+ earch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5K
+ tEjUuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of
+  the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code:
+  MATH64082\, MATH44082	\n\n
+DTEND:20250207T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250207T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:6d113a70-a41d-4f94-b4ec-f6f6b4cf776a:638745336000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 14 February 2025\nMap link: [Google Maps](https://www.google.com/maps/s
+ earch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5K
+ tEjUuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of
+  the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code:
+  MATH64082\, MATH44082	\n\n
+DTEND:20250214T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250214T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:bea7764f-381e-4c5d-8afb-d93e75b4af2a:638751384000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 21 February 2025\nMap link: [Google Maps](https://www.google.com/maps/s
+ earch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5K
+ tEjUuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of
+  the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code:
+  MATH64082\, MATH44082	\n\n
+DTEND:20250221T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250221T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:f843cacc-69da-44bf-9de9-14817b7c9420:638757432000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 28 February 2025\nMap link: [Google Maps](https://www.google.com/maps/s
+ earch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5K
+ tEjUuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of
+  the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code:
+  MATH64082\, MATH44082	\n\n
+DTEND:20250228T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250228T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:6e776630-5a5e-4710-a416-2d5361e66405:638763480000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 07 March 2025\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEj
+ Uuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of th
+ e Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MA
+ TH64082\, MATH44082	\n\n
+DTEND:20250307T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250307T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:4c89c2da-b186-4251-be4e-5039d6da7890:638769528000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 14 March 2025\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEj
+ Uuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of th
+ e Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MA
+ TH64082\, MATH44082	\n\n
+DTEND:20250314T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250314T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:db17f6d1-c11f-42dd-97e6-2d13d6b4be4b:638775576000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 21 March 2025\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEj
+ Uuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of th
+ e Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MA
+ TH64082\, MATH44082	\n\n
+DTEND:20250321T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250321T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:c9f6b15b-1b5d-4658-a853-78e45855beee:638781624000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 28 March 2025\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEj
+ Uuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of th
+ e Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MA
+ TH64082\, MATH44082	\n\n
+DTEND:20250328T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250328T140000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:767c7186-a786-4396-9521-49008638d741:638787672000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 04 April 2025\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEj
+ Uuo8)	\nDirections: Alan Turing_G.207 is located on the ground floor of th
+ e Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MA
+ TH64082\, MATH44082	\n\n
+DTEND:20250404T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250404T130000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:905dbcfc-6b8a-41cd-a271-167232974ca9:638793684000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 02 May 2025\nMap link: [Google Maps](https://www.google.com/maps/search
+ /?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEjUu
+ o8)	\nDirections: Alan Turing_G.207 is located on the ground floor of the 
+ Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MATH
+ 64082\, MATH44082	\n\n
+DTEND:20250502T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250502T130000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:328f9bd4-c621-4726-9441-32ee710e5823:638817876000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Alan Turing_G.207\nDate: Friday
+ \, 09 May 2025\nMap link: [Google Maps](https://www.google.com/maps/search
+ /?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEjUu
+ o8)	\nDirections: Alan Turing_G.207 is located on the ground floor of the 
+ Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MATH
+ 64082\, MATH44082	\n\n
+DTEND:20250509T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250509T130000Z
+LAST-MODIFIED:20241004T002143
+LOCATION:Alan Turing_G.207
+SEQUENCE:0
+SUMMARY:MATH44082/TUTORIAL1/\, MATH64082/TUTORIAL1/
+UID:10049094-d0ca-41a2-957f-ff215c584730:638823924000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Nancy Rothwell_3A.012 M&T\nDate
+ : Wednesday\, 09 October 2024\nMap link: [Google Maps](https://www.google.
+ com/maps/search/?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uum
+ 86xe0gRFVZHgAzbMmk)	\nDirections: 3A.012 is on the third floor of the Nanc
+ y Rothwell Building. It can be accessed by the stairs and lifts in Core 1.
+ 	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH64071\, MATH44071	\n\n
+DTEND:20241009T090000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241009T080000Z
+LAST-MODIFIED:20241004T002127
+LOCATION:Nancy Rothwell_3A.012 M&T
+SEQUENCE:0
+SUMMARY:MATH44071/TUTORIAL1/\, MATH64071/TUTORIAL1/
+UID:2334320b-132f-4e32-9ba0-492834409533:638640576000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Nancy Rothwell_3A.012 M&T\nDate
+ : Wednesday\, 23 October 2024\nMap link: [Google Maps](https://www.google.
+ com/maps/search/?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uum
+ 86xe0gRFVZHgAzbMmk)	\nDirections: 3A.012 is on the third floor of the Nanc
+ y Rothwell Building. It can be accessed by the stairs and lifts in Core 1.
+ 	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH64071\, MATH44071	\n\n
+DTEND:20241023T090000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241023T080000Z
+LAST-MODIFIED:20241004T002127
+LOCATION:Nancy Rothwell_3A.012 M&T
+SEQUENCE:0
+SUMMARY:MATH44071/TUTORIAL1/\, MATH64071/TUTORIAL1/
+UID:eb786c81-b4e7-4d2e-933a-216a400963b0:638652672000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Nancy Rothwell_3A.012 M&T\nDate
+ : Wednesday\, 13 November 2024\nMap link: [Google Maps](https://www.google
+ .com/maps/search/?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uu
+ m86xe0gRFVZHgAzbMmk)	\nDirections: 3A.012 is on the third floor of the Nan
+ cy Rothwell Building. It can be accessed by the stairs and lifts in Core 1
+ .	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH64071\, MATH44071	\n\n
+DTEND:20241113T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241113T090000Z
+LAST-MODIFIED:20241004T002127
+LOCATION:Nancy Rothwell_3A.012 M&T
+SEQUENCE:0
+SUMMARY:MATH44071/TUTORIAL1/\, MATH64071/TUTORIAL1/
+UID:78d15bd8-e12a-4dbf-9b5e-f6699bac7af7:638670852000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Nancy Rothwell_3A.012 M&T\nDate
+ : Wednesday\, 27 November 2024\nMap link: [Google Maps](https://www.google
+ .com/maps/search/?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uu
+ m86xe0gRFVZHgAzbMmk)	\nDirections: 3A.012 is on the third floor of the Nan
+ cy Rothwell Building. It can be accessed by the stairs and lifts in Core 1
+ .	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH64071\, MATH44071	\n\n
+DTEND:20241127T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241127T090000Z
+LAST-MODIFIED:20241004T002127
+LOCATION:Nancy Rothwell_3A.012 M&T
+SEQUENCE:0
+SUMMARY:MATH44071/TUTORIAL1/\, MATH64071/TUTORIAL1/
+UID:1aa000d2-a339-4b61-a148-012fe1a90aad:638682948000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: TUTORIAL\nLocation: Nancy Rothwell_3A.012 M&T\nDate
+ : Wednesday\, 11 December 2024\nMap link: [Google Maps](https://www.google
+ .com/maps/search/?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uu
+ m86xe0gRFVZHgAzbMmk)	\nDirections: 3A.012 is on the third floor of the Nan
+ cy Rothwell Building. It can be accessed by the stairs and lifts in Core 1
+ .	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH64071\, MATH44071	\n\n
+DTEND:20241211T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241211T090000Z
+LAST-MODIFIED:20241004T002127
+LOCATION:Nancy Rothwell_3A.012 M&T
+SEQUENCE:0
+SUMMARY:MATH44071/TUTORIAL1/\, MATH64071/TUTORIAL1/
+UID:c8013325-74cb-4812-a706-ea5a5210f3e4:638695044000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Hum Bridge St_2.2\nDate: Wedn
+ esday\, 02 October 2024\nMap link: [Google Maps](https://www.google.com/ma
+ ps/search/?api=1&query=53.466466\,-2.236614&query_place_id=ChIJzVMEUY2xe0g
+ RtAWS3-UVT88)	\nDirections: HBS 2.2 is located on the second floor of the 
+ Humanities Bridgeford Street Building.	\nStaff Member: Cotter\, Simon	\nUn
+ it Code: MATH64071\, MATH44071	\n\n
+DTEND:20241002T090000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241002T080000Z
+LAST-MODIFIED:20241004T002131
+LOCATION:Hum Bridge St_2.2
+SEQUENCE:0
+SUMMARY:MATH44071/LABORATORY1/\, MATH64071/LABORATORY1/
+UID:1be10327-ccf1-47ee-9056-0ddbcefca0dc:638634528000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Hum Bridge St_2.2\nDate: Wedn
+ esday\, 16 October 2024\nMap link: [Google Maps](https://www.google.com/ma
+ ps/search/?api=1&query=53.466466\,-2.236614&query_place_id=ChIJzVMEUY2xe0g
+ RtAWS3-UVT88)	\nDirections: HBS 2.2 is located on the second floor of the 
+ Humanities Bridgeford Street Building.	\nStaff Member: Cotter\, Simon	\nUn
+ it Code: MATH64071\, MATH44071	\n\n
+DTEND:20241016T090000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241016T080000Z
+LAST-MODIFIED:20241004T002131
+LOCATION:Hum Bridge St_2.2
+SEQUENCE:0
+SUMMARY:MATH44071/LABORATORY1/\, MATH64071/LABORATORY1/
+UID:09963f77-12e1-4876-9860-ac347c672b23:638646624000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Hum Bridge St_2.2\nDate: Wedn
+ esday\, 06 November 2024\nMap link: [Google Maps](https://www.google.com/m
+ aps/search/?api=1&query=53.466466\,-2.236614&query_place_id=ChIJzVMEUY2xe0
+ gRtAWS3-UVT88)	\nDirections: HBS 2.2 is located on the second floor of the
+  Humanities Bridgeford Street Building.	\nStaff Member: Cotter\, Simon	\nU
+ nit Code: MATH64071\, MATH44071	\n\n
+DTEND:20241106T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241106T090000Z
+LAST-MODIFIED:20241004T002131
+LOCATION:Hum Bridge St_2.2
+SEQUENCE:0
+SUMMARY:MATH44071/LABORATORY1/\, MATH64071/LABORATORY1/
+UID:800fe3e8-9aaf-4187-8428-4e4024764999:638664804000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Hum Bridge St_2.2\nDate: Wedn
+ esday\, 20 November 2024\nMap link: [Google Maps](https://www.google.com/m
+ aps/search/?api=1&query=53.466466\,-2.236614&query_place_id=ChIJzVMEUY2xe0
+ gRtAWS3-UVT88)	\nDirections: HBS 2.2 is located on the second floor of the
+  Humanities Bridgeford Street Building.	\nStaff Member: Cotter\, Simon	\nU
+ nit Code: MATH64071\, MATH44071	\n\n
+DTEND:20241120T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241120T090000Z
+LAST-MODIFIED:20241004T002131
+LOCATION:Hum Bridge St_2.2
+SEQUENCE:0
+SUMMARY:MATH44071/LABORATORY1/\, MATH64071/LABORATORY1/
+UID:b44d463a-f44b-4192-b31f-2daae3bf3bc2:638676900000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Hum Bridge St_2.2\nDate: Wedn
+ esday\, 04 December 2024\nMap link: [Google Maps](https://www.google.com/m
+ aps/search/?api=1&query=53.466466\,-2.236614&query_place_id=ChIJzVMEUY2xe0
+ gRtAWS3-UVT88)	\nDirections: HBS 2.2 is located on the second floor of the
+  Humanities Bridgeford Street Building.	\nStaff Member: Cotter\, Simon	\nU
+ nit Code: MATH64071\, MATH44071	\n\n
+DTEND:20241204T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241204T090000Z
+LAST-MODIFIED:20241004T002131
+LOCATION:Hum Bridge St_2.2
+SEQUENCE:0
+SUMMARY:MATH44071/LABORATORY1/\, MATH64071/LABORATORY1/
+UID:2c841c34-82b2-4be5-bcca-7081766f09e7:638688996000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Wednesday\, 12 March 2025\nMap l
+ ink: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4676
+ 75\,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](
+ https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query
+ _place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is locate
+ d on the third floor of the AMBS Building.\, AMBS_3.013A is located on the
+  third floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUn
+ it Code: BMAN73942	\n\n
+DTEND:20250312T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250312T090000Z
+LAST-MODIFIED:20250119T200950
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE2/
+UID:19904237-5422-4009-96a1-f578ed5b129d:638773668000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Wednesday\, 19 March 2025\nMap l
+ ink: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4676
+ 75\,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](
+ https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query
+ _place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is locate
+ d on the third floor of the AMBS Building.\, AMBS_3.013A is located on the
+  third floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUn
+ it Code: BMAN73942	\n\n
+DTEND:20250319T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250319T090000Z
+LAST-MODIFIED:20250119T200950
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE2/
+UID:a3ffff7a-d0f0-4113-94bb-66a61f675947:638779716000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Wednesday\, 26 March 2025\nMap l
+ ink: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4676
+ 75\,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](
+ https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query
+ _place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is locate
+ d on the third floor of the AMBS Building.\, AMBS_3.013A is located on the
+  third floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUn
+ it Code: BMAN73942	\n\n
+DTEND:20250326T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250326T090000Z
+LAST-MODIFIED:20250119T200950
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE2/
+UID:2606fbd8-f498-4706-b8ae-313e775d3966:638785764000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Wednesday\, 02 April 2025\nMap l
+ ink: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4676
+ 75\,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](
+ https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query
+ _place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is locate
+ d on the third floor of the AMBS Building.\, AMBS_3.013A is located on the
+  third floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUn
+ it Code: BMAN73942	\n\n
+DTEND:20250402T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250402T080000Z
+LAST-MODIFIED:20250119T200950
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE2/
+UID:93efbe8c-b3d3-4eea-8de9-200e046686d5:638791776000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Wednesday\, 30 April 2025\nMap l
+ ink: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4676
+ 75\,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](
+ https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query
+ _place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is locate
+ d on the third floor of the AMBS Building.\, AMBS_3.013A is located on the
+  third floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUn
+ it Code: BMAN73942	\n\n
+DTEND:20250430T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250430T080000Z
+LAST-MODIFIED:20250119T200950
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE2/
+UID:84c4a70e-1fa9-4417-bddb-b9945340c091:638815968000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: SEMINAR\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_4.011B\nDate: Friday\, 14 March 2025\nMap link: [Google Maps
+ ](https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&que
+ ry_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_4.011B is loca
+ ted on the fourth floor of the AMBS Building.	\nStaff Member: Proudlove\, 
+ Nathan	\nUnit Code: BMAN73942	\n\n
+DTEND:20250314T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250314T100000Z
+LAST-MODIFIED:20241003T225848
+LOCATION:AMBS_4.011B
+SEQUENCE:0
+SUMMARY:BMAN73942/SEMINAR/01
+UID:3b657dff-97f7-4e4c-9edc-dcab04f04ccf:638775432000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: SEMINAR\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_4.011B\nDate: Friday\, 21 March 2025\nMap link: [Google Maps
+ ](https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&que
+ ry_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_4.011B is loca
+ ted on the fourth floor of the AMBS Building.	\nStaff Member: Proudlove\, 
+ Nathan	\nUnit Code: BMAN73942	\n\n
+DTEND:20250321T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250321T100000Z
+LAST-MODIFIED:20241003T225848
+LOCATION:AMBS_4.011B
+SEQUENCE:0
+SUMMARY:BMAN73942/SEMINAR/01
+UID:1b889824-b1c1-4c99-8fae-849432bb8b92:638781480000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: SEMINAR\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_4.011B\nDate: Friday\, 28 March 2025\nMap link: [Google Maps
+ ](https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&que
+ ry_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_4.011B is loca
+ ted on the fourth floor of the AMBS Building.	\nStaff Member: Proudlove\, 
+ Nathan	\nUnit Code: BMAN73942	\n\n
+DTEND:20250328T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250328T100000Z
+LAST-MODIFIED:20241003T225848
+LOCATION:AMBS_4.011B
+SEQUENCE:0
+SUMMARY:BMAN73942/SEMINAR/01
+UID:b77c0981-2022-4386-8097-da32a775e5da:638787528000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: SEMINAR\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_4.011B\nDate: Friday\, 04 April 2025\nMap link: [Google Maps
+ ](https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&que
+ ry_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_4.011B is loca
+ ted on the fourth floor of the AMBS Building.	\nStaff Member: Proudlove\, 
+ Nathan	\nUnit Code: BMAN73942	\n\n
+DTEND:20250404T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250404T090000Z
+LAST-MODIFIED:20241003T225848
+LOCATION:AMBS_4.011B
+SEQUENCE:0
+SUMMARY:BMAN73942/SEMINAR/01
+UID:93c58541-d541-4bba-a5a3-469fea938214:638793540000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: SEMINAR\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_4.011B\nDate: Friday\, 02 May 2025\nMap link: [Google Maps](
+ https://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query
+ _place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_4.011B is locate
+ d on the fourth floor of the AMBS Building.	\nStaff Member: Proudlove\, Na
+ than	\nUnit Code: BMAN73942	\n\n
+DTEND:20250502T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250502T090000Z
+LAST-MODIFIED:20241003T225848
+LOCATION:AMBS_4.011B
+SEQUENCE:0
+SUMMARY:BMAN73942/SEMINAR/01
+UID:3e11c22f-771f-47f6-ae9a-38290eaa75bd:638817732000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Monday\, 10 March 2025\nMap link
+ : [Google Maps](https://www.google.com/maps/search/?api=1&query=53.467675\
+ ,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](htt
+ ps://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query_pl
+ ace_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is located o
+ n the third floor of the AMBS Building.\, AMBS_3.013A is located on the th
+ ird floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUnit 
+ Code: BMAN73942	\n\n
+DTEND:20250310T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250310T100000Z
+LAST-MODIFIED:20250119T200947
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE1/
+UID:7a62d5de-402e-4ef6-8e0a-aec05d6be70d:638771976000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Monday\, 17 March 2025\nMap link
+ : [Google Maps](https://www.google.com/maps/search/?api=1&query=53.467675\
+ ,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](htt
+ ps://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query_pl
+ ace_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is located o
+ n the third floor of the AMBS Building.\, AMBS_3.013A is located on the th
+ ird floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUnit 
+ Code: BMAN73942	\n\n
+DTEND:20250317T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250317T100000Z
+LAST-MODIFIED:20250119T200947
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE1/
+UID:01b8e3cc-a711-433e-b4d6-bece7815f329:638778024000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Monday\, 24 March 2025\nMap link
+ : [Google Maps](https://www.google.com/maps/search/?api=1&query=53.467675\
+ ,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](htt
+ ps://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query_pl
+ ace_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is located o
+ n the third floor of the AMBS Building.\, AMBS_3.013A is located on the th
+ ird floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUnit 
+ Code: BMAN73942	\n\n
+DTEND:20250324T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250324T100000Z
+LAST-MODIFIED:20250119T200947
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE1/
+UID:c87266b9-800e-45b4-a037-2027542075f2:638784072000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Monday\, 31 March 2025\nMap link
+ : [Google Maps](https://www.google.com/maps/search/?api=1&query=53.467675\
+ ,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](htt
+ ps://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query_pl
+ ace_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is located o
+ n the third floor of the AMBS Building.\, AMBS_3.013A is located on the th
+ ird floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUnit 
+ Code: BMAN73942	\n\n
+DTEND:20250331T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250331T090000Z
+LAST-MODIFIED:20250119T200947
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE1/
+UID:6a6045e6-663e-4f29-bdae-d343b75fb5f5:638790084000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Simulation & Risk Analysis\nL
+ ocation: AMBS_3.013B\, AMBS_3.013A\nDate: Monday\, 28 April 2025\nMap link
+ : [Google Maps](https://www.google.com/maps/search/?api=1&query=53.467675\
+ ,-2.237597&query_place_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)\, [Google Maps](htt
+ ps://www.google.com/maps/search/?api=1&query=53.467675\,-2.237597&query_pl
+ ace_id=ChIJHz6eXO2xe0gRC8i6k7odnfQ)	\nDirections: AMBS_3.013B is located o
+ n the third floor of the AMBS Building.\, AMBS_3.013A is located on the th
+ ird floor of the AMBS Building.	\nStaff Member: Proudlove\, Nathan	\nUnit 
+ Code: BMAN73942	\n\n
+DTEND:20250428T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250428T090000Z
+LAST-MODIFIED:20250119T200947
+LOCATION:AMBS_3.013B\, AMBS_3.013A
+SEQUENCE:0
+SUMMARY:BMAN73942/LECTURE1/
+UID:22888faf-b17b-41ef-b029-bb7d098beb3d:638814276000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Nancy Rothwell_1A.027 M&T\nDate: Tuesday\, 01
+  October 2024\nMap link: [Google Maps](https://www.google.com/maps/search/
+ ?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbM
+ mk)	\nDirections: 1A.027 is located on the first floor of the Nancy Rothwe
+ ll Building.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvare
+ z\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241001T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241001T120000Z
+LAST-MODIFIED:20241022T022742
+LOCATION:Nancy Rothwell_1A.027 M&T
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE2/
+UID:ef2b6f65-4bca-4130-989e-5c94480501e1:638633808000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Nancy Rothwell_1A.027 M&T\nDate: Tuesday\, 15
+  October 2024\nMap link: [Google Maps](https://www.google.com/maps/search/
+ ?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbM
+ mk)	\nDirections: 1A.027 is located on the first floor of the Nancy Rothwe
+ ll Building.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvare
+ z\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241015T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241015T120000Z
+LAST-MODIFIED:20241022T022742
+LOCATION:Nancy Rothwell_1A.027 M&T
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE2/
+UID:728207d1-dff5-4754-94ab-bbeb98ecacac:638645904000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Nancy Rothwell_1A.027 M&T\nDate: Tuesday\, 05
+  November 2024\nMap link: [Google Maps](https://www.google.com/maps/search
+ /?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzb
+ Mmk)	\nDirections: 1A.027 is located on the first floor of the Nancy Rothw
+ ell Building.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvar
+ ez\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241105T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241105T130000Z
+LAST-MODIFIED:20241022T022742
+LOCATION:Nancy Rothwell_1A.027 M&T
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE2/
+UID:3185b497-ae94-4ebd-ab70-15d566b461b8:638664084000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Nancy Rothwell_1A.027 M&T\nDate: Tuesday\, 19
+  November 2024\nMap link: [Google Maps](https://www.google.com/maps/search
+ /?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzb
+ Mmk)	\nDirections: 1A.027 is located on the first floor of the Nancy Rothw
+ ell Building.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvar
+ ez\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241119T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241119T130000Z
+LAST-MODIFIED:20241022T022742
+LOCATION:Nancy Rothwell_1A.027 M&T
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE2/
+UID:da22c9b3-a87b-4ca6-b68c-7aa4973d62f0:638676180000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Nancy Rothwell_1A.027 M&T\nDate: Tuesday\, 03
+  December 2024\nMap link: [Google Maps](https://www.google.com/maps/search
+ /?api=1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzb
+ Mmk)	\nDirections: 1A.027 is located on the first floor of the Nancy Rothw
+ ell Building.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michele\, Alvar
+ ez\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241203T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241203T130000Z
+LAST-MODIFIED:20241022T022742
+LOCATION:Nancy Rothwell_1A.027 M&T
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE2/
+UID:6d22096a-c898-4668-bfca-09f99bae1231:638688276000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Crawford House_SEM RM E\nDate: Tuesday\, 24 S
+ eptember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/
+ ?api=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9Ct
+ PE)	\nDirections: Crawford House Seminar Room E is located on the ground f
+ loor of Crawford House.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Miche
+ le\, Alvarez\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20240924T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240924T120000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Crawford House_SEM RM E
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE1/
+UID:900e1405-1abc-4c16-bd89-17e5fd12d0ef:638627760000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Crawford House_SEM RM E\nDate: Tuesday\, 08 O
+ ctober 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE
+ )	\nDirections: Crawford House Seminar Room E is located on the ground flo
+ or of Crawford House.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michele
+ \, Alvarez\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241008T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241008T120000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Crawford House_SEM RM E
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE1/
+UID:03cd92ea-d11b-46cf-9bc1-de73d640fbb8:638639856000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Crawford House_SEM RM E\nDate: Tuesday\, 22 O
+ ctober 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE
+ )	\nDirections: Crawford House Seminar Room E is located on the ground flo
+ or of Crawford House.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michele
+ \, Alvarez\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241022T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241022T120000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Crawford House_SEM RM E
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE1/
+UID:e9c9e772-d732-4ac7-9067-2a8d11019e73:638651952000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Crawford House_SEM RM E\nDate: Tuesday\, 12 N
+ ovember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?
+ api=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtP
+ E)	\nDirections: Crawford House Seminar Room E is located on the ground fl
+ oor of Crawford House.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michel
+ e\, Alvarez\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241112T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241112T130000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Crawford House_SEM RM E
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE1/
+UID:d5535709-806a-4c89-a4e6-3eea451c0a71:638670132000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Reasoning and Learning under 
+ Uncertainty (CDT)\nLocation: Crawford House_SEM RM E\nDate: Tuesday\, 26 N
+ ovember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?
+ api=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtP
+ E)	\nDirections: Crawford House Seminar Room E is located on the ground fl
+ oor of Crawford House.	\nStaff Member: Rivasplata\, Omar\, Caprio\, Michel
+ e\, Alvarez\, Mauricio	\nUnit Code: COMP64101	\n\n
+DTEND:20241126T150000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241126T130000Z
+LAST-MODIFIED:20241022T022741
+LOCATION:Crawford House_SEM RM E
+SEQUENCE:0
+SUMMARY:COMP64101/LECTURE1/
+UID:cc277cbe-d6a0-495e-bed9-791554105e4e:638682228000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 26 Septembe
+ r 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&
+ query=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nD
+ irections: Kilburn_LF8 is located on the lower first floor level of the Ki
+ lburn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20240926T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240926T090000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:dd451462-2f24-4aaa-9045-be3057c5340f:638629380000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 03 October 
+ 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&qu
+ ery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDir
+ ections: Kilburn_LF8 is located on the lower first floor level of the Kilb
+ urn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241003T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241003T090000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:2eab6975-0f00-4242-8e5f-d7e891c024e5:638635428000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 10 October 
+ 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&qu
+ ery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDir
+ ections: Kilburn_LF8 is located on the lower first floor level of the Kilb
+ urn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241010T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241010T090000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:807f0506-bb3a-4ca2-9752-7c8fe9382a14:638641476000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 17 October 
+ 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&qu
+ ery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDir
+ ections: Kilburn_LF8 is located on the lower first floor level of the Kilb
+ urn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241017T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241017T090000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:101700f8-c518-405c-9f11-3f26ca1bdb5c:638647524000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 24 October 
+ 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&qu
+ ery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDir
+ ections: Kilburn_LF8 is located on the lower first floor level of the Kilb
+ urn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241024T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241024T090000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:1e245b50-e015-4d17-9148-e9b5ed2680d0:638653572000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 31 October 
+ 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&qu
+ ery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDir
+ ections: Kilburn_LF8 is located on the lower first floor level of the Kilb
+ urn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241031T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241031T100000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:c5c409a9-271f-4b23-9e8b-5506af158bee:638659656000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 07 November
+  2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&q
+ uery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDi
+ rections: Kilburn_LF8 is located on the lower first floor level of the Kil
+ burn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241107T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241107T100000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:4c45665b-0661-4298-938b-10572185fa0e:638665704000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 14 November
+  2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&q
+ uery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDi
+ rections: Kilburn_LF8 is located on the lower first floor level of the Kil
+ burn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241114T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241114T100000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:5eabd351-0083-42de-93e0-b328336d3d0d:638671752000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 21 November
+  2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&q
+ uery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDi
+ rections: Kilburn_LF8 is located on the lower first floor level of the Kil
+ burn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241121T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241121T100000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:ce518018-c08c-484e-a6d8-d50636146fdf:638677800000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 28 November
+  2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&q
+ uery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDi
+ rections: Kilburn_LF8 is located on the lower first floor level of the Kil
+ burn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241128T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241128T100000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:1507f64e-c818-4785-a8e1-4b8876ad6107:638683848000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 05 December
+  2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&q
+ uery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDi
+ rections: Kilburn_LF8 is located on the lower first floor level of the Kil
+ burn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241205T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241205T100000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:2cece05b-8c5b-4c0a-a500-7dfa3a80441f:638689896000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 12 December
+  2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&q
+ uery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDi
+ rections: Kilburn_LF8 is located on the lower first floor level of the Kil
+ burn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241212T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241212T100000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:072081e3-65b6-4996-a02d-f5a709c97d42:638695944000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Thursday\, 19 December
+  2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&q
+ uery=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDi
+ rections: Kilburn_LF8 is located on the lower first floor level of the Kil
+ burn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20241219T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241219T100000Z
+LAST-MODIFIED:20241003T215607
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY1/
+UID:7e7d4da1-4a6c-43ce-94fc-bf5b56a2a1e5:638701992000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 23 Se
+ ptember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?
+ api=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-Sg
+ QSxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the
+  ground floor of the Booth Street East Building	\nStaff Member: Sun\, Ming
+ fei	\nUnit Code: COMP64803	\n\n
+DTEND:20240923T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240923T140000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:9fa8210b-57cf-4cef-a816-1d60780c4eb5:638626968000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 30 Se
+ ptember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?
+ api=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-Sg
+ QSxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the
+  ground floor of the Booth Street East Building	\nStaff Member: Sun\, Ming
+ fei	\nUnit Code: COMP64803	\n\n
+DTEND:20240930T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240930T140000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:8c1165e2-be26-4c8f-8457-4d2ee78c1b94:638633016000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 07 Oc
+ tober 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?ap
+ i=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQS
+ xe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the g
+ round floor of the Booth Street East Building	\nStaff Member: Sun\, Mingfe
+ i	\nUnit Code: COMP64803	\n\n
+DTEND:20241007T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241007T140000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:d15a1d02-20f5-4b06-b989-926e3c93776c:638639064000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 14 Oc
+ tober 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?ap
+ i=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQS
+ xe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the g
+ round floor of the Booth Street East Building	\nStaff Member: Sun\, Mingfe
+ i	\nUnit Code: COMP64803	\n\n
+DTEND:20241014T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241014T140000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:780a4244-6824-4c20-b335-75da99c2e31b:638645112000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 21 Oc
+ tober 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?ap
+ i=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQS
+ xe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the g
+ round floor of the Booth Street East Building	\nStaff Member: Sun\, Mingfe
+ i	\nUnit Code: COMP64803	\n\n
+DTEND:20241021T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241021T140000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:d071e8b8-5f68-4dd3-9a54-4c296fb5ed23:638651160000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 28 Oc
+ tober 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?ap
+ i=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQS
+ xe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the g
+ round floor of the Booth Street East Building	\nStaff Member: Sun\, Mingfe
+ i	\nUnit Code: COMP64803	\n\n
+DTEND:20241028T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241028T150000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:12097c04-8d21-43ad-a4f2-3fa1b84713a2:638657244000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 04 No
+ vember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQ
+ Sxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the 
+ ground floor of the Booth Street East Building	\nStaff Member: Sun\, Mingf
+ ei	\nUnit Code: COMP64803	\n\n
+DTEND:20241104T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241104T150000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:582c5ec5-e1a7-4b2f-a612-716459539858:638663292000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 11 No
+ vember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQ
+ Sxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the 
+ ground floor of the Booth Street East Building	\nStaff Member: Sun\, Mingf
+ ei	\nUnit Code: COMP64803	\n\n
+DTEND:20241111T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241111T150000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:f2bf350e-fcd5-4c50-a894-4567c989db30:638669340000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 18 No
+ vember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQ
+ Sxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the 
+ ground floor of the Booth Street East Building	\nStaff Member: Sun\, Mingf
+ ei	\nUnit Code: COMP64803	\n\n
+DTEND:20241118T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241118T150000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:89091aa2-4b56-4239-b368-3e839e5df02c:638675388000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 25 No
+ vember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQ
+ Sxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the 
+ ground floor of the Booth Street East Building	\nStaff Member: Sun\, Mingf
+ ei	\nUnit Code: COMP64803	\n\n
+DTEND:20241125T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241125T150000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:1e33d88b-0db8-4d22-9da1-d662452fccda:638681436000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 02 De
+ cember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQ
+ Sxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the 
+ ground floor of the Booth Street East Building	\nStaff Member: Sun\, Mingf
+ ei	\nUnit Code: COMP64803	\n\n
+DTEND:20241202T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241202T150000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:fa5186cd-e89a-49a2-b5b1-1419c9f92f83:638687484000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 09 De
+ cember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQ
+ Sxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the 
+ ground floor of the Booth Street East Building	\nStaff Member: Sun\, Mingf
+ ei	\nUnit Code: COMP64803	\n\n
+DTEND:20241209T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241209T150000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:e6f2566d-1ab3-4b5a-9540-5225093de444:638693532000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Booth Street East_G.04\nDate: Monday\, 16 De
+ cember 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.46869924409426\,-2.235299012166482&query_place_id=ChIJVV-SgQ
+ Sxe0gRY6bjFEKKXgk)	\nDirections: Booth Street East_G.04 is located on the 
+ ground floor of the Booth Street East Building	\nStaff Member: Sun\, Mingf
+ ei	\nUnit Code: COMP64803	\n\n
+DTEND:20241216T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241216T150000Z
+LAST-MODIFIED:20241003T215604
+LOCATION:Booth Street East_G.04
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE1/
+UID:80d18c78-dd22-44fa-9797-d26bca6059d7:638699580000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Dover Street_G.046\nDate: Monday\, 23 September 2024
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.465389\,-2.230668&query_place_id=ChIJhwsedI6xe0gRaJoBBVeIJgQ)	\nDirecti
+ ons: Dover Street_G.046 is located on the ground floor of the Dover Street
+  Building.	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20240923T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240923T090000Z
+LAST-MODIFIED:20241003T215111
+LOCATION:Dover Street_G.046
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE1/
+UID:7a996ab1-ed72-47fa-aae8-967504dab892:638626788000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Machine Learning and the P
+ hysical World\nLocation: Kilburn_1.10\nDate: Friday\, 08 November 2024\nMa
+ p link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4
+ 67335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections:
+  Kilburn_1.10 is located on the first floor of the Kilburn Building.	\nSta
+ ff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241108T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241108T090000Z
+LAST-MODIFIED:20241003T215605
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP69901/LABORATORY1/
+UID:1830c687-006f-4f13-8407-43a8c85b0ec5:638666532000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Machine Learning and the P
+ hysical World\nLocation: Kilburn_1.10\nDate: Friday\, 15 November 2024\nMa
+ p link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4
+ 67335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections:
+  Kilburn_1.10 is located on the first floor of the Kilburn Building.	\nSta
+ ff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241115T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241115T090000Z
+LAST-MODIFIED:20241003T215605
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP69901/LABORATORY1/
+UID:fec8ec3d-fe5e-4d7f-9969-8707ba8f3760:638672580000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Machine Learning and the P
+ hysical World\nLocation: Kilburn_1.10\nDate: Friday\, 22 November 2024\nMa
+ p link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4
+ 67335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections:
+  Kilburn_1.10 is located on the first floor of the Kilburn Building.	\nSta
+ ff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241122T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241122T090000Z
+LAST-MODIFIED:20241003T215605
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP69901/LABORATORY1/
+UID:c9bf64cd-4947-46c4-a9a1-8ba12e82bb57:638678628000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Machine Learning and the P
+ hysical World\nLocation: Kilburn_1.10\nDate: Friday\, 29 November 2024\nMa
+ p link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4
+ 67335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections:
+  Kilburn_1.10 is located on the first floor of the Kilburn Building.	\nSta
+ ff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241129T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241129T090000Z
+LAST-MODIFIED:20241003T215605
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP69901/LABORATORY1/
+UID:7d8fcf76-72e1-4caf-8794-f64f2f51124e:638684676000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Machine Learning and the P
+ hysical World\nLocation: Kilburn_1.10\nDate: Friday\, 06 December 2024\nMa
+ p link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4
+ 67335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections:
+  Kilburn_1.10 is located on the first floor of the Kilburn Building.	\nSta
+ ff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241206T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241206T090000Z
+LAST-MODIFIED:20241003T215605
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP69901/LABORATORY1/
+UID:e5d4e1a8-c058-49e7-ac04-6068ce8a207c:638690724000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Machine Learning and the P
+ hysical World\nLocation: Kilburn_1.10\nDate: Friday\, 13 December 2024\nMa
+ p link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4
+ 67335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections:
+  Kilburn_1.10 is located on the first floor of the Kilburn Building.	\nSta
+ ff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241213T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241213T090000Z
+LAST-MODIFIED:20241003T215605
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP69901/LABORATORY1/
+UID:65f250f0-719e-4766-b30d-a39926e1e967:638696772000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Machine Learning and the P
+ hysical World\nLocation: Kilburn_1.10\nDate: Friday\, 20 December 2024\nMa
+ p link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53.4
+ 67335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirections:
+  Kilburn_1.10 is located on the first floor of the Kilburn Building.	\nSta
+ ff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241220T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241220T090000Z
+LAST-MODIFIED:20241003T215605
+LOCATION:Kilburn_1.10
+SEQUENCE:0
+SUMMARY:COMP69901/LABORATORY1/
+UID:28736fe0-67ed-40dd-af55-e9102b92057a:638702820000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 17 January 20
+ 25\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&quer
+ y=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirec
+ tions: Kilburn_LF8 is located on the lower first floor level of the Kilbur
+ n Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250117T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250117T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:a2591524-9054-4e4f-ac1d-ac4f7d29f4be:638727192000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 24 January 20
+ 25\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&quer
+ y=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirec
+ tions: Kilburn_LF8 is located on the lower first floor level of the Kilbur
+ n Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250124T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250124T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:724bfa33-5008-4be1-b0e4-2f46dbbdc0af:638733240000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 31 January 20
+ 25\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&quer
+ y=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirec
+ tions: Kilburn_LF8 is located on the lower first floor level of the Kilbur
+ n Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250131T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250131T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:20f1a931-4fe5-4685-9bb2-28ad92d8e106:638739288000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 07 February 2
+ 025\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&que
+ ry=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDire
+ ctions: Kilburn_LF8 is located on the lower first floor level of the Kilbu
+ rn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250207T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250207T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:91f70bee-d285-4a7a-98d0-6ab4f8021efd:638745336000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 14 February 2
+ 025\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&que
+ ry=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDire
+ ctions: Kilburn_LF8 is located on the lower first floor level of the Kilbu
+ rn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250214T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250214T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:94d6a8fa-63c3-4031-83bc-ec108adbb3b9:638751384000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 21 February 2
+ 025\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&que
+ ry=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDire
+ ctions: Kilburn_LF8 is located on the lower first floor level of the Kilbu
+ rn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250221T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250221T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:a70f57d0-9258-4202-8326-d910c00cb7d5:638757432000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 28 February 2
+ 025\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&que
+ ry=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDire
+ ctions: Kilburn_LF8 is located on the lower first floor level of the Kilbu
+ rn Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250228T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250228T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:67adc352-294f-4d76-a727-26aaefee65e2:638763480000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 07 March 2025
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirecti
+ ons: Kilburn_LF8 is located on the lower first floor level of the Kilburn 
+ Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250307T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250307T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:13ce6286-8ba9-423b-be1b-248401b3c7ae:638769528000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 14 March 2025
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirecti
+ ons: Kilburn_LF8 is located on the lower first floor level of the Kilburn 
+ Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250314T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250314T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:924f824c-b17a-4afe-84b4-bbcb60503bfe:638775576000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 21 March 2025
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirecti
+ ons: Kilburn_LF8 is located on the lower first floor level of the Kilburn 
+ Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250321T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250321T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:6e5740e7-0f84-482a-a677-f27e15074012:638781624000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 28 March 2025
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirecti
+ ons: Kilburn_LF8 is located on the lower first floor level of the Kilburn 
+ Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250328T170000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250328T140000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:ee07ee45-7766-4b0b-9991-1d716a6d8550:638787672000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 04 April 2025
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirecti
+ ons: Kilburn_LF8 is located on the lower first floor level of the Kilburn 
+ Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250404T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250404T130000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:0ca93e9b-5ca8-449e-bb4f-63992f974587:638793684000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 11 April 2025
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirecti
+ ons: Kilburn_LF8 is located on the lower first floor level of the Kilburn 
+ Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250411T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250411T130000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:9135788f-6384-4b83-a365-8fa4ac0f7851:638799732000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 18 April 2025
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirecti
+ ons: Kilburn_LF8 is located on the lower first floor level of the Kilburn 
+ Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250418T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250418T130000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:238e19bb-620d-4898-9841-5e1b82bc54f7:638805780000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 25 April 2025
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirecti
+ ons: Kilburn_LF8 is located on the lower first floor level of the Kilburn 
+ Building.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250425T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250425T130000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:3f691b60-b1d3-4175-ace5-4dc245afef3d:638811828000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 02 May 2025\n
+ Map link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53
+ .467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirection
+ s: Kilburn_LF8 is located on the lower first floor level of the Kilburn Bu
+ ilding.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250502T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250502T130000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:c0e268de-9eb1-41c6-a616-4e09bd34f5c2:638817876000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nDescription: Introduction to Responsibl
+ e and Reproducible AI\nLocation: Kilburn_LF8\nDate: Friday\, 09 May 2025\n
+ Map link: [Google Maps](https://www.google.com/maps/search/?api=1&query=53
+ .467335\,-2.234203&query_place_id=ChIJeziKgJKxe0gR8qUIiSmWKJo)	\nDirection
+ s: Kilburn_LF8 is located on the lower first floor level of the Kilburn Bu
+ ilding.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\n\n
+DTEND:20250509T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250509T130000Z
+LAST-MODIFIED:20241003T215603
+LOCATION:Kilburn_LF8
+SEQUENCE:0
+SUMMARY:COMP64803/LABORATORY2/
+UID:ac2a6b95-6e48-4eb9-8f77-6d3d052c4c42:638823924000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Stephen Joseph_G3\nDate: Thursday\, 26 September 202
+ 4\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query
+ =53.46376\,-2.234321&query_place_id=ChIJMRZa-oyxe0gRGDLGQ71TB7w)	\nDirecti
+ ons: Stephen Joseph_G3 is on the ground floor of the Stephen Joseph Studio
+ .	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20240926T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240926T110000Z
+LAST-MODIFIED:20241003T211907
+LOCATION:Stephen Joseph_G3
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE3/
+UID:c7c3f80c-2d9f-41e8-990b-b976fc4bb168:638629452000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Stephen Joseph_G3\nDate: Thursday\, 03 October 2024\
+ nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=5
+ 3.46376\,-2.234321&query_place_id=ChIJMRZa-oyxe0gRGDLGQ71TB7w)	\nDirection
+ s: Stephen Joseph_G3 is on the ground floor of the Stephen Joseph Studio.	
+ \nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241003T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241003T110000Z
+LAST-MODIFIED:20241003T211907
+LOCATION:Stephen Joseph_G3
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE3/
+UID:7c909c5f-001c-4e06-99d4-9da15cc0f027:638635500000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Stephen Joseph_G3\nDate: Thursday\, 10 October 2024\
+ nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=5
+ 3.46376\,-2.234321&query_place_id=ChIJMRZa-oyxe0gRGDLGQ71TB7w)	\nDirection
+ s: Stephen Joseph_G3 is on the ground floor of the Stephen Joseph Studio.	
+ \nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241010T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241010T110000Z
+LAST-MODIFIED:20241003T211907
+LOCATION:Stephen Joseph_G3
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE3/
+UID:f91471f9-5df0-4abc-b4b2-f50c01ed1baa:638641548000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Stephen Joseph_G3\nDate: Thursday\, 17 October 2024\
+ nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=5
+ 3.46376\,-2.234321&query_place_id=ChIJMRZa-oyxe0gRGDLGQ71TB7w)	\nDirection
+ s: Stephen Joseph_G3 is on the ground floor of the Stephen Joseph Studio.	
+ \nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241017T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241017T110000Z
+LAST-MODIFIED:20241003T211907
+LOCATION:Stephen Joseph_G3
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE3/
+UID:f28a7cbb-2db4-4004-b0ab-3b9a9ef243fc:638647596000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Stephen Joseph_G3\nDate: Thursday\, 24 October 2024\
+ nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=5
+ 3.46376\,-2.234321&query_place_id=ChIJMRZa-oyxe0gRGDLGQ71TB7w)	\nDirection
+ s: Stephen Joseph_G3 is on the ground floor of the Stephen Joseph Studio.	
+ \nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241024T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241024T110000Z
+LAST-MODIFIED:20241003T211907
+LOCATION:Stephen Joseph_G3
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE3/
+UID:1a58ca0f-274b-45ee-886f-0c72925f3cf7:638653644000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Stephen Joseph_G3\nDate: Thursday\, 31 October 2024\
+ nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=5
+ 3.46376\,-2.234321&query_place_id=ChIJMRZa-oyxe0gRGDLGQ71TB7w)	\nDirection
+ s: Stephen Joseph_G3 is on the ground floor of the Stephen Joseph Studio.	
+ \nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241031T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241031T120000Z
+LAST-MODIFIED:20241003T211907
+LOCATION:Stephen Joseph_G3
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE3/
+UID:dee5c2b6-aed8-4931-b475-b134a0b9f890:638659728000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Stephen Joseph_G3\nDate: Thursday\, 07 November 2024
+ \nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&query=
+ 53.46376\,-2.234321&query_place_id=ChIJMRZa-oyxe0gRGDLGQ71TB7w)	\nDirectio
+ ns: Stephen Joseph_G3 is on the ground floor of the Stephen Joseph Studio.
+ 	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241107T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241107T120000Z
+LAST-MODIFIED:20241003T211907
+LOCATION:Stephen Joseph_G3
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE3/
+UID:915a440c-03dc-430a-b252-09e1270f1e01:638665776000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Nancy Rothwell_1A.012 M&T\nDate: Tuesday\, 24 Septem
+ ber 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=
+ 1&query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbMmk)	\
+ nDirections: 1A.012 is located on the first floor of the Nancy Rothwell Bu
+ ilding.	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20240924T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240924T110000Z
+LAST-MODIFIED:20241003T211904
+LOCATION:Nancy Rothwell_1A.012 M&T
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE2/
+UID:d005e730-66ee-441f-9f95-9987da63ce79:638627724000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Nancy Rothwell_1A.012 M&T\nDate: Tuesday\, 01 Octobe
+ r 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&
+ query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbMmk)	\nD
+ irections: 1A.012 is located on the first floor of the Nancy Rothwell Buil
+ ding.	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241001T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241001T110000Z
+LAST-MODIFIED:20241003T211904
+LOCATION:Nancy Rothwell_1A.012 M&T
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE2/
+UID:d58f6230-afc8-482f-85a9-e70be8c15035:638633772000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Nancy Rothwell_1A.012 M&T\nDate: Tuesday\, 08 Octobe
+ r 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&
+ query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbMmk)	\nD
+ irections: 1A.012 is located on the first floor of the Nancy Rothwell Buil
+ ding.	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241008T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241008T110000Z
+LAST-MODIFIED:20241003T211904
+LOCATION:Nancy Rothwell_1A.012 M&T
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE2/
+UID:ea594ce2-6c26-4bf9-bc99-7d248059b37b:638639820000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Nancy Rothwell_1A.012 M&T\nDate: Tuesday\, 15 Octobe
+ r 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&
+ query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbMmk)	\nD
+ irections: 1A.012 is located on the first floor of the Nancy Rothwell Buil
+ ding.	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241015T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241015T110000Z
+LAST-MODIFIED:20241003T211904
+LOCATION:Nancy Rothwell_1A.012 M&T
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE2/
+UID:9dcb122c-01ef-45e6-9e17-59f2e08043b9:638645868000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Nancy Rothwell_1A.012 M&T\nDate: Tuesday\, 22 Octobe
+ r 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&
+ query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbMmk)	\nD
+ irections: 1A.012 is located on the first floor of the Nancy Rothwell Buil
+ ding.	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241022T120000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241022T110000Z
+LAST-MODIFIED:20241003T211904
+LOCATION:Nancy Rothwell_1A.012 M&T
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE2/
+UID:581b41c5-931e-4cff-942e-5952111de940:638651916000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Nancy Rothwell_1A.012 M&T\nDate: Tuesday\, 29 Octobe
+ r 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1&
+ query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbMmk)	\nD
+ irections: 1A.012 is located on the first floor of the Nancy Rothwell Buil
+ ding.	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241029T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241029T120000Z
+LAST-MODIFIED:20241003T211904
+LOCATION:Nancy Rothwell_1A.012 M&T
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE2/
+UID:a421812d-0765-434e-ae77-319abcd2bfdc:638658000000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Machine Learning and the Phys
+ ical World\nLocation: Nancy Rothwell_1A.012 M&T\nDate: Tuesday\, 05 Novemb
+ er 2024\nMap link: [Google Maps](https://www.google.com/maps/search/?api=1
+ &query=53.469297\,-2.233941&query_place_id=ChIJj-Uum86xe0gRFVZHgAzbMmk)	\n
+ Directions: 1A.012 is located on the first floor of the Nancy Rothwell Bui
+ lding.	\nStaff Member: Pan\, Wei	\nUnit Code: COMP69901	\n\n
+DTEND:20241105T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241105T120000Z
+LAST-MODIFIED:20241003T211904
+LOCATION:Nancy Rothwell_1A.012 M&T
+SEQUENCE:0
+SUMMARY:COMP69901/LECTURE2/
+UID:3c9ec1aa-6c56-4516-b85d-725fac0afe22:638664048000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Kilburn_1.8+1.10\nDate: Wedne
+ sday\, 13 November 2024\nMap link: [Google Maps](https://www.google.com/ma
+ ps/search/?api=1&query=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0g
+ R8qUIiSmWKJo)	\nDirections: Kilburn_1.8+1.10 is located on the first floor
+  of the Kilburn Building.	\nStaff Member: Rivasplata\, Omar	\nUnit Code: C
+ OMP61021\, COMP41021	\n\n
+DTEND:20241113T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241113T130000Z
+LAST-MODIFIED:20241017T092746
+LOCATION:Kilburn_1.8+1.10
+SEQUENCE:0
+SUMMARY:COMP41021/LABORATORY1/2\, COMP61021/LABORATORY1/2
+UID:45a22844-172d-4acc-b3a3-e08705313831:638670996000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Kilburn_1.8+1.10\nDate: Wedne
+ sday\, 20 November 2024\nMap link: [Google Maps](https://www.google.com/ma
+ ps/search/?api=1&query=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0g
+ R8qUIiSmWKJo)	\nDirections: Kilburn_1.8+1.10 is located on the first floor
+  of the Kilburn Building.	\nStaff Member: Rivasplata\, Omar	\nUnit Code: C
+ OMP61021\, COMP41021	\n\n
+DTEND:20241120T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241120T130000Z
+LAST-MODIFIED:20241017T092746
+LOCATION:Kilburn_1.8+1.10
+SEQUENCE:0
+SUMMARY:COMP41021/LABORATORY1/2\, COMP61021/LABORATORY1/2
+UID:b82507d0-63d5-4823-b982-24d8c1b07fc1:638677044000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Kilburn_1.8+1.10\nDate: Wedne
+ sday\, 06 November 2024\nMap link: [Google Maps](https://www.google.com/ma
+ ps/search/?api=1&query=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0g
+ R8qUIiSmWKJo)	\nDirections: Kilburn_1.8+1.10 is located on the first floor
+  of the Kilburn Building.	\nStaff Member: Mukherjee\, Anirbit	\nUnit Code:
+  COMP61021\, COMP41021	\n\n
+DTEND:20241106T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241106T130000Z
+LAST-MODIFIED:20241017T095646
+LOCATION:Kilburn_1.8+1.10
+SEQUENCE:0
+SUMMARY:COMP41021/LABORATORY2/2\, COMP61021/LABORATORY2/2
+UID:ebc1bb20-d48d-4540-af24-841c719c630c:638664948000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Kilburn_1.8+1.10\nDate: Wedne
+ sday\, 27 November 2024\nMap link: [Google Maps](https://www.google.com/ma
+ ps/search/?api=1&query=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0g
+ R8qUIiSmWKJo)	\nDirections: Kilburn_1.8+1.10 is located on the first floor
+  of the Kilburn Building.	\nStaff Member: Mukherjee\, Anirbit	\nUnit Code:
+  COMP61021\, COMP41021	\n\n
+DTEND:20241127T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241127T130000Z
+LAST-MODIFIED:20241017T095646
+LOCATION:Kilburn_1.8+1.10
+SEQUENCE:0
+SUMMARY:COMP41021/LABORATORY2/2\, COMP61021/LABORATORY2/2
+UID:a6c87a8f-f804-4ad9-b768-77e4638b6560:638683092000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LABORATORY\nLocation: Kilburn_1.8+1.10\nDate: Wedne
+ sday\, 04 December 2024\nMap link: [Google Maps](https://www.google.com/ma
+ ps/search/?api=1&query=53.467335\,-2.234203&query_place_id=ChIJeziKgJKxe0g
+ R8qUIiSmWKJo)	\nDirections: Kilburn_1.8+1.10 is located on the first floor
+  of the Kilburn Building.	\nStaff Member: Mukherjee\, Anirbit	\nUnit Code:
+  COMP61021\, COMP41021	\n\n
+DTEND:20241204T160000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241204T130000Z
+LAST-MODIFIED:20241017T095646
+LOCATION:Kilburn_1.8+1.10
+SEQUENCE:0
+SUMMARY:COMP41021/LABORATORY2/2\, COMP61021/LABORATORY2/2
+UID:9cc1d895-d693-4151-b614-64aa73ddf04e:638689140000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 23 September 2024\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge
+ 2XhFFk)	\nDirections: Williamson_G.03 is located on the ground floor of th
+ e Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH640
+ 71\, MATH44071	\n\n
+DTEND:20240923T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240923T090000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:dbcca1e3-ad21-4d46-819b-73d203e29c5a:638626788000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 30 September 2024\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge
+ 2XhFFk)	\nDirections: Williamson_G.03 is located on the ground floor of th
+ e Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH640
+ 71\, MATH44071	\n\n
+DTEND:20240930T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20240930T090000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:b0048f5a-b91d-4f4f-aaf9-c1d1924a861f:638632836000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 07 October 2024\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge2X
+ hFFk)	\nDirections: Williamson_G.03 is located on the ground floor of the 
+ Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH64071
+ \, MATH44071	\n\n
+DTEND:20241007T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241007T090000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:4da92931-b157-4b16-b4b6-492243776e57:638638884000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 14 October 2024\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge2X
+ hFFk)	\nDirections: Williamson_G.03 is located on the ground floor of the 
+ Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH64071
+ \, MATH44071	\n\n
+DTEND:20241014T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241014T090000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:f967bfee-c49c-4dba-a3f2-ae465cb9f34d:638644932000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 21 October 2024\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge2X
+ hFFk)	\nDirections: Williamson_G.03 is located on the ground floor of the 
+ Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH64071
+ \, MATH44071	\n\n
+DTEND:20241021T100000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241021T090000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:4da373f6-946c-4b28-87ef-bcab04e996b0:638650980000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 04 November 2024\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge2
+ XhFFk)	\nDirections: Williamson_G.03 is located on the ground floor of the
+  Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH6407
+ 1\, MATH44071	\n\n
+DTEND:20241104T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241104T100000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:aa3287fa-acf9-451f-8e81-113da340ba7a:638663112000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 11 November 2024\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge2
+ XhFFk)	\nDirections: Williamson_G.03 is located on the ground floor of the
+  Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH6407
+ 1\, MATH44071	\n\n
+DTEND:20241111T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241111T100000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:4545bc56-3309-472d-87e7-e21f774ed376:638669160000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 18 November 2024\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge2
+ XhFFk)	\nDirections: Williamson_G.03 is located on the ground floor of the
+  Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH6407
+ 1\, MATH44071	\n\n
+DTEND:20241118T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241118T100000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:63029eac-4bfb-4159-9108-73031115ce1c:638675208000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 02 December 2024\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge2
+ XhFFk)	\nDirections: Williamson_G.03 is located on the ground floor of the
+  Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH6407
+ 1\, MATH44071	\n\n
+DTEND:20241202T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241202T100000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:348d67f8-b4b7-4b6b-b36f-c301de350f7b:638687304000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Monday\, 
+ 09 December 2024\nMap link: [Google Maps](https://www.google.com/maps/sear
+ ch/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge2
+ XhFFk)	\nDirections: Williamson_G.03 is located on the ground floor of the
+  Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH6407
+ 1\, MATH44071	\n\n
+DTEND:20241209T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241209T100000Z
+LAST-MODIFIED:20241217T155018
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <02-06\, 08-10\, 12-13>
+UID:77d9785a-7cf3-427a-9ef8-2b3523753297:638693352000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Williamson_G.03\nDate: Tuesday\,
+  26 November 2024\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.466483\,-2.232718&query_place_id=ChIJ4eDAjo2xe0gRn-yge
+ 2XhFFk)	\nDirections: Williamson_G.03 is located on the ground floor of th
+ e Williamson Building.	\nStaff Member: Cotter\, Simon	\nUnit Code: MATH640
+ 71\, MATH44071	\n\n
+DTEND:20241126T110000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20241126T100000Z
+LAST-MODIFIED:20241217T155016
+LOCATION:Williamson_G.03
+SEQUENCE:0
+SUMMARY:MATH44071/LECTURE1/\, MATH64071/LECTURE1/ <11>
+UID:978265e7-8ec7-425d-b9ae-796658223dbc:638682120000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 27 January 2025\nMap link: [Google Maps](https://www.google.com/maps/sea
+ rch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtE
+ jUuo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of t
+ he Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: M
+ ATH64082\, MATH44082	\n\n
+DTEND:20250127T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250127T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:f540aa5d-1ebb-47cd-9cdb-a23b28d526b7:638735796000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 03 February 2025\nMap link: [Google Maps](https://www.google.com/maps/se
+ arch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5Kt
+ EjUuo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of 
+ the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: 
+ MATH64082\, MATH44082	\n\n
+DTEND:20250203T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250203T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:0d08b033-7122-4685-82b4-d561a77694ca:638741844000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 10 February 2025\nMap link: [Google Maps](https://www.google.com/maps/se
+ arch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5Kt
+ EjUuo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of 
+ the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: 
+ MATH64082\, MATH44082	\n\n
+DTEND:20250210T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250210T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:bc8d7fca-62e9-4fc1-849e-221af14537c8:638747892000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 17 February 2025\nMap link: [Google Maps](https://www.google.com/maps/se
+ arch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5Kt
+ EjUuo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of 
+ the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: 
+ MATH64082\, MATH44082	\n\n
+DTEND:20250217T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250217T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:37dd3aa3-7dee-465e-abee-a27c12037cbb:638753940000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 24 February 2025\nMap link: [Google Maps](https://www.google.com/maps/se
+ arch/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5Kt
+ EjUuo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of 
+ the Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: 
+ MATH64082\, MATH44082	\n\n
+DTEND:20250224T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250224T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:53eb7ef3-1718-44b2-85a0-0c7702af7406:638759988000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 03 March 2025\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEjU
+ uo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of the
+  Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MAT
+ H64082\, MATH44082	\n\n
+DTEND:20250303T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250303T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:9417284a-728f-40fd-bdf3-c31b6328522a:638766036000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 10 March 2025\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEjU
+ uo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of the
+  Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MAT
+ H64082\, MATH44082	\n\n
+DTEND:20250310T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250310T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:0bb77fb0-28f1-4ef0-bcb6-2a98b77e39ff:638772084000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 17 March 2025\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEjU
+ uo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of the
+  Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MAT
+ H64082\, MATH44082	\n\n
+DTEND:20250317T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250317T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:3501d789-7be9-4e60-9f90-33a1bba2b975:638778132000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 24 March 2025\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEjU
+ uo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of the
+  Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MAT
+ H64082\, MATH44082	\n\n
+DTEND:20250324T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250324T130000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:5a0af46a-2460-4726-9ed8-6d43c51d8eb1:638784180000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 31 March 2025\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEjU
+ uo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of the
+  Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MAT
+ H64082\, MATH44082	\n\n
+DTEND:20250331T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250331T120000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:81f99a19-db89-4d6c-87a9-f48eb27aea71:638790192000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nLocation: Alan Turing_G.209\nDate: Monday\
+ , 28 April 2025\nMap link: [Google Maps](https://www.google.com/maps/searc
+ h/?api=1&query=53.467889\,-2.23154&query_place_id=ChIJz58FG5Kxe0gRj_5KtEjU
+ uo8)	\nDirections: Alan Turing_G.209 is located on the ground floor of the
+  Alan Turing Building.	\nStaff Member: Powell\, Catherine	\nUnit Code: MAT
+ H64082\, MATH44082	\n\n
+DTEND:20250428T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250428T120000Z
+LAST-MODIFIED:20250102T181040
+LOCATION:Alan Turing_G.209
+SEQUENCE:0
+SUMMARY:MATH44082/LECTURE1/\, MATH64082/LECTURE1/ <20-29\, 33>
+UID:dcf50f6f-c8d0-4bb7-940e-f1eb78785502:638814384000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 13 J
+ anuary 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE
+ )	\nDirections: Crawford House Seminar Room B is located on the ground flo
+ or of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803
+ 	\n\n
+DTEND:20250113T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250113T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:8f9c67e1-bad1-4aae-a063-f0b29b984038:638723664000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 20 J
+ anuary 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE
+ )	\nDirections: Crawford House Seminar Room B is located on the ground flo
+ or of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803
+ 	\n\n
+DTEND:20250120T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250120T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:4c7c00c6-f730-4fbb-9226-5372ae48b0f7:638729712000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 27 J
+ anuary 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?a
+ pi=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE
+ )	\nDirections: Crawford House Seminar Room B is located on the ground flo
+ or of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803
+ 	\n\n
+DTEND:20250127T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250127T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:373b5b70-84ed-40c8-bff1-0dd193cf06f9:638735760000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 03 F
+ ebruary 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?
+ api=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtP
+ E)	\nDirections: Crawford House Seminar Room B is located on the ground fl
+ oor of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP6480
+ 3	\n\n
+DTEND:20250203T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250203T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:d527ab78-bee9-4cf2-916d-c24e18a503b6:638741808000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 10 F
+ ebruary 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?
+ api=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtP
+ E)	\nDirections: Crawford House Seminar Room B is located on the ground fl
+ oor of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP6480
+ 3	\n\n
+DTEND:20250210T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250210T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:2d2f70b5-eb10-4744-bff2-9e90a04fb70c:638747856000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 17 F
+ ebruary 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?
+ api=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtP
+ E)	\nDirections: Crawford House Seminar Room B is located on the ground fl
+ oor of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP6480
+ 3	\n\n
+DTEND:20250217T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250217T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:03384156-1134-4a10-b8bc-c9eceedd199c:638753904000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 24 F
+ ebruary 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?
+ api=1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtP
+ E)	\nDirections: Crawford House Seminar Room B is located on the ground fl
+ oor of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP6480
+ 3	\n\n
+DTEND:20250224T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250224T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:b10f4d2d-7107-4722-a518-1775b0e984f1:638759952000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 03 M
+ arch 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?api
+ =1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE)	
+ \nDirections: Crawford House Seminar Room B is located on the ground floor
+  of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\
+ n\n
+DTEND:20250303T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250303T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:4ac08fcf-e812-4276-af93-7798e64f7b85:638766000000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 10 M
+ arch 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?api
+ =1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE)	
+ \nDirections: Crawford House Seminar Room B is located on the ground floor
+  of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\
+ n\n
+DTEND:20250310T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250310T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:f408dfbb-7b7e-47ac-921e-a557cb516749:638772048000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 17 M
+ arch 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?api
+ =1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE)	
+ \nDirections: Crawford House Seminar Room B is located on the ground floor
+  of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\
+ n\n
+DTEND:20250317T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250317T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:623ef0db-1d7b-4021-ad0d-66ee0372c8ec:638778096000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 24 M
+ arch 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?api
+ =1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE)	
+ \nDirections: Crawford House Seminar Room B is located on the ground floor
+  of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\
+ n\n
+DTEND:20250324T140000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250324T120000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:c52a49ad-2298-45d5-a8f6-0dc6d2bab6c7:638784144000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 31 M
+ arch 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?api
+ =1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE)	
+ \nDirections: Crawford House Seminar Room B is located on the ground floor
+  of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\
+ n\n
+DTEND:20250331T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250331T110000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:2c69fe4d-0471-45f4-9fca-551085db9bb8:638790156000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 07 A
+ pril 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?api
+ =1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE)	
+ \nDirections: Crawford House Seminar Room B is located on the ground floor
+  of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\
+ n\n
+DTEND:20250407T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250407T110000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:a4a38169-458e-4a90-8ace-aa013884696c:638796204000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 14 A
+ pril 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?api
+ =1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE)	
+ \nDirections: Crawford House Seminar Room B is located on the ground floor
+  of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\
+ n\n
+DTEND:20250414T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250414T110000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:403e36c7-1d1e-4890-a0bd-1d8c20d48987:638802252000000000
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Event type: LECTURE\nDescription: Introduction to Responsible a
+ nd Reproducible AI\nLocation: Crawford House_SEM RM B\nDate: Monday\, 28 A
+ pril 2025\nMap link: [Google Maps](https://www.google.com/maps/search/?api
+ =1&query=53.468305\,-2.234885&query_place_id=ChIJ74K5jJKxe0gR1KYdrV9CtPE)	
+ \nDirections: Crawford House Seminar Room B is located on the ground floor
+  of Crawford House.	\nStaff Member: Sun\, Mingfei	\nUnit Code: COMP64803	\
+ n\n
+DTEND:20250428T130000Z
+DTSTAMP:20250129T141314Z
+DTSTART:20250428T110000Z
+LAST-MODIFIED:20250113T111435
+LOCATION:Crawford House_SEM RM B
+SEQUENCE:0
+SUMMARY:COMP64803/LECTURE2/ <18-31\, 33>
+UID:feb2fc6c-5900-41cb-83e1-55a3acabd854:638814348000000000
+END:VEVENT
+END:VCALENDAR

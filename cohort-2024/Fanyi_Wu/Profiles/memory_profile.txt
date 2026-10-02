@@ -1,0 +1,70 @@
+solve_sudoku: Puzzle solved!
+Filename: /Users/kaitlyn/DIS/Research_Computing/fw385/src/main_solver.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    23  40.4375 MiB  40.4375 MiB           1   @profile(precision=4)
+    24                                         def solve_sudoku(grid, validation_times=[], find_empty_times=[]):
+    25                                             """
+    26                                             @brief Solve a Sudoku puzzle using a backtracking algorithm.
+    27
+    28                                             @details This function attempts to solve a Sudoku puzzle. It first validates the input grid,
+    29                                             then proceeds to solve the puzzle using a backtracking algorithm implemented in the `SudokuSolverWithCache` class.
+    30                                             The function measures the time taken for grid validation and finding empty cells, which are appended to respective lists.
+    31                                             The function prints messages regarding the puzzle's completeness and solvability.
+    32
+    33                                             @param grid A 2D list representing the initial Sudoku grid.
+    34                                             @param validation_times A list to store the time taken for grid validation at each call (default empty).
+    35                                             @param find_empty_times A list to store the time taken to find empty cells at each call (default empty).
+    36
+    37                                             @return A tuple containing a boolean indicating if the puzzle was solved or not, and the lists `validation_times` and `find_empty_times`.
+    38
+    39                                             @exception ValueError If the input grid is not valid.
+    40
+    41                                             @note The commented out lines are for optional profiling and debugging.
+    42                                             """
+    43
+    44  40.4375 MiB   0.0000 MiB           1       try:
+    45  40.4375 MiB   0.0000 MiB           1           start_time = time.time()
+    46  40.4414 MiB   0.0039 MiB           1           validate_grid(grid)
+    47  40.4414 MiB   0.0000 MiB           1           validation_times.append(time.time() - start_time)
+    48                                             except ValueError as e:
+    49                                                 print(e)
+    50                                                 return False, validation_times, find_empty_times
+    51
+    52  40.4414 MiB   0.0000 MiB           1       solver = SudokuSolverWithCache(grid)
+    53
+    54  40.4414 MiB   0.0000 MiB           1       start_time = time.time()
+    55  40.4414 MiB   0.0000 MiB           1       find = solver.find_empty()
+    56  40.4414 MiB   0.0000 MiB           1       find_empty_times.append(time.time() - start_time)
+    57  40.4414 MiB   0.0000 MiB           1       if not find:
+    58                                                 print("solve_sudoku: No empty cells found. The grid might already be complete.")
+    59                                                 return True, validation_times, find_empty_times
+    60
+    61  40.5586 MiB   0.0234 MiB        3225       def backtrack():
+    62  40.5586 MiB   0.0000 MiB        3224           start_time = time.time()
+    63  40.5586 MiB   0.0039 MiB        3224           find = solver.find_empty()  # Use the cached method to find an empty cell
+    64  40.5586 MiB   0.0000 MiB        3224           find_empty_times.append(time.time() - start_time)
+    65
+    66  40.5586 MiB   0.0195 MiB        3224           if not find:
+    67  40.5586 MiB   0.0000 MiB           1               return True  # Puzzle solved
+    68
+    69  40.5586 MiB   0.0000 MiB        3223           row, col = find
+    70  40.5586 MiB   0.0391 MiB       31940           for num in range(1, 10):
+    71  40.5586 MiB   0.0312 MiB       28772               if is_valid(grid, row, col, num):
+    72  40.5586 MiB   0.0000 MiB        3223                   solver.update_cell(row, col, num)  # Update the cell in the solver's grid
+    73
+    74  40.5586 MiB   0.0000 MiB        3223                   if backtrack():
+    75  40.5586 MiB   0.0000 MiB          55                       return True  # Puzzle solved
+    76
+    77  40.5469 MiB   0.0000 MiB        3168                   solver.update_cell(row, col, 0)  # Backtrack in the solver's grid
+    78
+    79  40.5469 MiB   0.0000 MiB        3168           return False  # Puzzle not solved
+    80
+    81                                             # Start solving the puzzle
+    82  40.5586 MiB   0.0000 MiB           1       if backtrack():
+    83  40.5586 MiB   0.0000 MiB           1           print("solve_sudoku: Puzzle solved!")
+    84                                             else:
+    85                                                 print("solve_sudoku: Puzzle could not be solved.")
+    86
+    87  40.5586 MiB   0.0000 MiB           1       return True, validation_times, find_empty_times

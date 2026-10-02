@@ -1,0 +1,13 @@
+services:
+  database:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+  
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    restart: on-failure

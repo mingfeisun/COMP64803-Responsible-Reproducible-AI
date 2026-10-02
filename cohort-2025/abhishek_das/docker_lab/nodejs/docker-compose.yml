@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: . # look in current dir for dockerfile
+    ports:
+      - "8080:8080" # required by web app
+    depends_on:
+      - database
+
+  database:
+    image: mongo:latest 
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

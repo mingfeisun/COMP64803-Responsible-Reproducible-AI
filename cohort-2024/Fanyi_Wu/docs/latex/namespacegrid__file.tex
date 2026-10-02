@@ -1,0 +1,97 @@
+\doxysection{grid\+\_\+file Namespace Reference}
+\hypertarget{namespacegrid__file}{}\label{namespacegrid__file}\index{grid\_file@{grid\_file}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacegrid__file_af1217b38fe05d75eb6295fe0fa623f25}{read\+\_\+grid\+\_\+file}} (file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Read a Sudoku puzzle from input file and convert it into a 2D list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacegrid__file_a5b6124e7b4bc964a9feb1c59d902dd03}{save\+\_\+grid\+\_\+file}} (grid, file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Save a Sudoku puzzle to a file from a 2D list representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacegrid__file_af1217b38fe05d75eb6295fe0fa623f25}\index{grid\_file@{grid\_file}!read\_grid\_file@{read\_grid\_file}}
+\index{read\_grid\_file@{read\_grid\_file}!grid\_file@{grid\_file}}
+\doxysubsubsection{\texorpdfstring{read\_grid\_file()}{read\_grid\_file()}}
+{\footnotesize\ttfamily \label{namespacegrid__file_af1217b38fe05d75eb6295fe0fa623f25} 
+grid\+\_\+file.\+read\+\_\+grid\+\_\+file (\begin{DoxyParamCaption}\item[{}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Read a Sudoku puzzle from input file and convert it into a 2D list. 
+
+This function opens a file containing a Sudoku puzzle and parses each line into a list of integers, representing the Sudoku grid. This is achieved by calling parse\+\_\+sudoku\+\_\+line(line).
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & The path to the file containing the Sudoku puzzle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 2D list representing the Sudoku grid, or None if there is an error in file reading or if the puzzle format is incorrect.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Not\+Found\+Error} & If the specified file cannot be found. \\
+\hline
+{\em Value\+Error} & If any row in the Sudoku puzzle is not of length 9. \\
+\hline
+{\em Exception} & For any other errors that occur during file reading.\\
+\hline
+\end{DoxyExceptions}
+Example usage\+: To read a Sudoku grid from \textquotesingle{}input.\+txt\textquotesingle{}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{grid\ =\ read\_grid\_file(\textcolor{stringliteral}{'input.txt'})}
+
+\end{DoxyCode}
+ The input.\+txt file should only include one Sudoku puzzle and in the format below\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cat\ input.txt}
+\DoxyCodeLine{000|007|000}
+\DoxyCodeLine{000|009|504}
+\DoxyCodeLine{000|050|169}
+\DoxyCodeLine{-\/-\/-\/+-\/-\/-\/+-\/-\/-\/}
+\DoxyCodeLine{080|000|305}
+\DoxyCodeLine{075|000|290}
+\DoxyCodeLine{406|000|080}
+\DoxyCodeLine{-\/-\/-\/+-\/-\/-\/+-\/-\/-\/}
+\DoxyCodeLine{762|080|000}
+\DoxyCodeLine{103|900|000}
+\DoxyCodeLine{000|600|000}
+
+\end{DoxyCode}
+ \Hypertarget{namespacegrid__file_a5b6124e7b4bc964a9feb1c59d902dd03}\index{grid\_file@{grid\_file}!save\_grid\_file@{save\_grid\_file}}
+\index{save\_grid\_file@{save\_grid\_file}!grid\_file@{grid\_file}}
+\doxysubsubsection{\texorpdfstring{save\_grid\_file()}{save\_grid\_file()}}
+{\footnotesize\ttfamily \label{namespacegrid__file_a5b6124e7b4bc964a9feb1c59d902dd03} 
+grid\+\_\+file.\+save\+\_\+grid\+\_\+file (\begin{DoxyParamCaption}\item[{}]{grid}{, }\item[{}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Save a Sudoku puzzle to a file from a 2D list representation. 
+
+This function writes a Sudoku grid to an output file, making the output Sudoku in the same format as the input file. It is achieved by calling format\+\_\+sudoku\+\_\+row(row)
+\begin{DoxyItemize}
+\item converts each row into a string format with \textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{} separators for every three numbers.
+\item After every third row (except the last one), a separator line \textquotesingle{}---+---+---\textquotesingle{} is added.
+\item The function handles any exceptions that may occur during file writing.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & A 2D list representing the Sudoku grid. \\
+\hline
+{\em file\+\_\+path} & The path where the Sudoku puzzle will be saved.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & If an error occurs while writing to the file.\\
+\hline
+\end{DoxyExceptions}
+Example usage\+: To save a Sudoku grid to \textquotesingle{}output.\+txt\textquotesingle{}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{save\_grid\_file(grid,\ \textcolor{stringliteral}{'output.txt'})}
+
+\end{DoxyCode}
+ The output.\+txt file will be in the same format as the input.\+txt file. 

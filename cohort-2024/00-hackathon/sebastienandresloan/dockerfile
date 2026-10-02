@@ -1,0 +1,16 @@
+# Use the official Python image from Docker Hub
+FROM python:3.11-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Install any required dependencies (optional)
+# You can uncomment and modify this section if you have specific packages to install
+# COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy your application code (if any) to the container
+# COPY . .
+
+# Start an interactive Python shell when the container runs
+CMD ["python"]

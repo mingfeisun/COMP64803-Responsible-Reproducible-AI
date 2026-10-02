@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  database:
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+
+  web:
+    build: .
+    container_name: node_web
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"

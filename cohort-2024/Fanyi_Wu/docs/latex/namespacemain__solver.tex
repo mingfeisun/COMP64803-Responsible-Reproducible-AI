@@ -1,0 +1,60 @@
+\doxysection{main\+\_\+solver Namespace Reference}
+\hypertarget{namespacemain__solver}{}\label{namespacemain__solver}\index{main\_solver@{main\_solver}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain__solver_ac4773107d72c28601a45975377fad9a3}{solve\+\_\+sudoku}} (grid, validation\+\_\+times=\mbox{[}$\,$\mbox{]}, find\+\_\+empty\+\_\+times=\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Solve a Sudoku puzzle using a backtracking algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemain__solver_ac4773107d72c28601a45975377fad9a3}\index{main\_solver@{main\_solver}!solve\_sudoku@{solve\_sudoku}}
+\index{solve\_sudoku@{solve\_sudoku}!main\_solver@{main\_solver}}
+\doxysubsubsection{\texorpdfstring{solve\_sudoku()}{solve\_sudoku()}}
+{\footnotesize\ttfamily \label{namespacemain__solver_ac4773107d72c28601a45975377fad9a3} 
+main\+\_\+solver.\+solve\+\_\+sudoku (\begin{DoxyParamCaption}\item[{}]{grid}{, }\item[{}]{validation\+\_\+times}{ = {\ttfamily \mbox{[}\mbox{]}}, }\item[{}]{find\+\_\+empty\+\_\+times}{ = {\ttfamily \mbox{[}\mbox{]}}}\end{DoxyParamCaption})}
+
+
+
+Solve a Sudoku puzzle using a backtracking algorithm. 
+
+This function attempts to solve a Sudoku puzzle. It first validates the input grid, then proceeds to solve the puzzle using a backtracking algorithm implemented in the {\ttfamily Sudoku\+Solver\+With\+Cache} class. The function measures the time taken for grid validation and finding empty cells, which are appended to respective lists. The function prints messages regarding the puzzle\textquotesingle{}s completeness and solvability.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & A 2D list representing the initial Sudoku grid. \\
+\hline
+{\em validation\+\_\+times} & A list to store the time taken for grid validation at each call (default empty). \\
+\hline
+{\em find\+\_\+empty\+\_\+times} & A list to store the time taken to find empty cells at each call (default empty).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing a boolean indicating if the puzzle was solved or not, and the lists {\ttfamily validation\+\_\+times} and {\ttfamily find\+\_\+empty\+\_\+times}.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Value\+Error} & If the input grid is not valid.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The commented out lines are for optional profiling (both time profile and memory profile).
+\end{DoxyNote}
+Example Usage\+: The following code snippet demonstrates how to use \doxylink{namespacesolve__sudoku}{solve\+\_\+sudoku} function. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{initial\_grid\ =\ [}
+\DoxyCodeLine{\ \ \ \ [5,\ 3,\ 0,\ 0,\ 7,\ 0,\ 0,\ 0,\ 0],}
+\DoxyCodeLine{\ \ \ \ [6,\ 0,\ 0,\ 1,\ 9,\ 5,\ 0,\ 0,\ 0],}
+\DoxyCodeLine{\ \ \ \ [0,\ 9,\ 8,\ 0,\ 0,\ 0,\ 0,\ 6,\ 0],}
+\DoxyCodeLine{\ \ \ \ [8,\ 0,\ 0,\ 0,\ 6,\ 0,\ 0,\ 0,\ 3],}
+\DoxyCodeLine{\ \ \ \ [4,\ 0,\ 0,\ 8,\ 0,\ 3,\ 0,\ 0,\ 1],}
+\DoxyCodeLine{\ \ \ \ [7,\ 0,\ 0,\ 0,\ 2,\ 0,\ 0,\ 0,\ 6],}
+\DoxyCodeLine{\ \ \ \ [0,\ 6,\ 0,\ 0,\ 0,\ 0,\ 2,\ 8,\ 0],}
+\DoxyCodeLine{\ \ \ \ [0,\ 0,\ 0,\ 4,\ 1,\ 9,\ 0,\ 0,\ 5],}
+\DoxyCodeLine{\ \ \ \ [0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 7,\ 9]}
+\DoxyCodeLine{]}
+\DoxyCodeLine{solved,\ validation\_times,\ find\_empty\_times\ =\ solve\_sudoku(initial\_grid)}
+\DoxyCodeLine{print(\textcolor{stringliteral}{"{}Sudoku\ Solved:"{}},\ solved)}
+
+\end{DoxyCode}
+ 

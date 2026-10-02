@@ -1,0 +1,14 @@
+FROM node:18-slim
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends netcat-openbsd \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY decal-sp18-a10 /todo
+WORKDIR /todo
+
+RUN npm install
+
+EXPOSE 8080
+
+CMD ["./wait-for", "database:27017", "--", "node", "server.js"]

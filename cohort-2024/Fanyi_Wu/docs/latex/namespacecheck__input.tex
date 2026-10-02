@@ -1,0 +1,33 @@
+\doxysection{check\+\_\+input Namespace Reference}
+\hypertarget{namespacecheck__input}{}\label{namespacecheck__input}\index{check\_input@{check\_input}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacecheck__input_a06059dd6ef9af94ac82507171d1378b5}{validate\+\_\+grid}} (grid)
+\begin{DoxyCompactList}\small\item\em Validate a Sudoku grid (the form is valid and solvable). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacecheck__input_a06059dd6ef9af94ac82507171d1378b5}\index{check\_input@{check\_input}!validate\_grid@{validate\_grid}}
+\index{validate\_grid@{validate\_grid}!check\_input@{check\_input}}
+\doxysubsubsection{\texorpdfstring{validate\_grid()}{validate\_grid()}}
+{\footnotesize\ttfamily \label{namespacecheck__input_a06059dd6ef9af94ac82507171d1378b5} 
+check\+\_\+input.\+validate\+\_\+grid (\begin{DoxyParamCaption}\item[{}]{grid}{}\end{DoxyParamCaption})}
+
+
+
+Validate a Sudoku grid (the form is valid and solvable). 
+
+This function checks if the provided grid is a valid 9x9 Sudoku grid. It ensures that\+:
+\begin{DoxyItemize}
+\item The grid is a list of 9 rows, where each row is a list of 9 numbers.
+\item Each cell in the grid contains an integer value between 0 and 9 (inclusive).
+\item There are no duplicate numbers in any row, column, or 3x3 subgrid, excluding the number 0. If any of these conditions are not met, a Value\+Error is raised with an appropriate message.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & A 9x9 grid represented as a list of rows, where each row is a list of integers from 0 to 9.\\
+\hline
+\end{DoxyParams}
+if any cell contains a value not in the range 0-\/9, or if duplicates are found in a row, column, or 3x3 subgrid (excluding zeros). 
