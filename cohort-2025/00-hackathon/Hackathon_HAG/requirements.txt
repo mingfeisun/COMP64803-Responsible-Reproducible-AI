@@ -1,8 +1,0 @@
-vllm
-openai
-transformers
-accelerate
-huggingface_hub
-pandas
-scipy
-matplotlib
