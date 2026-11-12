@@ -1,54 +1,85 @@
 """Item 8: Use zip to Process Iterators in Parallel.
 
-Comparing model predictions against measurements means walking several
-lists side by side. zip does that without index bookkeeping, and
-strict=True (Python 3.10+) catches silently mismatched lengths.
+Book: zip walks several iterators together without indexing, and is lazy
+so it works on huge or infinite inputs. BUT it silently truncates to the
+shortest input; use itertools.zip_longest when lengths may differ.
+Newer than the book (Python 3.10+): zip(..., strict=True) raises instead.
+
+ML angle: predictions vs labels. If the eval loop used drop_last=True,
+you have fewer predictions than labels, and plain zip quietly scores
+only the examples that happen to line up.
 """
 
-SENSORS = ["TC-01", "TC-02", "TC-03", "TC-04"]
-MEASURED_K = [612.0, 640.5, 701.2, 688.9]   # thermocouple readings (K)
-PREDICTED_K = [605.3, 652.1, 694.8, 690.2]  # surrogate model mean (K)
-PRED_STD_K = [8.0, 5.0, 9.1, 4.0]           # surrogate model std (K)
+import itertools
+
+from toy_ml import LogisticRegression, batches, make_dataset, split
 
 
-def residuals_with_range(measured, predicted):
-    out = []
-    for i in range(len(measured)):
-        out.append(measured[i] - predicted[i])
-    return out
+def accuracy_indexing(preds, labels):
+    correct = 0
+    for i in range(len(preds)):
+        if preds[i] == labels[i]:
+            correct += 1
+    return correct / len(preds)
 
 
-def residuals_with_zip(measured, predicted):
-    return [m - p for m, p in zip(measured, predicted, strict=True)]
+def accuracy_zip(preds, labels):
+    pairs = list(zip(preds, labels))
+    return sum(p == y for p, y in pairs) / len(pairs)
 
 
-def outside_two_sigma(names, measured, predicted, std):
-    """Sensors whose measurement falls outside the 95% predictive band."""
-    return [
-        name
-        for name, m, p, s in zip(names, measured, predicted, std, strict=True)
-        if abs(m - p) > 2 * s
-    ]
+def accuracy_zip_longest(preds, labels):
+    """Book's fix: missing predictions become None and count as wrong."""
+    pairs = list(itertools.zip_longest(preds, labels))
+    return sum(p == y for p, y in pairs) / len(pairs)
+
+
+def accuracy_strict(preds, labels):
+    """Python 3.10+: refuse to score mismatched lengths at all."""
+    return sum(p == y for p, y in zip(preds, labels, strict=True)) / len(labels)
+
+
+def predict_all(model, data, batch_size, drop_last):
+    preds = []
+    for batch in batches(data, batch_size, drop_last=drop_last):
+        preds.extend(model.predict(x) for x, _ in batch)
+    return preds
+
+
+def train(seed=0, epochs=5):
+    data = make_dataset(n=400, seed=seed)
+    train_set, _, test_set = split(data, (0.5, 0.1, 0.4))
+    model = LogisticRegression()
+    for _ in range(epochs):
+        for batch in batches(train_set, 32):
+            model.step(batch, 0.1)
+    return model, test_set
 
 
 def main():
     print("=== Item 8: Use zip to process iterators in parallel ===")
-    print("range(len()):", residuals_with_range(MEASURED_K, PREDICTED_K))
-    print("zip         :", [round(r, 1) for r in residuals_with_zip(MEASURED_K, PREDICTED_K)])
+    model, test_set = train()
+    labels = [y for _, y in test_set]
 
-    print("\nSensor   meas    pred +/- std")
-    for name, m, p, s in zip(SENSORS, MEASURED_K, PREDICTED_K, PRED_STD_K):
-        print(f"{name:<7}{m:7.1f} {p:7.1f} +/- {s:.1f}")
+    preds = predict_all(model, test_set, batch_size=64, drop_last=False)
+    print(f"Full eval: {len(preds)} predictions, {len(labels)} labels")
+    print(f"  range(len()) accuracy: {accuracy_indexing(preds, labels):.3f}")
+    print(f"  zip accuracy         : {accuracy_zip(preds, labels):.3f}")
 
-    print("\nOutside 2-sigma band:", outside_two_sigma(SENSORS, MEASURED_K, PREDICTED_K, PRED_STD_K))
-
-    # Pitfall: plain zip silently truncates to the shortest input.
-    short = PREDICTED_K[:3]
-    print(f"\nPlain zip with a missing prediction -> {len(list(zip(MEASURED_K, short)))} pairs (silent!)")
+    short = predict_all(model, test_set, batch_size=64, drop_last=True)
+    print(f"\nBuggy eval (drop_last=True): {len(short)} predictions, {len(labels)} labels")
+    print(f"  plain zip   -> scores {len(list(zip(short, labels)))} examples, "
+          f"acc {accuracy_zip(short, labels):.3f}  (silently!)")
+    print(f"  zip_longest -> scores {len(list(itertools.zip_longest(short, labels)))} examples, "
+          f"acc {accuracy_zip_longest(short, labels):.3f}  (book's fix)")
     try:
-        residuals_with_zip(MEASURED_K, short)
+        accuracy_strict(short, labels)
     except ValueError as err:
-        print(f"zip(strict=True) -> ValueError: {err}")
+        print(f"  zip(strict=True) -> ValueError: {err}")
+
+    print("\nzip is lazy, so it pairs a generator of batches with step numbers:")
+    for step, batch in zip(itertools.count(1), batches(test_set, 64)):
+        print(f"  step {step}: batch of {len(batch)}")
 
 
 if __name__ == "__main__":

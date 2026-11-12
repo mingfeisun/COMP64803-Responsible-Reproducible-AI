@@ -1,46 +1,78 @@
 """Item 4: Prefer Interpolated F-Strings Over C-style Format Strings and str.format.
 
-Logging simulation outputs is constant in research code. f-strings put the
-value right next to its formatting, so they are shorter and harder to get
-wrong than % or .format().
+Book: C-style `%` formatting has four problems:
+  1. swapping the order/type of values breaks it (TypeError at runtime)
+  2. small changes to values before formatting become hard to read
+  3. using a value twice means repeating it
+  4. the dictionary form fixes 1 and 3 but is very verbose
+str.format fixes some of these but not 2 and 4. f-strings fix all four.
+
+ML angle: every training script prints a progress line per epoch and
+builds a run name from its hyperparameters.
 """
 
-# Mean and standard deviation of peak plasma temperature (keV)
-# from a small Monte Carlo study, per heating scenario.
-RESULTS = {"ohmic": (2.4813, 0.3127), "nbi": (8.0461, 0.9152), "ecrh": (6.7302, 0.6611)}
+from toy_ml import LogisticRegression, batches, make_dataset, split
 
 
-def c_style(name, mean, std):
-    return "%-6s T = %.2f +/- %.2f keV" % (name, mean, std)
+# --- One training-log line, three ways -------------------------------------
+
+def log_c_style(epoch, train_loss, val_acc, lr):
+    return "epoch %3d | loss %.4f | val acc %.1f%% | lr %.0e" % (
+        epoch, train_loss, val_acc * 100, lr)
 
 
-def format_method(name, mean, std):
-    return "{:<6} T = {:.2f} +/- {:.2f} keV".format(name, mean, std)
+def log_str_format(epoch, train_loss, val_acc, lr):
+    return "epoch {:3d} | loss {:.4f} | val acc {:.1f}% | lr {:.0e}".format(
+        epoch, train_loss, val_acc * 100, lr)
 
 
-def f_string(name, mean, std):
-    return f"{name:<6} T = {mean:.2f} +/- {std:.2f} keV"
+def log_fstring(epoch, train_loss, val_acc, lr):
+    return f"epoch {epoch:3d} | loss {train_loss:.4f} | val acc {val_acc:.1%} | lr {lr:.0e}"
 
 
-def relative_uncertainty(mean, std):
-    # Expressions and format specs work inline: % formatting of a ratio.
-    return f"{std / mean:.1%}"
+# --- Other everyday uses ---------------------------------------------------
+
+def run_name(model, lr, batch_size, seed):
+    """Experiment / checkpoint name built from hyperparameters."""
+    return f"{model}_lr{lr:g}_bs{batch_size}_seed{seed}"
+
+
+def fmt_metric(value, places):
+    """Book: expressions can go inside the format spec too."""
+    return f"{value:.{places}f}"
+
+
+def problem_1_demo():
+    """Book problem #1: swap the tuple order and % fails at runtime."""
+    loss, name = 0.1234, "val_loss"
+    try:
+        return "%-10s = %.4f" % (loss, name)
+    except TypeError as err:
+        return f"TypeError: {err}"
+
+
+def accuracy(model, data):
+    return sum(model.predict(x) == y for x, y in data) / len(data)
 
 
 def main():
     print("=== Item 4: Prefer f-strings ===")
-    name, (mean, std) = "nbi", RESULTS["nbi"]
-    print("C-style     :", c_style(name, mean, std))
-    print("str.format  :", format_method(name, mean, std))
-    print("f-string    :", f_string(name, mean, std))
+    args = (3, 0.41237, 0.8667, 1e-3)
+    print("C-style    :", log_c_style(*args))
+    print("str.format :", log_str_format(*args))
+    print("f-string   :", log_fstring(*args))
+    print("Swapped %  :", problem_1_demo())
 
-    print("\nAll scenarios, with inline expressions:")
-    for name, (mean, std) in RESULTS.items():
-        print(f"  {f_string(name, mean, std)}  (rel. {relative_uncertainty(mean, std)})")
+    print("\nRun name:", run_name("logreg", 0.1, 32, 42))
+    print("Precision as a variable:", fmt_metric(0.123456, places=3))
 
-    # Python 3.8+: the '=' specifier is great for quick debugging.
-    n_samples = 1000
-    print(f"\nDebug print: {n_samples=}, {mean=:.3f}")
+    print("\nTraining a toy classifier, logged with f-strings:")
+    train, val, _ = split(make_dataset(n=1000))
+    model, lr = LogisticRegression(), 0.1
+    for epoch in range(1, 6):
+        for batch in batches(train, 32):
+            model.step(batch, lr)
+        print("  " + log_fstring(epoch, model.loss(train), accuracy(model, val), lr))
 
 
 if __name__ == "__main__":
