@@ -103,3 +103,90 @@ ubuntu:xenial        1f1a2d56de1d        195MB
 The output confirms that both custom Docker images, `mypython:latest` and `myfortune:latest`, were successfully built and stored locally.
 
 The images have different image IDs and disk usage because they contain different software packages and dependencies.
+
+
+
+###################################
+
+## Detached Containers and Ports
+
+### Question: Why are fewer processes running inside the Docker container compared to the host machine?
+
+**1. Running Apache in detached mode**
+
+```bash
+docker run -d -p 5050:80 --name apache-server httpd
+```
+
+The `-d` flag runs the container in the background, while `-p 5050:80` forwards port 5050 on the host to port 80 inside the container.
+
+I verified that the Apache server was running using:
+
+```bash
+curl http://localhost:5050
+```
+
+The response contained:
+
+```html
+<title>It works! Apache httpd</title>
+<p>It works!</p>
+```
+
+This confirmed that the Apache web server was accessible through the forwarded port.
+
+**2. Inspecting processes inside the container**
+
+I accessed the running container using:
+
+```bash
+docker exec -it apache-server /bin/bash
+```
+
+Initially, `ps aux` returned `bash: ps: command not found`, so I installed the required package:
+
+```bash
+apt-get update
+apt-get install -y procps
+```
+
+I then executed:
+
+```bash
+ps aux
+```
+
+**Output:**
+
+```text
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0   6224  4944 ?        Ss   17:14   0:00 httpd -DFOREGROUND
+www-data       8  0.0  0.0 1997408 4292 ?        Sl   17:14   0:00 httpd -DFOREGROUND
+www-data       9  0.0  0.0 1997408 4296 ?        Sl   17:14   0:00 httpd -DFOREGROUND
+www-data      10  0.0  0.0 1997464 4816 ?        Sl   17:14   0:00 httpd -DFOREGROUND
+root          92  0.1  0.0   4328  3732 pts/0    Ss   17:16   0:00 /bin/bash
+root         221  0.0  0.0   6400  3768 pts/0    R+   17:17   0:00 ps aux
+```
+
+**3. Comparing with the host machine**
+
+After exiting the container, I ran `ps aux` on the host machine.
+
+The host displayed considerably more processes, including system services, kernel threads, desktop applications, and background processes.
+
+**4. Explanation**
+
+The Docker container displays significantly fewer processes because Docker uses Linux namespaces to provide process isolation.
+
+In particular, **PID namespaces** isolate the process identifiers visible inside a container. Consequently, processes running on the host or in other containers are generally not visible from inside the Apache container.
+
+The container primarily runs the processes required for its intended application:
+
+- `httpd -DFOREGROUND` (PID 1): The main Apache server process.
+- `httpd -DFOREGROUND` (PIDs 8–10): Apache worker processes running as `www-data`.
+- `/bin/bash` (PID 92): The interactive shell started using `docker exec`.
+- `ps aux` (PID 221): The command used to inspect the running processes.
+
+In contrast, the host operating system manages the entire computing environment, including hardware-related processes, background services, user applications, and Docker itself.
+
+**Conclusion:** Docker containers provide process isolation through Linux namespaces. This allows applications to run in relatively lightweight, isolated environments without requiring a separate operating-system kernel for each container.
