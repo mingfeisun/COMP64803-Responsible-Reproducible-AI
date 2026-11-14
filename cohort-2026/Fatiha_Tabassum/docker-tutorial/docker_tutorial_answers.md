@@ -190,3 +190,56 @@ The container primarily runs the processes required for its intended application
 In contrast, the host operating system manages the entire computing environment, including hardware-related processes, background services, user applications, and Docker itself.
 
 **Conclusion:** Docker containers provide process isolation through Linux namespaces. This allows applications to run in relatively lightweight, isolated environments without requiring a separate operating-system kernel for each container.
+
+
+
+#########################
+
+
+## Dungeons and Docker Compose
+
+### Question 1: Dockerfile
+
+FROM node:12-buster
+
+WORKDIR /app
+
+# Use archived Debian repositories because Buster is end-of-life
+RUN printf 'deb http://archive.debian.org/debian buster main\n' > /etc/apt/sources.list && \
+    printf 'deb http://archive.debian.org/debian-security buster/updates main\n' >> /etc/apt/sources.list && \
+    apt-get -o Acquire::Check-Valid-Until=false update && \
+    apt-get install -y --no-install-recommends netcat-openbsd && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN chmod +x wait-for
+
+EXPOSE 8080
+
+CMD ["./wait-for", "database:27017", "-t", "60", "--", "node", "server.js"]
+
+
+### Question 2: docker-compose.yml
+
+services:
+  web:
+    build: ./app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    restart: on-failure
+
+  database:
+    image: mongo:4.4
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
+

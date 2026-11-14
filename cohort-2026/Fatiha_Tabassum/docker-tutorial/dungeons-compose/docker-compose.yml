@@ -1,0 +1,16 @@
+services:
+  web:
+    build: ./app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    restart: on-failure
+
+  database:
+    image: mongo:4.4
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
