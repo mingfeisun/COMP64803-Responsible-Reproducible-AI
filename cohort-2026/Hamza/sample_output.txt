@@ -1,0 +1,24 @@
+Python 3.13.18 (cpython) on Linux x86_64
+
+Way 1 | sets for membership tests
+  1,000 lookups in a list    319.23 ms
+  1,000 lookups in a set       0.11 ms   (2,884x faster)
+
+Way 2 | deques for queues
+  50,000 pops from a list     181.47 ms
+  50,000 pops from a deque      2.05 ms   (88x faster)
+
+Way 3 | generators for single-pass loops
+  sum over a list       peak memory   40,448,200 bytes
+  sum over a generator  peak memory          464 bytes
+
+Way 4 | caching for repeated calls
+  plain recursion    70.059 ms
+  with @cache         0.013 ms   (5,483x faster)
+  CacheInfo(hits=28, misses=31, maxsize=None, currsize=31)
+
+Way 5 | binary search on sorted lists
+  100 counts by scanning   300.679 ms
+  100 counts with bisect     0.077 ms   (3,922x faster)
+
+All five demos ran in 3.3 s. Times change from one machine to another.

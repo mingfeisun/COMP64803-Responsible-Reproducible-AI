@@ -1,0 +1,7 @@
+slides/
+**/__pycache__/
+*.pyc
+.git
+.DS_Store
+*.zip
+*.pdf
