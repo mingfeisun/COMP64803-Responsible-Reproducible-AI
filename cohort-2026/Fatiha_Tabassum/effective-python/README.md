@@ -1,8 +1,4 @@
-# Effective Python: AI-Guided Spintronics Examples
-
 **Module:** COMP64803 — Introduction to Responsible & Reproducible AI
-
-This project contains five teaching demonstrations inspired by Brett Slatkin's *Effective Python (2nd edition)*, with an additional example exploring parallel processing.
 
 The examples use synthetic magnetic resonance measurements to illustrate good Python programming practices relevant to scientific computing, machine learning, and AI-guided spintronics.
 
