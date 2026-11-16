@@ -34,11 +34,3 @@ python item76_tests.py
 docker build -t effective-python .
 docker run --rm effective-python
 ```
-
-## Results from a test run (2 CPU cores)
-
-- **Item 52:** 3 runs succeed, the bad input fails with exit code 1, and the too-long run is stopped at 5 s.
-- **Item 30:** peak memory 29.07 MB as a list, 0.04 MB as a generator, same average.
-- **Item 64:** serial 2.50 s, threads 2.56 s (no gain), processes 1.25 s (2.0x).
-- **Item 70:** about 99% of the time is in `count_neighbours_slow`. Swapping in a KD-tree takes it from 0.712 s to 0.010 s, with the same count.
-- **Item 76:** all 5 tests pass.
