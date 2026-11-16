@@ -1,0 +1,4 @@
+{
+    // Use the project's virtual environment for Run and Debug and the ▶ button.
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+}

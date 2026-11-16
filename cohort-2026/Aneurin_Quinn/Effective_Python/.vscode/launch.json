@@ -1,0 +1,87 @@
+{
+    // Run and Debug (Cmd+Shift+D): pick a configuration from the dropdown, press the green ▶.
+    // F5 re-runs the last one. Edit the "args" below to change the pre-set values.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Price: default (K=100, H=130)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run_pricing.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": [
+                "--paths", "200000",
+                "--seed", "2026",
+                "--strike", "100",
+                "--barrier", "130",
+                "--kind", "up-and-out",
+                "--spot", "100",
+                "--rate", "0.05",
+                "--vol", "0.2",
+                "--maturity", "1",
+                "--dpi", "300",
+                "--outdir", "results"
+            ]
+        },
+        {
+            "name": "Price: quick check (20k paths)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run_pricing.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": ["--paths", "20000", "--barrier", "130"]
+        },
+        {
+            "name": "Price: barrier 120",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run_pricing.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": ["--barrier", "120"]
+        },
+        {
+            "name": "Price: down-and-out (H=80)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run_pricing.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": ["--kind", "down-and-out", "--barrier", "80"]
+        },
+        {
+            "name": "Price: ask me for values",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run_pricing.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": [
+                "--strike", "${input:strike}",
+                "--barrier", "${input:barrier}",
+                "--kind", "${input:kind}",
+                "--vol", "${input:vol}",
+                "--paths", "${input:paths}"
+            ]
+        },
+        {
+            "name": "Tests (pytest)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": ["-q", "tests"]
+        }
+    ],
+    "inputs": [
+        {"id": "strike", "type": "promptString", "description": "Strike K", "default": "100"},
+        {"id": "barrier", "type": "promptString", "description": "Barrier H", "default": "130"},
+        {"id": "kind", "type": "pickString", "description": "Barrier type",
+         "options": ["up-and-out", "down-and-out"], "default": "up-and-out"},
+        {"id": "vol", "type": "promptString", "description": "Volatility (0.2 = 20%)", "default": "0.2"},
+        {"id": "paths", "type": "promptString", "description": "Paths per run", "default": "200000"}
+    ]
+}
