@@ -45,12 +45,12 @@ Monte Carlo noise is about ±0.027 (95%). Both methods take the same time per st
 
 | Method | Where in the code |
 |---|---|
-| **Choose appropriate parameters** | `choose_steps` picks the smallest step count whose bias is inside the Monte Carlo noise (64); `whmc_price_to_tolerance` picks the number of paths for a target standard error (380,000 for 0.01). Simulation sizes are keyword-only so `n_steps` and `n_paths` can't be swapped. |
-| **Comments and docstrings** | Every function says what it returns (shapes, units) and comments explain *why*, e.g. why `norm_cdf` uses `erfc`. |
-| **Small numbers: one dedicated function** | `erfc` instead of `1 + erf` (N(−10) is 7.6e-24, not 0), `expm1` instead of `1 − exp` in the Brownian bridge, and a cancellation-free formula for φ⁺. Tested against a 50-digit `Decimal` reference. |
-| **Good-resolution graphs, saved as vector files** | `plot_convergence` saves a 300 dpi PNG and an SVG, with labelled log axes. |
-| **Reproducible environment** | Python and every library pinned in Docker; each run saves Python/NumPy/Matplotlib versions and the seed to `run.json`. |
-| Also (Effective Python Ch. 1) | f-strings for all output, unpacking (`phi_plus, phi_minus = ...`), `zip(..., strict=True)` for the results table, `:=` in the run-until-accurate loop. |
+| **1. Follow the PEP 8 style guide** (Effective Python Item 2) | Rules in [`pyproject.toml`](pyproject.toml), checked by `ruff`. The first run found 8 problems (long lines, unsorted imports); now there are none, and `test_code_follows_pep8` keeps it that way. |
+| **2. Comments and docstrings** (Item 84) | Every function says what it returns (shapes, units) and comments explain *why*, e.g. why `norm_cdf` uses `erfc`. |
+| **3. Small numbers: one dedicated function** | `erfc` instead of `1 + erf` (N(−10) is 7.6e-24, not 0), `expm1` instead of `1 − exp` in the Brownian bridge, and a cancellation-free formula for φ⁺. Tested against a 50-digit `Decimal` reference. |
+| **4. Helper functions instead of complex expressions** (Item 5) | `_call_term` replaces four long, near-identical Reiner–Rubinstein expressions; `_knock_out_payoff` and `_no_crossing_probability` do the same in the Monte Carlo code. Each is tested on its own, and every price is unchanged. |
+| **5. Know and pin your environment** (Item 1) | Python and every library pinned in Docker; each run saves Python/NumPy/Matplotlib versions and the seed to `run.json`. |
+| Also | f-strings (Item 4), unpacking (Item 6), `zip(..., strict=True)` (Item 8), `:=` (Item 10), keyword-only simulation sizes (Item 25), and figures saved at 300 dpi plus SVG. |
 
 Slides: [`Pythonic_Thinking_AQ.pptx`](Pythonic_Thinking_AQ.pptx)
 
@@ -62,8 +62,9 @@ Slides: [`Pythonic_Thinking_AQ.pptx`](Pythonic_Thinking_AQ.pptx)
 | [`whmc/wiener_hopf.py`](whmc/wiener_hopf.py) | Wiener–Hopf factors and the WHMC path simulator |
 | [`whmc/monte_carlo.py`](whmc/monte_carlo.py) | WHMC, grid MC and Brownian-bridge estimators; adaptive number of paths |
 | [`whmc/plotting.py`](whmc/plotting.py) | Convergence plot, saved as 300 dpi PNG and SVG |
-| [`run_pricing.py`](run_pricing.py) | The demo: exact price, convergence table, parameter choice, precision checks, figures, `run.json` |
-| [`tests/test_whmc.py`](tests/test_whmc.py) | 31 pytest checks |
+| [`run_pricing.py`](run_pricing.py) | The demo: exact price, convergence table, parameter choice, precision checks, figures, `run.json`. Options: `--kind`, `--strike`, `--barrier`, `--spot`, `--rate`, `--vol`, `--maturity`, `--paths`, `--seed`, `--dpi` |
+| [`.vscode/launch.json`](.vscode/launch.json) | Ready-made Run and Debug configurations for VS Code |
+| [`tests/test_whmc.py`](tests/test_whmc.py) | 34 pytest checks, including the PEP 8 check |
 | [`figures/`](figures/) | Output of the Docker run: `convergence.png`, `convergence.svg`, `run.json` |
 
 ## Run it
@@ -73,7 +74,8 @@ docker build -t whmc-barrier .
 docker run --rm whmc-barrier                                    # price + convergence study
 docker run --rm -v "$PWD/figures:/app/results" whmc-barrier     # ...and save the figures here
 docker run --rm whmc-barrier python run_pricing.py --barrier 120
-docker run --rm whmc-barrier python -m pytest -q tests          # 31 tests
+docker run --rm whmc-barrier ruff check .                       # PEP 8 check
+docker run --rm whmc-barrier python -m pytest -q tests          # 34 tests
 ```
 
-Locally (Python 3.10+): `pip install -r requirements.txt && python run_pricing.py`
+Locally (Python 3.10+): `pip install -r requirements.txt && python run_pricing.py`, or in VS Code pick a configuration in Run and Debug.

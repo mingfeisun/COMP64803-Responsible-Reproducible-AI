@@ -58,26 +58,36 @@ def vanilla_call(market, strike):
     return s * norm_cdf(d1) - strike * math.exp(-r * t) * norm_cdf(d2)
 
 
+def _call_term(spot_weight, strike_weight, z, shift):
+    """spot_weight * N(z) - strike_weight * N(z - shift).
+
+    Every Reiner-Rubinstein building block has this one shape, so it is
+    written once here instead of four times as a long inline expression.
+    """
+    return spot_weight * norm_cdf(z) - strike_weight * norm_cdf(z - shift)
+
+
 def _reiner_rubinstein_terms(market, strike, barrier, eta):
     """The A, B, C, D building blocks of the Reiner-Rubinstein formulas (calls, no rebate)."""
     s, r, v, t = market.spot, market.rate, market.vol, market.maturity
     vol_sqrt_t = v * math.sqrt(t)
     mu = (r - 0.5 * v**2) / v**2
-    disc = math.exp(-r * t)
     shift = (1 + mu) * vol_sqrt_t
 
     x1 = math.log(s / strike) / vol_sqrt_t + shift
     x2 = math.log(s / barrier) / vol_sqrt_t + shift
     y1 = math.log(barrier**2 / (s * strike)) / vol_sqrt_t + shift
     y2 = math.log(barrier / s) / vol_sqrt_t + shift
-    h_s = barrier / s
 
-    a = s * norm_cdf(x1) - strike * disc * norm_cdf(x1 - vol_sqrt_t)
-    b = s * norm_cdf(x2) - strike * disc * norm_cdf(x2 - vol_sqrt_t)
-    c = (s * h_s ** (2 * (mu + 1)) * norm_cdf(eta * y1)
-         - strike * disc * h_s ** (2 * mu) * norm_cdf(eta * y1 - eta * vol_sqrt_t))
-    d = (s * h_s ** (2 * (mu + 1)) * norm_cdf(eta * y2)
-         - strike * disc * h_s ** (2 * mu) * norm_cdf(eta * y2 - eta * vol_sqrt_t))
+    discounted_strike = strike * math.exp(-r * t)
+    h_s = barrier / s
+    reflected_spot = s * h_s ** (2 * (mu + 1))           # weights for the "mirror image" terms
+    reflected_strike = discounted_strike * h_s ** (2 * mu)
+
+    a = _call_term(s, discounted_strike, x1, vol_sqrt_t)
+    b = _call_term(s, discounted_strike, x2, vol_sqrt_t)
+    c = _call_term(reflected_spot, reflected_strike, eta * y1, eta * vol_sqrt_t)
+    d = _call_term(reflected_spot, reflected_strike, eta * y2, eta * vol_sqrt_t)
     return a, b, c, d
 
 

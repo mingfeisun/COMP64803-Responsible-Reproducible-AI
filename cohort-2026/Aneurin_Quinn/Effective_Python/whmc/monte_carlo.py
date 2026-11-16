@@ -42,7 +42,8 @@ def _summarise(discounted_payoffs):
 
 
 def _knock_out_payoff(market, option, x_end, extreme):
-    log_barrier = math.log(option.barrier / market.spot)  # compare in log space, like the simulation
+    # Compare in log space, the same units the simulation uses.
+    log_barrier = math.log(option.barrier / market.spot)
     alive = extreme < log_barrier if option.is_up else extreme > log_barrier
     payoff = np.maximum(market.spot * np.exp(x_end) - option.strike, 0.0)
     return math.exp(-market.rate * market.maturity) * payoff * alive
@@ -76,19 +77,28 @@ def grid_mc_price(market, option, *, n_steps, n_paths, rng):
     return _summarise(_knock_out_payoff(market, option, x[:, -1], extreme))
 
 
+def _no_crossing_probability(left, right, variance):
+    """P(a Brownian bridge from distance `left` to `right` never touches the barrier).
+
+    Distances are > 0 on the alive side. The crossing probability is
+    exp(-a) with a = 2 * left * right / variance, so the answer is 1 - exp(-a).
+    For small a that subtraction loses digits; -expm1(-a) gives the same
+    number in one accurate step.
+    """
+    alive_at_ends = (left > 0) & (right > 0)
+    a = 2.0 * np.clip(left, 0, None) * np.clip(right, 0, None) / variance
+    return np.where(alive_at_ends, -np.expm1(-a), 0.0)
+
+
 def bridge_mc_price(market, option, *, n_steps, n_paths, rng):
     """Grid MC weighted by the exact probability of not crossing between grid points."""
     x, dt = _grid_paths(market, n_steps=n_steps, n_paths=n_paths, rng=rng)
-    b = math.log(option.barrier / market.spot)
-    dist = (b - x) if option.is_up else (x - b)  # distance to the barrier, > 0 while alive
-    left, right = dist[:, :-1], dist[:, 1:]
-    # P(bridge crosses) = exp(-a) with a = 2 * left * right / (sigma^2 dt), so
-    # P(no cross) = 1 - exp(-a). For small a that subtraction loses digits;
-    # -expm1(-a) computes the same number in one accurate step.
-    a = 2.0 * np.clip(left, 0, None) * np.clip(right, 0, None) / (market.vol**2 * dt)
-    survive = np.where((left > 0) & (right > 0), -np.expm1(-a), 0.0).prod(axis=1)
+    log_barrier = math.log(option.barrier / market.spot)
+    dist = (log_barrier - x) if option.is_up else (x - log_barrier)
+    step_survival = _no_crossing_probability(dist[:, :-1], dist[:, 1:], market.vol**2 * dt)
     payoff = np.maximum(market.spot * np.exp(x[:, -1]) - option.strike, 0.0)
-    return _summarise(math.exp(-market.rate * market.maturity) * payoff * survive)
+    discount = math.exp(-market.rate * market.maturity)
+    return _summarise(discount * payoff * step_survival.prod(axis=1))
 
 
 def whmc_price_to_tolerance(market, option, *, n_steps, target_stderr, rng,

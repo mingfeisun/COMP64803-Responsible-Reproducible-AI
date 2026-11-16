@@ -6,6 +6,19 @@
     "platform": "Linux-7.0.14-linuxkit-aarch64-with-glibc2.41",
     "seed": 2026
   },
+  "inputs": {
+    "paths": 200000,
+    "seed": 2026,
+    "strike": 100.0,
+    "barrier": 130.0,
+    "kind": "up-and-out",
+    "spot": 100.0,
+    "rate": 0.05,
+    "vol": 0.2,
+    "maturity": 1.0,
+    "dpi": 300,
+    "outdir": "results"
+  },
   "exact": 3.3328575677087118,
   "chosen": {
     "steps": 64,

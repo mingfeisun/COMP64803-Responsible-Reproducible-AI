@@ -8,7 +8,12 @@ Compares three answers under Black-Scholes:
 Then chooses the simulation parameters from the results, checks the
 small-number formulas, and saves a 300 dpi plot plus the run environment.
 
-Usage:  python run_pricing.py [--paths N] [--seed S] [--strike K] [--barrier H] [--dpi D]
+Usage:  python run_pricing.py [--paths N] [--seed S] [--strike K] [--barrier H]
+                              [--kind up-and-out|down-and-out] [--spot S0] [--rate R]
+                              [--vol SIGMA] [--maturity T] [--dpi D] [--outdir DIR]
+
+In VS Code: open Run and Debug and press the green play button on one of the
+pre-set configurations in .vscode/launch.json.
 """
 
 import argparse
@@ -22,8 +27,16 @@ from pathlib import Path
 
 import numpy as np
 
-from whmc import (BarrierOption, Market, barrier_price, grid_mc_price, plot_convergence,
-                  whmc_price, whmc_price_to_tolerance, wiener_hopf_factors)
+from whmc import (
+    BarrierOption,
+    Market,
+    barrier_price,
+    grid_mc_price,
+    plot_convergence,
+    whmc_price,
+    whmc_price_to_tolerance,
+    wiener_hopf_factors,
+)
 
 MIN_PYTHON = (3, 10)                 # zip(strict=True) needs 3.10
 STEPS = [4, 8, 16, 32, 64, 128, 256]  # doubling, so a log-scale plot is evenly spaced
@@ -55,6 +68,11 @@ def parse_args(argv=None):
     p.add_argument("--seed", type=int, default=2026, help="random seed (fixes every number)")
     p.add_argument("--strike", type=float, default=100.0)
     p.add_argument("--barrier", type=float, default=130.0)
+    p.add_argument("--kind", choices=["up-and-out", "down-and-out"], default="up-and-out")
+    p.add_argument("--spot", type=float, default=100.0, help="initial stock price S0")
+    p.add_argument("--rate", type=float, default=0.05, help="risk-free rate, 0.05 = 5%%")
+    p.add_argument("--vol", type=float, default=0.2, help="volatility, 0.2 = 20%%")
+    p.add_argument("--maturity", type=float, default=1.0, help="years to maturity")
     p.add_argument("--dpi", type=int, default=300, help="resolution of the saved PNG")
     p.add_argument("--outdir", type=Path, default=Path("results"))
     return p.parse_args(argv)
@@ -107,12 +125,13 @@ def precision_checks(market):
 def main(argv=None):
     check_python_version()
     args = parse_args(argv)
-    market = Market()
-    option = BarrierOption(strike=args.strike, barrier=args.barrier)
+    market = Market(spot=args.spot, rate=args.rate, vol=args.vol, maturity=args.maturity)
+    option = BarrierOption(strike=args.strike, barrier=args.barrier, kind=args.kind)
     exact = barrier_price(market, option)
 
-    print(f"Up-and-out call: S0={market.spot:g}, K={option.strike:g}, H={option.barrier:g}, "
-          f"r={market.rate:.0%}, sigma={market.vol:.0%}, T={market.maturity:g}y")
+    print(f"{option.kind.capitalize()} call: S0={market.spot:g}, K={option.strike:g}, "
+          f"H={option.barrier:g}, r={market.rate:.0%}, "
+          f"sigma={market.vol:.0%}, T={market.maturity:g}y")
     print(f"Exact (closed form) price: {exact:.4f}\n")
 
     steps, whmc_runs, grid_runs, timings = convergence_study(
@@ -144,9 +163,13 @@ def main(argv=None):
 
     files = plot_convergence(steps, [r["whmc"] - exact for r in rows],
                              [r["grid"] - exact for r in rows],
-                             args.outdir / "convergence", dpi=args.dpi)
+                             args.outdir / "convergence", dpi=args.dpi,
+                             title=f"{option.kind.capitalize()} call: error vs number of steps")
     out_json = args.outdir / "run.json"
-    out_json.write_text(json.dumps({"metadata": run_metadata(args.seed), "exact": exact,
+    out_json.write_text(json.dumps({"metadata": run_metadata(args.seed),
+                                    "inputs": {k: str(v) if isinstance(v, Path) else v
+                                               for k, v in vars(args).items()},
+                                    "exact": exact,
                                     "chosen": {"steps": n_steps, "paths": adaptive.n_paths},
                                     "convergence": rows}, indent=2))
     print(f"\nSaved {', '.join(str(f) for f in files)} ({args.dpi} dpi) and {out_json}")

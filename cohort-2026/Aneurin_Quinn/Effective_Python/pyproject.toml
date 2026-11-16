@@ -1,0 +1,14 @@
+# PEP 8 checks (Effective Python, Item 2: Follow the PEP 8 Style Guide).
+# Run:  ruff check .
+[tool.ruff]
+# PEP 8 allows teams to agree on up to 99 characters per line.
+line-length = 99
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E", "W",  # pycodestyle: whitespace, indentation, line length
+    "F",       # pyflakes: unused imports and variables, undefined names
+    "N",       # pep8-naming: lowercase_functions, CapWords classes, ALL_CAPS constants
+    "I",       # import order: standard library, third party, local
+]

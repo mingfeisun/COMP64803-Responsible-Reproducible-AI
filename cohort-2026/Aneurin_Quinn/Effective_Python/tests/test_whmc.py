@@ -7,6 +7,7 @@ are deterministic and only fail if the method is genuinely wrong.
 import json
 import math
 import struct
+import subprocess
 import sys
 from decimal import Decimal, getcontext
 from pathlib import Path
@@ -17,9 +18,19 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import run_pricing  # noqa: E402
-from whmc import (BarrierOption, Market, barrier_price, bridge_mc_price,  # noqa: E402
-                  grid_mc_price, plot_convergence, simulate_whmc, vanilla_call,
-                  whmc_price, whmc_price_to_tolerance, wiener_hopf_factors)
+from whmc import (  # noqa: E402
+    BarrierOption,
+    Market,
+    barrier_price,
+    bridge_mc_price,
+    grid_mc_price,
+    plot_convergence,
+    simulate_whmc,
+    vanilla_call,
+    whmc_price,
+    whmc_price_to_tolerance,
+    wiener_hopf_factors,
+)
 from whmc.black_scholes import norm_cdf  # noqa: E402
 
 MARKET = Market()
@@ -77,16 +88,19 @@ def test_norm_cdf_keeps_tiny_tail_probabilities():
 
 
 def test_closed_form_limits():
-    assert barrier_price(MARKET, BarrierOption(100, 1e6)) == pytest.approx(vanilla_call(MARKET, 100))
-    assert barrier_price(MARKET, BarrierOption(100, 1e-6, "down-and-out")) == pytest.approx(
-        vanilla_call(MARKET, 100))
+    vanilla = vanilla_call(MARKET, 100)
+    assert barrier_price(MARKET, BarrierOption(100, 1e6)) == pytest.approx(vanilla)
+    far_below = BarrierOption(100, 1e-6, "down-and-out")
+    assert barrier_price(MARKET, far_below) == pytest.approx(vanilla)
     assert barrier_price(MARKET, BarrierOption(130, 120)) == 0.0          # strike above barrier
-    assert barrier_price(MARKET, BarrierOption(90, 95)) < barrier_price(MARKET, BarrierOption(90, 120))
+    lower_barrier = barrier_price(MARKET, BarrierOption(90, 95))
+    assert lower_barrier < barrier_price(MARKET, BarrierOption(90, 120))
 
 
 @pytest.mark.parametrize("option", OPTIONS, ids=IDS)
 def test_closed_form_matches_brownian_bridge(option):
-    est = bridge_mc_price(MARKET, option, n_steps=50, n_paths=200_000, rng=np.random.default_rng(1))
+    est = bridge_mc_price(MARKET, option, n_steps=50, n_paths=200_000,
+                          rng=np.random.default_rng(1))
     assert abs(est.price - barrier_price(MARKET, option)) < 4 * est.stderr
 
 
@@ -142,7 +156,8 @@ def test_adaptive_stops_at_target():
 
 def test_choose_steps_picks_first_inside_noise():
     exact = barrier_price(MARKET, OPTIONS[0])
-    runs = [whmc_price(MARKET, OPTIONS[0], n_steps=n, n_paths=100_000, rng=np.random.default_rng(n))
+    runs = [whmc_price(MARKET, OPTIONS[0], n_steps=n, n_paths=100_000,
+                       rng=np.random.default_rng(n))
             for n in run_pricing.STEPS]
     n = run_pricing.choose_steps(run_pricing.STEPS, runs, exact)
     chosen = runs[run_pricing.STEPS.index(n)]
@@ -182,3 +197,31 @@ def test_script_runs_and_records_environment(tmp_path, capsys):
     assert [row["steps"] for row in saved["convergence"]] == run_pricing.STEPS
     assert (tmp_path / "convergence.png").exists() and (tmp_path / "convergence.svg").exists()
     assert "Exact (closed form) price" in capsys.readouterr().out
+
+
+# --- Helper functions, tested on their own --------------------------------------
+
+def test_call_term_shape():
+    from whmc.black_scholes import _call_term
+    assert _call_term(1.0, 0.0, 0.0, 0.3) == pytest.approx(0.5)  # N(0) = 1/2
+    assert _call_term(2.0, 1.0, 50.0, 0.0) == pytest.approx(1.0)  # far right: 2*1 - 1*1
+
+
+def test_no_crossing_probability():
+    from whmc.monte_carlo import _no_crossing_probability
+    p = _no_crossing_probability(np.array([1.0, 1e-9, -0.1, 5.0]),
+                                 np.array([1.0, 1e-9, 0.2, 5.0]), variance=0.04)
+    assert p[0] == pytest.approx(-math.expm1(-2 * 1 * 1 / 0.04))
+    assert p[1] == pytest.approx(2e-18 / 0.04, rel=1e-9)  # tiny, but not rounded to 0
+    assert p[2] == 0.0                                      # already past the barrier
+    assert p[3] == pytest.approx(1.0)
+
+
+# --- PEP 8 ---------------------------------------------------------------------
+
+def test_code_follows_pep8():
+    """The style checker (ruff, configured in pyproject.toml) reports no problems."""
+    project = Path(__file__).resolve().parents[1]
+    result = subprocess.run([sys.executable, "-m", "ruff", "check", "--no-cache", str(project)],
+                            capture_output=True, text=True, cwd=project)
+    assert result.returncode == 0, result.stdout

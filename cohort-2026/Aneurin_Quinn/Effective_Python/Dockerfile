@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt && \
     python -c "import matplotlib.pyplot"   # build the font cache once, at build time
 
 COPY whmc/ ./whmc/
-COPY run_pricing.py .
+COPY run_pricing.py pyproject.toml ./
 COPY tests/ ./tests/
 
 # Default: price the option and print the convergence study.
