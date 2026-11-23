@@ -14,7 +14,13 @@ Then open http://localhost:2718. The volume mount means edits are saved back to 
 ## Run without Docker
 
 ```bash
-uv run --with-requirements requirements.txt marimo edit talk.py
+uv run --with-requirements requirements.txt marimo edit talk.py --no-token
+```
+
+Or, with the local venv set up (`uv venv --python 3.12 && uv pip install -r requirements.txt`):
+
+```bash
+./edit.sh
 ```
 
 ## The six things
@@ -25,3 +31,12 @@ uv run --with-requirements requirements.txt marimo edit talk.py
 4. SQL cells that query your dataframes
 5. Explore and transform dataframes live, with no code
 6. It's just a Python file: git, scripts, apps, and the browser
+
+## marimo vs Jupyter: diff size
+
+`talk.ipynb` is the same notebook written for Jupyter (ipywidgets plus plain duckdb), executed and saved with its outputs.
+
+| | `talk.py` (marimo) | `talk.ipynb` (Jupyter) |
+|---|---|---|
+| File size | 3.4 KB, 148 lines | 92.7 KB, 1,240 lines |
+| Diff after changing `n = 10` to `n = 11` and re-running | 2 lines | 658 lines |

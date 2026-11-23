@@ -5,3 +5,5 @@ pyarrow
 altair
 duckdb
 sqlglot
+scikit-learn
+pandas
