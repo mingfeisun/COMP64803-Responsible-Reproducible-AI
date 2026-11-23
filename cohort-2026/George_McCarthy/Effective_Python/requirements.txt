@@ -1,0 +1,7 @@
+marimo
+numpy
+polars
+pyarrow
+altair
+duckdb
+sqlglot
